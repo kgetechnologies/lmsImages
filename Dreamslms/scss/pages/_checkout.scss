@@ -1,11 +1,14 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .checkout-content {
     .checkout-item-1 {
-        border: 1px solid $border-color;
+        border: 1px solid variables.$border-color;
         box-shadow: 0px 4px 4px 0px #D4D4D440;
         border-radius: 10px;
         margin-bottom: 47px;
         padding: 20px;
-        @include respond-below(lg){
+        @include mixins.respond-below(lg){
             margin-bottom: 30px;
         }
         &:last-child {
@@ -35,14 +38,14 @@
             margin-inline-end: 0;
         }
           .nav-link {
-            color: $gray-900;
+            color: variables.$gray-900;
             border-radius: 10px;
-            border: 1px solid $border-color;
-            @include respond-below(md) {
+            border: 1px solid variables.$border-color;
+            @include mixins.respond-below(md) {
                 margin-bottom: 16px;
             }
             &.active, &:hover {
-              background: $light;
+              background: variables.$light;
             }
           }
         }
@@ -54,14 +57,14 @@
 		cursor: pointer;
 	}
 	  .custom_check {
-		color: $gray-500 !important;
+		color: variables.$gray-500 !important;
 		display: inline-block;
 		position: relative;
-		font-size: $font-size-14 !important;
+		font-size: variables.$font-size-14 !important;
 		margin-bottom: 15px;
 		padding-left: 28px;
 		cursor: pointer;
-		font-weight: $font-weight-normal !important;
+		font-weight: variables.$font-weight-normal !important;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
@@ -74,8 +77,8 @@
 		left: 0;
 		height: 20px;
 		width: 20px;
-		border: 1px solid $gray-100;
-		background-color: $white;
+		border: 1px solid variables.$gray-100;
+		background-color: variables.$white;
 		border-radius: 2px;
 		-moz-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
@@ -86,19 +89,19 @@
 	.custom_check .checkmark::after {
 		content: "\e92b";
 		font-family: 'feather' !important;
-		font-weight: $font-weight-normal;
+		font-weight: variables.$font-weight-normal;
 		position: absolute;
 		display: none;
 		left: 3px;
 		top: -1px;
-		color: $white;
+		color: variables.$white;
 	}
 	.custom_check input:checked ~ .checkmark:after {
 		display: block;
 	}
 	.custom_check input:checked ~ .checkmark {
-		background-color: $secondary;
-		border-color: $secondary;
+		background-color: variables.$secondary;
+		border-color: variables.$secondary;
 	}
 }
 
@@ -107,9 +110,9 @@
 .checkout-item-2 {
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid $border-color;
+    border: 1px solid variables.$border-color;
     box-shadow: 0px 4px 4px 0px #D4D4D440;
-    @include respond-below(lg){
+    @include mixins.respond-below(lg){
         margin-top: 30px;
     }
     .checkout-item-3 {
@@ -127,8 +130,8 @@
             a {
                 display: none;
                 position: absolute;
-                background: $white;
-                color: $danger;
+                background: variables.$white;
+                color: variables.$danger;
                 bottom: 5px;
                 right: 5px;
             }
@@ -136,8 +139,8 @@
                 a {
                     display: flex;
                     &:hover {
-                        background: $secondary;
-                        color: $white;
+                        background: variables.$secondary;
+                        color: variables.$white;
                     }
                 }
             }
@@ -145,7 +148,7 @@
     }
     
     p {
-        font-size: $font-size-14;
+        font-size: variables.$font-size-14;
     }
 }
 
@@ -154,32 +157,32 @@
 .notification-content {
     .notification-head {
         margin-bottom: 40px;
-        @include respond-below(md) {
+        @include mixins.respond-below(md) {
             margin-bottom: 30px;
         }
-        @include respond-below(sm) {
+        @include mixins.respond-below(sm) {
             margin-bottom: 20px;
         }
         p {
-            font-size: $font-size-16;
-            color: $gray-500;
+            font-size: variables.$font-size-16;
+            color: variables.$gray-500;
         }
     }
     .delete-all-btn {
-        background: $secondary;
-        color: $white;
+        background: variables.$secondary;
+        color: variables.$white;
         &:hover {
-            background: $primary;
-            border-color: $primary;
+            background: variables.$primary;
+            border-color: variables.$primary;
         }
     }
     .notification-item {
-        border: 1px solid $border-color;
+        border: 1px solid variables.$border-color;
         padding: 20px;
         border-radius: 10px;
         border-radius: 10px;
         padding: 20px;
-        @include respond-below(sm) {
+        @include mixins.respond-below(sm) {
             padding: 14px;
         }
         img {
@@ -187,36 +190,36 @@
             height: 45px;
         }
         .name-highlight {
-            color: $gray-900;
-            font-size: $font-size-16;
-            font-weight: $font-weight-medium;
+            color: variables.$gray-900;
+            font-size: variables.$font-size-16;
+            font-weight: variables.$font-weight-medium;
         }
 
         .delete-all-btn {
-            background: $secondary !important;
-            color: $white !important;
+            background: variables.$secondary !important;
+            color: variables.$white !important;
             &:hover {
-                background: $primary !important;
+                background: variables.$primary !important;
             }
         }
         .btn-delete {
-            background: $secondary;
-            color: $white;
+            background: variables.$secondary;
+            color: variables.$white;
             &:hover {
-                background: $primary;
+                background: variables.$primary;
             }
         }
         .btn-delete-hidden {
             display: none;
-            background: $secondary;
-            color: $white;
+            background: variables.$secondary;
+            color: variables.$white;
         }
         &:hover {
             .btn-delete-hidden {
                 display: flex;
                 align-items: center;
                 &:hover {
-                    background: $primary;
+                    background: variables.$primary;
                 }
             }
         }

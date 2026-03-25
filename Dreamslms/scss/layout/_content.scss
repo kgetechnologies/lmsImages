@@ -1,14 +1,17 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 /*============================
   23.content
 ============================*/
 .content {
     padding: 60px 0;
-    @include respond-below(lg) {
+    @include mixins.respond-below(lg) {
         padding: 40px 0;
     }
     &.content-two {
         padding-bottom: 36px;
-        @include respond-below(md) {
+        @include mixins.respond-below(md) {
             padding-bottom: 16px;
         }
     }
@@ -28,7 +31,7 @@
     .breadcrumb {
         margin-bottom: 0;
     }
-    @include respond-below(sm) {
+    @include mixins.respond-below(sm) {
         flex-direction: column;
         align-items: self-start;
     }
@@ -36,31 +39,31 @@
         margin-bottom: 10px;
     }
     h3{
-        font-weight: $font-weight-bold;
-        color: $gray-900;
-        font-size: $font-size-18;
-        @include respond-below(lg) {
-            font-size: $font-size-base;
+        font-weight: variables.$font-weight-bold;
+        color: variables.$gray-900;
+        font-size: variables.$font-size-18;
+        @include mixins.respond-below(lg) {
+            font-size: variables.$font-size-base;
         }
     }
     h4 {
-        font-weight: $font-weight-semibold;
-        color: $gray-900;
-        font-size: $font-size-18;
+        font-weight: variables.$font-weight-semibold;
+        color: variables.$gray-900;
+        font-size: variables.$font-size-18;
         margin-bottom: 5px;
-        @include respond-below(lg) {
-            font-size: $font-size-18;
+        @include mixins.respond-below(lg) {
+            font-size: variables.$font-size-18;
         }
     }
     h6 {
-        font-size: $font-size-base;
-        color: $gray-700;
-        font-weight: $font-weight-normal;
-        @include respond-below(lg) {
-            font-size: $font-size-12;
+        font-size: variables.$font-size-base;
+        color: variables.$gray-700;
+        font-weight: variables.$font-weight-normal;
+        @include mixins.respond-below(lg) {
+            font-size: variables.$font-size-12;
         }
-        @include respond-below(sm) {
-            font-size: $font-size-12;
+        @include mixins.respond-below(sm) {
+            font-size: variables.$font-size-12;
             margin-bottom: 20px;
         }
     }
@@ -74,20 +77,20 @@
     height: 36px;
     text-align: center;
 	border-radius: 0 10px 0 10px;
-	background: $primary;
-    color: $white;
+	background: variables.$primary;
+    color: variables.$white;
     cursor: pointer;
     border: 0;
     text-decoration: none;
     transition: opacity 0.2s ease-out;
     opacity: 0;
-    @include transition(all 0.5s ease);
+    @include mixins.transition(all 0.5s ease);
     &:hover {
-        color: $white;
-        background: $primary;
+        color: variables.$white;
+        background: variables.$primary;
     }
     &.show {
         opacity: 1;
-        @include transition(all 0.5s ease);
+        @include mixins.transition(all 0.5s ease);
     }
 }

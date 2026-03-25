@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .home-slide-five-face {
 	// padding: 174px 0 56px;
 }
@@ -9,25 +12,25 @@
 	position: relative;
 	padding: 113px 0 0;
 	overflow: hidden;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		padding-top: 0;
 	}
 	.review-user-five {
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
 		margin-bottom: 0;
 		}	
 	}
 	.home-slide-five-text h1 {
-		@include respond-below(xxl){
+		@include mixins.respond-below(xxl){
 			font-size: 40px;
 		}
-		@include respond-below(xl){
+		@include mixins.respond-below(xl){
 			font-size: 36px;
 		}
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
 			font-size: 30px;
 		}
-		@include respond-below(sm){
+		@include mixins.respond-below(sm){
 			font-size: 26px;
 		}
 	}
@@ -37,7 +40,7 @@
 	.ban-img-1{
 		margin-top: 26px;
 		position: relative;
-		@include respond-below(xl){
+		@include mixins.respond-below(xl){
 			margin-top: 65px;
 		}
 		&::before{
@@ -65,7 +68,7 @@
 			border-radius: 50px;
 			right: -27px;
 			bottom: -39px;
-			@include respond-below(xl){
+			@include mixins.respond-below(xl){
 				width: 43px;
 				height: 115px;
 			}
@@ -89,7 +92,7 @@
 	}
 	.banner-six-img{
 		padding-left: 40px;
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
         display: none;
 		}
 	}
@@ -97,18 +100,18 @@
 .home-slide-five-text {
 	max-width: 530px;
 	width: 100%;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		max-width: unset;
 	}
 	h5 {
-		font-size: $font-size-18;
-		color: $warning;
+		font-size: variables.$font-size-18;
+		color: variables.$warning;
 		margin-bottom: 15px;
 	}
 	p {
 		font-weight: 700;
 		font-size: 18px;
-		color: $white;
+		color: variables.$white;
 		margin-bottom: 30px;
 	}
 }
@@ -138,16 +141,16 @@
 	margin-bottom: 30px;
 	.form-inner-five {
 		padding: 10px;
-		background: $white;
-		border: 1px solid $light;
+		background: variables.$white;
+		border: 1px solid variables.$light;
 		box-shadow: 0px 16px 106px rgb(196 196 196 / 16%);
 		border-radius: 40px;
 		width: 100%;
 		max-width: 530px;
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
 			max-width: unset;
 		}
-		@include respond-below(sm){
+		@include mixins.respond-below(sm){
 			border-radius: 10px;
 		}
 		.input-group {
@@ -156,7 +159,7 @@
 			flex-wrap: wrap;
 			align-items: center;
 			width: 100%;
-			@include respond-below(sm){
+			@include mixins.respond-below(sm){
 			 gap: 8px;
 			 display: block;
 			}
@@ -185,13 +188,13 @@
 				b {
 					margin-top: -2px;
 					margin-left: -8px;
-					border-color: $white;
+					border-color: variables.$white;
 				}
 			}
 			.select2-selection__rendered {
 				font-weight: 500;
 				font-size: 16px;
-				color: $white  !important;
+				color: variables.$white  !important;
 				padding-left: 0;
 			}
 		}
@@ -215,44 +218,44 @@
 			height: 50px;
 			font-weight: 500;
 			font-size: 14px;
-			color: $white;
+			color: variables.$white;
 		}
 	}
 	.sub-btn {
-		background: $secondary;
-		border: 1px solid $secondary;
-		box-shadow: inset 0 0 0 0 $white;
+		background: variables.$secondary;
+		border: 1px solid variables.$secondary;
+		box-shadow: inset 0 0 0 0 variables.$white;
 		border-radius: 32px;
 		-webkit-transition: all 0.5s;
 		-moz-transition: all 0.5s;
 		-o-transition: all 0.5s;
 		transition: all 0.5s;
-		border: 1px solid $secondary;
+		border: 1px solid variables.$secondary;
 		border-radius: 32px;
 		margin: 0px;
 		line-height: 0;
 		padding: 15px 15px;
-		color: $white;
+		color: variables.$white;
 		border-top-left-radius: 32px !important;
 		border-bottom-left-radius: 32px !important;
 		z-index: 9;
 		&:hover {
-			color: $white;
-			border: 1px solid $primary;
-			background: $primary;
-			box-shadow: inset 0 50px 0 0 $primary;
+			color: variables.$white;
+			border: 1px solid variables.$primary;
+			background: variables.$primary;
+			box-shadow: inset 0 50px 0 0 variables.$primary;
 			-webkit-transition: all 0.5s;
 			-moz-transition: all 0.5s;
 			-o-transition: all 0.5s;
 			transition: all 0.5s;
 		}
-		@include respond-below(sm){
+		@include mixins.respond-below(sm){
 			width: 100%;
 		}
 	}
 }
 .drop-detail-five {
-	background: $secondary !important;
+	background: variables.$secondary !important;
 	box-shadow: none;
 	border-radius: 90px;
 	display: flex;
@@ -262,7 +265,7 @@
 	max-width: 147px;
 	width: 100%;
 	
-	@include respond-below(sm){
+	@include mixins.respond-below(sm){
 		max-width: 100%;
 	}
 }
@@ -307,7 +310,7 @@
 		display: inline-block;
 		font-weight: 500;
 		font-size: 14px;
-		color: $white;
+		color: variables.$white;
 		margin-bottom: 0;
 	}
 }
@@ -320,13 +323,13 @@
 	h2 {
 		font-weight: 700;
 		font-size: 32px;
-		color: $white;
+		color: variables.$white;
 		margin-bottom: 0;
 	}
 	p {
 		font-weight: 500;
 		font-size: 16px;
-		color: $white;
+		color: variables.$white;
 		margin-left: 10px;
 		margin-bottom: 0;
 	}
@@ -343,7 +346,7 @@
 .leading-section-five {
 	position: relative;
 	padding: 40px 0 40px;
-	background: $light-900;
+	background: variables.$light-900;
 	.owl-carousel {
 		.owl-item {
 			.lead-img {
@@ -396,7 +399,7 @@
                     width: 50px;
                     height: 5px;
                     margin: 0 7px;
-                    background: $light;
+                    background: variables.$light;
                     display: block;
                     -webkit-backface-visibility: visible;
                     transition: opacity .2s ease;
@@ -404,7 +407,7 @@
                 }
                 &.active, &:hover {
                     span {
-                        background: $secondary;
+                        background: variables.$secondary;
                         width: 50px;
                         height: 5px;
                     }
@@ -414,17 +417,17 @@
     }
 }
 .course-section-five {
-    background: $white;
+    background: variables.$white;
     padding: 80px 0;
     position: relative;
     z-index: 999;
-	@include respond-below(lg) {
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
     .course-box-five {
         position: relative;
         overflow: hidden;
-        background: $white;
+        background: variables.$white;
         box-shadow: -3px 5px 16px rgba(0, 0, 0, 0.07);
         border-radius: 10px;
         margin-bottom: 24px;
@@ -439,9 +442,9 @@
 	border-radius: 10px;
 	border: 1px solid transparent;
 	&:hover {
-		background: $white;
-		border: 1px solid $primary;
-        background: $primary;
+		background: variables.$white;
+		border: 1px solid variables.$primary;
+        background: variables.$primary;
 		border-radius: 10px;
 		transition-duration: 0s;
 		.course-info-five {
@@ -450,19 +453,19 @@
 				font-size: 20px;
 				font-weight: 700;
 				font-size: 20px;
-				color: $white;
+				color: variables.$white;
 			}
 			p{
-				color: $light;
+				color: variables.$light;
 			}
 		}
 		.course-info-btn {
 			.btn-five {
-				background-color: $secondary;
+				background-color: variables.$secondary;
 			}
 		}
 		.icon-five-border {
-			background-color: $secondary;
+			background-color: variables.$secondary;
 		}
 	}
 }
@@ -488,7 +491,7 @@
 	}
 }
 .counter-section-five {
-	background: $primary;
+	background: variables.$primary;
 	padding: 50px 0 50px;
 }
 .count-five-last{
@@ -501,7 +504,7 @@
 .count-content-five {
 	padding: 30px 0;
 	position: relative;
-	@include respond-below(md){
+	@include mixins.respond-below(md){
 		padding: 0;
 	}
 	&::before{
@@ -512,17 +515,17 @@
 		right: -10px;
 		top: 0;
 		background: linear-gradient(to bottom, #5D5292, #392C7D);
-		@include respond-below(md){
+		@include mixins.respond-below(md){
 			display: none;
 		}
 	}
 	h4 {
 		font-weight: 700;
 		font-size: 38px;
-		color: $warning;
+		color: variables.$warning;
 	}
 	p {
-		color: $white;
+		color: variables.$white;
 		margin-bottom: 0;
 	}
 }
@@ -531,8 +534,8 @@
 }
 .featured-section-five {
 	padding: 80px 0;
-	background: $white;
-	@include respond-below(lg) {
+	background: variables.$white;
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
 }
@@ -541,24 +544,24 @@
     align-items: center;
 	margin-bottom: 40px;
 	text-align: center;
-	border-bottom: 1px solid $border-color;
+	border-bottom: 1px solid variables.$border-color;
 	.nav-tab {
     margin-right: 40px;
-	font-weight: $font-weight-medium;
-	font-size: $font-size-14;
-	color: $gray-900;
+	font-weight: variables.$font-weight-medium;
+	font-size: variables.$font-size-14;
+	color: variables.$gray-900;
 	-webkit-transition: 0.7s;
 	-moz-transition: 0.7s;
 	-o-transition: 0.7s;
 	transition: 0.7s;
 	&.active {
-        color: $secondary;
-        border-bottom: 4px solid $secondary;
+        color: variables.$secondary;
+        border-bottom: 4px solid variables.$secondary;
         padding-bottom: 6px;
     }
     &:hover {
-        color: $secondary;
-        border-bottom: 4px solid $secondary;
+        color: variables.$secondary;
+        border-bottom: 4px solid variables.$secondary;
         padding-bottom: 6px;
         -webkit-transition: 0.7s;
         -moz-transition: 0.7s;
@@ -754,12 +757,12 @@
 }
 .joing-course-btn {
 	font-weight: 500 !important;
-	background: $warning;
-	border: 1px solid $warning;
+	background: variables.$warning;
+	border: 1px solid variables.$warning;
 	text-align: center;
 	padding: 10px 30px;
 	position: relative;
-	box-shadow: inset 0 0 0 0 $white;
+	box-shadow: inset 0 0 0 0 variables.$white;
 	border-radius: 32px;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
@@ -769,8 +772,8 @@
 	&:hover {
 		color: #2D0160;
 		border: 1px solid #2D0160;
-		background: $white;
-		box-shadow: inset 0 50px 0 0 $white;
+		background: variables.$white;
+		box-shadow: inset 0 50px 0 0 variables.$white;
 		-webkit-transition: all 0.5s;
 		-moz-transition: all 0.5s;
 		-o-transition: all 0.5s;
@@ -779,9 +782,9 @@
 }
 .master-section-five {
 	position: relative;
-	background: $light-900;
+	background: variables.$light-900;
 	padding: 80px 0 56px;
-	@include respond-below(lg) {
+	@include mixins.respond-below(lg) {
 		padding: 50px 0 26px;
 	}
 	.header-five-title {
@@ -811,10 +814,10 @@
 	margin-bottom: 24px;
 }
 .learn-more-five {
-	border: 1px solid $secondary;
+	border: 1px solid variables.$secondary;
 	font-weight: 500 !important;
-	color: $white !important;
-	background: $secondary;
+	color: variables.$white !important;
+	background: variables.$secondary;
 	border-radius: 32px;
 	font-size: 16px;
 	text-align: center;
@@ -823,16 +826,16 @@
 	z-index: 1;
 	overflow: hidden;
 	text-transform: initial;
-	box-shadow: inset 0 0 0 0 $white;
+	box-shadow: inset 0 0 0 0 variables.$white;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 	&:hover {
-		background-color: $primary;
-		border-color: $primary;
-		color:  $primary !important;
-		box-shadow: inset 0 50px 0 0 $white;
+		background-color: variables.$primary;
+		border-color: variables.$primary;
+		color:  variables.$primary !important;
+		box-shadow: inset 0 50px 0 0 variables.$white;
 		-webkit-transition: all 0.5s;
 		-moz-transition: all 0.5s;
 		-o-transition: all 0.5s;
@@ -842,11 +845,11 @@
 .skill-five-content {
 	h3 {
 		font-size: 18px;
-		color: $gray-900;
+		color: variables.$gray-900;
         margin-bottom: 8px;
 	}
 	p {
-		color: $gray-500;
+		color: variables.$gray-500;
 		margin-bottom: 0;
 	}
 }
@@ -855,23 +858,23 @@
 	padding: 80px 0 60px;
 	position: relative;
 	overflow: hidden;
-	@include respond-below(lg) {
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
 	.header-five-title-inner {
 		margin-bottom: 20px;
 		h2 {
 			max-width: 374px;
-			color: $light;
-			font-size: $font-size-44;
-			@include respond-below(xl){
-				font-size: $font-size-40;
+			color: variables.$light;
+			font-size: variables.$font-size-44;
+			@include mixins.respond-below(xl){
+				font-size: variables.$font-size-40;
 			}
-			@include respond-below(lg){
-				font-size: $font-size-36;
+			@include mixins.respond-below(lg){
+				font-size: variables.$font-size-36;
 			}
-			@include respond-below(sm){
-				font-size: $font-size-26;
+			@include mixins.respond-below(sm){
+				font-size: variables.$font-size-26;
 			}
 		}
 	}
@@ -884,12 +887,12 @@
 .career-five-content {
 	.ex-five-content {
 		max-width: 550px;
-		color: $white;
+		color: variables.$white;
 	}
 }
 .experienced-five-sub {
 	padding-left: 50px;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		padding-left: 0;
 	}
 }
@@ -909,7 +912,7 @@
 			border-radius: 50%;
 			margin-bottom: 0;
 			border: 5px solid transparent;
-			@include respond-below(md) {
+			@include mixins.respond-below(md) {
 				width: 55px;
 				height: 55px;
 			}
@@ -947,7 +950,7 @@
 	-webkit-font-smoothing: antialiased;
 	.profile-five-ovelay {
 		background: rgba(255, 255, 255, 0.85);
-		border: 5px solid $warning;
+		border: 5px solid variables.$warning;
 		border-radius: 60px 60px 60px 0px;
 		bottom: 100%;
 		display: block;
@@ -987,7 +990,7 @@
 		}
 		.developer-image {
 			img {
-				border: 5px solid $warning;
+				border: 5px solid variables.$warning;
 			}
 		}
 	}
@@ -1022,7 +1025,7 @@
 }
 .joing-count-five {
 	position: relative;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -1030,13 +1033,13 @@
 		gap: 20px;
 		margin-top: 20px;
 	}
-	@include respond-below(sm){
+	@include mixins.respond-below(sm){
 		flex-direction: column;
 	}
 	.joing-count-image{
 		position: relative;
 		display: inline-flex;
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
          display: none;
 		}
 		.joing-count-img1{
@@ -1080,23 +1083,23 @@
 }
 .share-knowledge-five {
 	padding: 80px 0;
-	background: $white;
-	@include respond-below(lg) {
+	background: variables.$white;
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
 	.header-five-title {
 		max-width: 621px;
 	   h2{
-		font-size: $font-size-44;
+		font-size: variables.$font-size-44;
 		margin-bottom: 20px;
-		@include respond-below(xl){
-			font-size: $font-size-40;
+		@include mixins.respond-below(xl){
+			font-size: variables.$font-size-40;
 		}
-		@include respond-below(xxl){
-			font-size: $font-size-36;
+		@include mixins.respond-below(xxl){
+			font-size: variables.$font-size-36;
 		}
-		@include respond-below(xl){
-			font-size: $font-size-30;
+		@include mixins.respond-below(xl){
+			font-size: variables.$font-size-30;
 		}
 	   }
 	}
@@ -1111,7 +1114,7 @@
 	left: 0rem;
 	top: 6.5rem;
 	z-index: 2;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
      position: relative;
 	 top: auto;
 	 left: auto;
@@ -1124,7 +1127,7 @@
 	left: -4rem;
 	bottom: 3rem;
 	z-index: 2;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		position: relative;
 		top: auto;
 		left: auto;
@@ -1137,10 +1140,10 @@
 	right: 5rem;
 	top: -1rem;
 	z-index: 2;
-	@include respond-below(xl){
+	@include mixins.respond-below(xl){
 		right: 1rem;	
 	}
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		position: relative;
 		top: auto;
 		left: auto;
@@ -1151,7 +1154,7 @@
 .joing-count-number {
 	font-weight: 700;
 	font-size: 32px;
-	color: $primary;
+	color: variables.$primary;
 }
 .joing-count-text {
 	margin-bottom: 0;
@@ -1162,7 +1165,7 @@
 	Achieve your Goals 
 -----------------------*/
 .goals-section-five {
-	background: $warning;
+	background: variables.$warning;
 	padding: 60px 0 60px;
 }
 .goals-content-five {
@@ -1228,7 +1231,7 @@
 	padding: 80px 0 80px;
 	position: relative;
 	overflow: hidden;
-	@include respond-below(lg) {
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
 	.testimonials-quote{
@@ -1237,7 +1240,7 @@
 		top: 10%;
 	}
 	.testimonial-image{
-		@include respond-below(lg){
+		@include mixins.respond-below(lg){
 			display: none;
 		}
 	}
@@ -1287,7 +1290,7 @@
 	position: relative;
 	&:before {
 		content: "";
-		background: $warning;
+		background: variables.$warning;
 		border-radius: 35px;
 		width: 62px;
 		height: 168px;
@@ -1299,20 +1302,20 @@
 }
 .testimonial-content-five {
 	position: relative;
-	background: $white;
+	background: variables.$white;
 	border-radius: 10px;
 	left: 35px;
 	padding: 24px;
 	width: 757px;
 	z-index: 2;
-	@include respond-below(lg){
+	@include mixins.respond-below(lg){
 		left: 0;
 	}
 }
 .testimonial-section-five .slick-prev, 
 .testimonial-section-five .slick-next {
 	z-index: 99;
-	background: $white;
+	background: variables.$white;
 	box-shadow: 0px 4px 60px rgb(41 44 124 / 15%);
 	transform: matrix(-1, 0, 0, 1, 0, 0);
 	width: 40px;
@@ -1325,7 +1328,7 @@
 .testimonial-section-five .swiper-button-prev:hover, 
 .testimonial-section-five .swiper-button-next:hover {
 	color: #000;
-	background: $secondary;
+	background: variables.$secondary;
 	opacity: 1;
 }
 .testimonial-section-five .slick-prev:hover:before, 
@@ -1334,12 +1337,12 @@
 .testimonial-section-five .slick-next:focus:before, 
 .testimonial-section-five .swiper-button-prev:hover:before, 
 .testimonial-section-five .swiper-button-next:hover:before {
-	color: $white;
+	color: variables.$white;
 	opacity: 1;
 }
 .testimonial-section-five .slick-next:focus, 
 .testimonial-section-five .slick-prev:focus {
-	background: $secondary;
+	background: variables.$secondary;
 }
 [dir='rtl'] {
 	.testimonial-section-five {
@@ -1369,12 +1372,12 @@
 					width: 6px;
 					height: 6px;
 					border-radius: 50px;
-					background-color: $secondary;
+					background-color: variables.$secondary;
 					left: 0;
 					top: 8px;
 				}
 				a:hover{
-					color: $secondary !important;
+					color: variables.$secondary !important;
 					margin-left: 5px;
 				}
 			}
@@ -1382,18 +1385,18 @@
 			
 	}
 	.box-form-newsletter{
-		background-color: rgba($white, .10);
+		background-color: rgba(variables.$white, .10);
 		padding: 10px 10px 10px 24px;
 		.input-newsletter{
 			background-color: transparent;
-			color: $gray-100;
+			color: variables.$gray-100;
 			background-image: url(../img/icon/mail-2.svg);
-			font-size: $font-size-14;
+			font-size: variables.$font-size-14;
 			background-repeat: no-repeat;
     		background-position: left;
 			padding-left: 30px;
 			&::placeholder{
-				color: $gray-100;
+				color: variables.$gray-100;
 			}
 		}
 	}
@@ -1404,7 +1407,7 @@
 
 .blogs-section-five {
     padding: 80px 0;
-	@include respond-below(lg) {
+	@include mixins.respond-below(lg) {
 		padding: 50px 0;
 	}
     .owl-theme {
@@ -1443,16 +1446,16 @@
     -o-transition: 0.7s;
     transition: 0.7s;
 }
-@include respond-above (lg) {
+@include mixins.respond-above (lg) {
     .home-six {
         .header-three {
             .main-menu-wrapper .main-nav > li {
                 > a {
-                    color: $white;
+                    color: variables.$white;
                 }
                 &.active {
                     > a {
-                        color: $secondary;
+                        color: variables.$secondary;
                     }
                 }
             }
@@ -1472,13 +1475,13 @@
 			button {
 				width: 50px;
 				height: 5px;
-				background: $light;
+				background: variables.$light;
 				padding: 0;
 				margin-right: 5px;
 			}
 			&.slick-active {
 				button {
-					background: $secondary;
+					background: variables.$secondary;
 				}
 			}
 		}
@@ -1492,13 +1495,13 @@
 			button {
 				width: 50px;
 				height: 5px;
-				background: $light;
+				background: variables.$light;
 				padding: 0;
 				margin-right: 5px;
 			}
 			&.slick-active {
 				button {
-					background: $secondary;
+					background: variables.$secondary;
 				}
 			}
 		}
@@ -1512,30 +1515,30 @@
 }
 .footer {
 	&.footer-six {
-		background: $dark;
+		background: variables.$dark;
 		.footer-top-five {
 			padding: 40px 0;
 			.footer-contact  {
 				.footer-title-five {
-					color: $white;
+					color: variables.$white;
 					margin-bottom: 15px;
 				}
 				.footer-address {
 					h6 {
-						color: $white;
-						font-size: $font-size-14;
+						color: variables.$white;
+						font-size: variables.$font-size-14;
 						margin-bottom: 4px;
 					}
 					p {
-						color: $white;
+						color: variables.$white;
 						margin-bottom: 0;
-						font-size: $font-size-14;
+						font-size: variables.$font-size-14;
 					}
 				}
 			}
 			.footer-menu {
 				.footer-title-five {
-					color: $white;
+					color: variables.$white;
 					margin-bottom: 15px;
 				}
 				ul {
@@ -1545,17 +1548,17 @@
 							margin-bottom: 0;
 						}
 						a {
-							color: $light;
+							color: variables.$light;
 						}
 					}
 				}
 			}
 		}
 		.footer-bottom-six {
-			background: $dark;
+			background: variables.$dark;
 			.copyright-text {
 				p {
-					color: $light;
+					color: variables.$light;
 				}
 			}
 			.social-icon {
@@ -1563,7 +1566,7 @@
 				align-items: center;
 				justify-content: end;
 				gap: 8px;
-				@include respond-below(md){
+				@include mixins.respond-below(md){
                   justify-content: center;
 				  margin-top: 10px;
 				}
@@ -1578,8 +1581,8 @@
 					align-items: center;
 					justify-content: center;
 					&:hover{
-						color: $white;
-						background: $secondary;
+						color: variables.$white;
+						background: variables.$secondary;
 					}
 				}
 			}
@@ -1591,7 +1594,7 @@
 					li {
 						margin-right: 8px;
 						a {
-							color: $light;
+							color: variables.$light;
 						}
 					}
 				}
@@ -1619,7 +1622,7 @@
 			#mobile_btn {
 				.bar-icon {
 					span {
-						background: $white;
+						background: variables.$white;
 					}
 				}
 			}
@@ -1629,7 +1632,7 @@
 				#mobile_btn {
 					.bar-icon {
 						span {
-							background: $primary;
+							background: variables.$primary;
 						}
 					}
 				}
@@ -1637,7 +1640,7 @@
 		}
 	}
 }
-@include respond-below (lg) {
+@include mixins.respond-below (lg) {
 	.home-slide-five-face {
 		padding: 105px 0 50px;
 	}
@@ -1662,7 +1665,7 @@
 		margin-bottom: 25px;
 	}
 }
-@include respond-below (md) {
+@include mixins.respond-below (md) {
 	.header-five-title h2 {
 		font-size: 24px;
 	}

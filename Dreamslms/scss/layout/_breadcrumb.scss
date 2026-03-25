@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 /*============================
   32.breadcrumb
 ============================*/
@@ -6,27 +9,27 @@
     padding: 40px 0 40px;
     position: relative;
     z-index: 1;
-    background: $primary-gradient;
+    background: variables.$primary-gradient;
     .breadcrumb-title {
-        font-size: $font-size-36;
-        color: $gray-900;
-        @include respond-below(lg) {
-            font-size: $font-size-26;
+        font-size: variables.$font-size-36;
+        color: variables.$gray-900;
+        @include mixins.respond-below(lg) {
+            font-size: variables.$font-size-26;
         }
-        @include respond-below(md) {
-            font-size: $font-size-22;
+        @include mixins.respond-below(md) {
+            font-size: variables.$font-size-22;
         }
     }
 }
 .breadcrumb {
     .breadcrumb-item {
-        color: $gray-900;
+        color: variables.$gray-900;
         position: relative;
-        font-size: $font-size-14;
+        font-size: variables.$font-size-14;
         a {
-            color: $gray-900;
+            color: variables.$gray-900;
             &:hover {
-                color: $secondary;
+                color: variables.$secondary;
             }
         }
         & +.breadcrumb-item {
@@ -36,7 +39,7 @@
                 width: 15px;
                 height: 5px;
                 border-radius: 5px;
-                background: $secondary;
+                background: variables.$secondary;
                 position: absolute;
                 left: -16px;
                 top: 50%;
@@ -44,33 +47,7 @@
             }
         }
         &.active {
-            color: $gray-700;
+            color: variables.$gray-700;
         }
     }
-}
-.breadcrumb-bg-01 {
-    background: url('../img/bg/breadcrumb.jpg') no-repeat;
-    background-size: cover;
-}
-.breadcrumb-bg-02 {
-    background: url('../img/bg/breadcrumb-02.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.breadcrumb-bg-03{
-    background: url('../img/bg/breadcrumb-03.jpg') no-repeat;
-    background-size: cover;
-}
-.breadcrumb-bg-04{
-    background-color: $gray-900;
-}
-.breadcrumb-bg-05{
-    background: url('../img/bg/breadcrumb-05.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.breadcrumb-bg-06{
-    background: url('../img/bg/breadcrumb-04.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
 }

@@ -1,31 +1,34 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .cart-cover {
     margin: 0 60px;
-    @include respond-below(md) {
+    @include mixins.respond-below(md) {
         margin: 0 20px;
     }
-    @include respond-below(sm) {
+    @include mixins.respond-below(sm) {
         margin: 0;
     }
     .cart-items {
-        border: 1px solid $border-color;
+        border: 1px solid variables.$border-color;
         box-shadow: 0px 4px 4px 0px #D4D4D440;
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 0;
         .items-count {
-            background: $light-900;
+            background: variables.$light-900;
             padding: 10px;
             border-radius: 10px;
-            font-size: $font-size-16;
-            font-weight: $font-weight-medium;
-            color: $gray-900;
+            font-size: variables.$font-size-16;
+            font-weight: variables.$font-weight-medium;
+            color: variables.$gray-900;
             margin-bottom: 20px;
         }
         .cart-head {
             margin-bottom: 20px;
         }
         .cart-item {
-            border: 1px solid $border-color;
+            border: 1px solid variables.$border-color;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 0;
@@ -34,7 +37,7 @@
             }
         }
         p {
-            font-size: $font-size-14;
+            font-size: variables.$font-size-14;
         }
     }
     .cart-img {
@@ -55,41 +58,41 @@
         height: 6px;
     }
     .star {
-        color: $warning;
+        color: variables.$warning;
     }
     .trash-btn {
         width: 30px;
         height: 30px;
         padding: 4px;
         border-radius: 18px;
-        border: 1px solid $border-color;
+        border: 1px solid variables.$border-color;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: $danger;
+        color: variables.$danger;
         &:hover {
-            background: $danger;
-            color: $white;
-            border-color: $danger;
+            background: variables.$danger;
+            color: variables.$white;
+            border-color: variables.$danger;
         }
     }
     .btn.continue-shopping-btn {
-        background: $secondary;
-        color: $white;
+        background: variables.$secondary;
+        color: variables.$white;
         padding: 7px 16px;
         &:hover {
-            background: $primary;
+            background: variables.$primary;
         }
     }
     .btn.checkout-btn {
-        background: $primary;
-        color: $white;
+        background: variables.$primary;
+        color: variables.$white;
         &:hover {
-            background: $secondary;
+            background: variables.$secondary;
         }
     }
     .cart-trash {
-        @include respond-below(md) {
+        @include mixins.respond-below(md) {
             margin-top: 10px;
         }
     }

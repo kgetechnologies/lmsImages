@@ -1,3 +1,4 @@
+@use "sass:color";
 // Font import
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -78,13 +79,13 @@ $primary-hover: #241B4B;
 $secondary: #FF4667;
 $secondary-hover: #ED1143;
 $success: #03C95A;
-$success-hover: darken($success, 10%);
+$success-hover: color.adjust($success, $lightness: -10%);
 $info: #5625E8;
-$info-hover: darken($info, 10%);
+$info-hover: color.adjust($info, $lightness: -10%);
 $warning: #FFC107;
-$warning-hover: darken($warning, 10%);
+$warning-hover: color.adjust($warning, $lightness: -10%);
 $danger: #E70D0D;
-$danger-hover: darken($danger, 10%);
+$danger-hover: color.adjust($danger, $lightness: -10%);
 $dark: var(--dark);
 $dark-hover: #061423;
 $light: var(--light);
@@ -360,7 +361,7 @@ $blue-gradient2: linear-gradient(10.93deg, #2C7A9C 16.22%, #0936CB 120.13%);
 $link-color: $primary;
 $link-decoration: none;
 $link-shade-percentage: 20%;
-$link-hover-color: darken($link-color, 10%);
+$link-hover-color: color.adjust($link-color, $lightness: -10%);
 $link-hover-decoration: null;
 $spacer: 1rem;
 

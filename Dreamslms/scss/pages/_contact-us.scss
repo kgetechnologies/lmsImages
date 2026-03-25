@@ -1,21 +1,24 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .contact-sec {
     position: relative;
     padding: 60px 0;
-    @include respond-below(lg){
+    @include mixins.respond-below(lg){
         padding: 50px 0;
     }
     .contact-info {
         margin-bottom: 26px;
     }
     .contact-form {
-        background: $primary-gradient;
+        background: variables.$primary-gradient;
     }
     .contact-icon {
         span {
             display: block;
             width: 60px;
             height: 60px;
-            color: $primary-300;
+            color: variables.$primary-300;
         }
     }
     .contact-map {

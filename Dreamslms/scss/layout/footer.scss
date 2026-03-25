@@ -1,9 +1,12 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .footer {
     position: relative;
-    border-top: 1px solid $gray-100;
+    border-top: 1px solid variables.$gray-100;
     .footer-top {
         padding: 50px 0;
-        @include respond-below(lg) {
+        @include mixins.respond-below(lg) {
             padding: 40px 0;
         }
     }
@@ -30,20 +33,20 @@
             height: 42px;
             border-radius: 45px;
             padding-right: 100px;
-            border: 1px solid $border-color;
-            font-size: $font-size-14;
+            border: 1px solid variables.$border-color;
+            font-size: variables.$font-size-14;
             padding-left: 16px;
             &:placeholder {
-                color: $gray-300;
+                color: variables.$gray-300;
             }
         }
         button {
             position: absolute;
             right: 6px; 
             top: 50%;
-            @include transform(translateY(-50%));
+            @include mixins.transform(translateY(-50%));
             i {
-                font-size: $font-size-10;
+                font-size: variables.$font-size-10;
             }
         }
     }
@@ -74,28 +77,28 @@
                 margin-bottom: 0;
             }
             a {
-                color: $gray-500;
-                font-size: $font-size-15;
+                color: variables.$gray-500;
+                font-size: variables.$font-size-15;
                 &:hover {
-                    color: $secondary;
+                    color: variables.$secondary;
                 }
-                @include respond-below(lg) {
-                    font-size: $font-size-14;
+                @include mixins.respond-below(lg) {
+                    font-size: variables.$font-size-14;
                 }
             }
         }
     }
 }
 .footer-bottom {
-    background: $primary-900 ;
+    background: variables.$primary-900 ;
     padding: 1.5rem 0;
     .footer-link {
         li {
             position: relative;
             a {
-                color: $white;
+                color: variables.$white;
                 &:hover {
-                    color: $secondary;
+                    color: variables.$secondary;
                 }
             }
             & + li {
@@ -105,7 +108,7 @@
                     content: "";
                     width: 1px;
                     height: 12px;
-                    background: $white;
+                    background: variables.$white;
                     position: absolute;
                     left: 0;
                     top: 50%;
@@ -117,23 +120,23 @@
 }
 .footer {
     &.footer-one {
-        background: $dark;
+        background: variables.$dark;
         .footer-top {
             padding: 60px 0;
-            @include respond-below(lg) {
+            @include mixins.respond-below(lg) {
                 padding: 40px 0;
             }
         }
         .footer-about {
             p {
-                color: $light;
+                color: variables.$light;
             }
         }
         .footer-widget {
             .footer-title {
-                font-size: $font-size-18;
-                font-weight: $font-weight-semibold;
-                color: $white;
+                font-size: variables.$font-size-18;
+                font-weight: variables.$font-weight-semibold;
+                color: variables.$white;
             }
             ul {
                 li {
@@ -142,9 +145,9 @@
                         margin-bottom: 0;
                     }
                     a {
-                        color: $light;
+                        color: variables.$light;
                         &:hover {
-                            color: $secondary;
+                            color: variables.$secondary;
                         }
                     }
                 }
@@ -157,43 +160,43 @@
                 position: absolute;
                 top: 50%;
                 left: 32px;
-                @include transform(translateY(-50%));
-                color: $gray-500;
+                @include mixins.transform(translateY(-50%));
+                color: variables.$gray-500;
                 display: flex;
             }
             .form-control {
                 height: 54px;
-                @include rounded(70px);
+                @include mixins.rounded(70px);
                 padding-left: 56px;
                 &::placeholder {
-                    color: $gray-500;
+                    color: variables.$gray-500;
                 }
-                @include respond-below(md) {
+                @include mixins.respond-below(md) {
                     height: 50px;
                 }
             }
         }
         .footer-newsletter {
             p {
-                color: $light;
-                font-size: $font-size-14;
+                color: variables.$light;
+                font-size: variables.$font-size-14;
                 margin-bottom: 16px;
             }
         }
         .footer-bottom {
-            background: $dark;
-            border-top: 1px solid $gray-800;
+            background: variables.$dark;
+            border-top: 1px solid variables.$gray-800;
             p {
-                color: $light;
-                font-size: $font-size-14;
+                color: variables.$light;
+                font-size: variables.$font-size-14;
             }
             .footer-link {
                 li {
                     a {
-                        font-size: $font-size-14;
-                        color: $light;
+                        font-size: variables.$font-size-14;
+                        color: variables.$light;
                         &:hover {
-                            color: $secondary;
+                            color: variables.$secondary;
                         }
                     }
                     & + li {
@@ -203,7 +206,7 @@
                             content: "";
                             width: 1px;
                             height: 10px;
-                            background: $white;
+                            background: variables.$white;
                             position: absolute;
                             left: 0;
                             top: 50%;
@@ -221,19 +224,19 @@
                 a {
                     width: 20px;
                     height: 20px;
-                    background: $light;
-                    @include rounded(50%);
-                    color: $dark;
-                    font-size: $font-size-12;
+                    background: variables.$light;
+                    @include mixins.rounded(50%);
+                    color: variables.$dark;
+                    font-size: variables.$font-size-12;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     &:hover {
-                        background: $secondary;
-                        color: $white;
+                        background: variables.$secondary;
+                        color: variables.$white;
                     }
                 }
-                @include respond-below(lg) {
+                @include mixins.respond-below(lg) {
                     justify-content: center;
                 }
             }

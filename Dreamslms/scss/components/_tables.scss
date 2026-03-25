@@ -1,10 +1,13 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 /*============================
   21.tables
 ============================*/
 
 @mixin tablecolor($color-bg) {
-  background-color: $white;
-  color: $black;
+  background-color: variables.$white;
+  color: variables.$black;
   --bs-table-color-state: $black;
   border-color: var(--bs-table-border-color);
   --bs-table-bg: rgba(#{$color-bg}, 0.1);
@@ -15,66 +18,66 @@
   &.table-striped > tbody > tr:nth-of-type(odd) > * {
     background-color: var(--bs-table-accent-bg);
     --bs-table-accent-bg: rgba(#{$color-bg}, 0.2);
-    color: $black;
+    color: variables.$black;
   }
   &.table.table-hover > tbody > tr:hover > * {
     background-color: var(--bs-table-accent-bg);
     --bs-table-accent-bg: rgba(#{$color-bg}, 0.4);
-    color: $white;
+    color: variables.$white;
   }
   .table-active {
     background-color: var(--bs-table-accent-bg);
     --bs-table-accent-bg: rgb(#{$color-bg});
-    color: $white;
+    color: variables.$white;
   }
 }
 caption {
-  color: $text-muted;
+  color: variables.$text-muted;
 }
 .table>:not(caption)>*>* {
-  background-color: $white;
+  background-color: variables.$white;
 }
 .table-active{
   --bs-table-color-state: var(--default-text-color);
 }
 @mixin tablehead($color-bg) {
-  background-color: $white;
+  background-color: variables.$white;
   color: var(--bs-table-color);
   --bs-table-color-state: #000;
-  --bs-table-color: #{$black};
+  --bs-table-color: #{variables.$black};
   --bs-table-bg: rgba(#{$color-bg}, 0.1);
   --bs-table-border-color: rgba(#{$color-bg}, 0.1);
   --bs-table-striped-bg: rgba(#{$color-bg}, 0.5);
-  --bs-table-striped-color: #{$black};
+  --bs-table-striped-color: #{variables.$black};
   --bs-table-active-bg: rgba(#{$color-bg}, 0.5);
   --bs-table-hover-bg: rgba(#{$color-bg}, 0.5);
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
 }
 @mixin table-color($color-bg) {
-  --bs-table-color: #{$black};
+  --bs-table-color: #{variables.$black};
   --bs-table-color-state: $black;
   --bs-table-bg: rgba(#{$color-bg}, 0.1);
   --bs-table-border-color: rgba(#{$color-bg}, 0.1);
   --bs-table-striped-bg: rgba(#{$color-bg}, 0.3);
-  --bs-table-striped-color: #{$black};
+  --bs-table-striped-color: #{variables.$black};
   --bs-table-active-bg: rgba(#{$color-bg}, 0.3);
-  --bs-table-active-color: #{$black};
+  --bs-table-active-color: #{variables.$black};
   --bs-table-hover-bg: rgba(#{$color-bg}, 0.3);
-  --bs-table-hover-color: #{$black};
-  color: #{$black};
+  --bs-table-hover-color: #{variables.$black};
+  color: #{variables.$black};
   border-color: rgba(#{$color-bg}, 0.1);
-  background-color: #{$white};
+  background-color: #{variables.$white};
 }
 .table {
-  color: $text-color;
-  border-color: $default-border;
+  color: variables.$text-color;
+  border-color: variables.$default-border;
   margin-block-end: 0;
   tbody {
     tr {
-        border-color: $gray-100;
+        border-color: variables.$gray-100;
       th {
-        font-weight: $font-weight-medium;
+        font-weight: variables.$font-weight-medium;
       }
     }
   }
@@ -82,57 +85,57 @@ caption {
   td {
     padding: 20px 15px;
     vertical-align: middle;
-    font-size: $font-size-14;
+    font-size: variables.$font-size-14;
     white-space: nowrap;
   }
   thead tr {
-    border-color: $default-border;
+    border-color: variables.$default-border;
     th {
-    font-weight: $font-weight-semibold;
-    border-color: $default-border;
-    background: $gray-200;
-    font-size: $font-size-14;
-    color: $gray-900;
+    font-weight: variables.$font-weight-semibold;
+    border-color: variables.$default-border;
+    background: variables.$gray-200;
+    font-size: variables.$font-size-14;
+    color: variables.$gray-900;
     }
   }
   &.table-sm > :not(caption) > * > * {
     padding: 0.3rem;
   }
   &.table-dark {
-    color: $light-700;
-    border-color: rgba($white, 0.1);
+    color: variables.$light-700;
+    border-color: rgba(variables.$white, 0.1);
   }
   .thead-primary th {
-      background-color: $primary;
-      color: $white;
+      background-color: variables.$primary;
+      color: variables.$white;
   }
   .thead-secondary th {
-      background-color: $secondary;
-      color: $white;
+      background-color: variables.$secondary;
+      color: variables.$white;
   }
   .thead-info th {
-      background-color: $info;
-      color: $white;
+      background-color: variables.$info;
+      color: variables.$white;
   }
   .thead-warning th {
-      background-color: $warning;
-      color: $white;
+      background-color: variables.$warning;
+      color: variables.$white;
   }
   .thead-danger th {
-      background-color: $danger;
-      color: $white;
+      background-color: variables.$danger;
+      color: variables.$white;
   }
   .thead-success th {
-      background-color: $success;
-      color: $white;
+      background-color: variables.$success;
+      color: variables.$white;
   }
   .thead-dark th {
-      background-color: $dark;
-      color: $white;
+      background-color: variables.$dark;
+      color: variables.$white;
   }
   .thead-light th {
-      background-color: $light;
-      color: $gray-900;
+      background-color: variables.$light;
+      color: variables.$gray-900;
   }
   &.table-primary {
     @include tablecolor(var(--primary-rgb));
@@ -166,7 +169,7 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($primary, 0.1);
+        border-color: rgba(variables.$primary, 0.1);
       }
     }
     &.border-info {
@@ -176,7 +179,7 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($info, 0.1);
+        border-color: rgba(variables.$info, 0.1);
       }
     }
     &.border-secondary {
@@ -186,7 +189,7 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($secondary, 0.1);
+        border-color: rgba(variables.$secondary, 0.1);
       }
     }
     &.border-warning {
@@ -196,7 +199,7 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($warning, 0.1);
+        border-color: rgba(variables.$warning, 0.1);
       }
     }
     &.border-success {
@@ -206,7 +209,7 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($success, 0.1);
+        border-color: rgba(variables.$success, 0.1);
       }
     }
     &.border-danger {
@@ -216,28 +219,28 @@ caption {
       th,
       thead,
       tr {
-        border-color: rgba($danger, 0.1);
+        border-color: rgba(variables.$danger, 0.1);
       }
     }
   }
   &.table-striped > tbody > tr:nth-of-type(odd) > * {
     --bs-table-accent-bg: rgba(var(--dark-rgb),0.0125);
-    color: $text-color;
+    color: variables.$text-color;
   }
   &.table-striped-columns > :not(caption) > tr > :nth-child(2n) {
     --bs-table-accent-bg: rgba(var(--dark-rgb),0.025);
-    color: $text-color;
+    color: variables.$text-color;
   }
   tbody.table-group-divider {
-    border-top: 1px solid $default-border;
+    border-top: 1px solid variables.$default-border;
   }
   &.table-hover > tbody > tr:hover > * {
-    --bs-table-accent-bg: #{$default-background};
-    color: $text-color;
+    --bs-table-accent-bg: #{variables.$default-background};
+    color: variables.$text-color;
   }
   .table-active {
-    --bs-table-accent-bg: #{$light};
-    color: $text-color;
+    --bs-table-accent-bg: #{variables.$light};
+    color: variables.$text-color;
   }
   thead {
     &.table-primary {
@@ -268,7 +271,7 @@ caption {
 }
 .datanew {
   tbody{
-      border-top: 1px solid $light-900;
+      border-top: 1px solid variables.$light-900;
   }
 }
 .table-primary {
@@ -306,12 +309,12 @@ caption {
   }
 }
 .invoice-table {
-  border: 1px solid $light-900;
+  border: 1px solid variables.$light-900;
   border-radius: 5px;
   margin: 20px 0;
   thead {
       th {
-          border-bottom: 1px solid $light-900;
+          border-bottom: 1px solid variables.$light-900;
           &:first-child {
               width: 80%;
           }
@@ -333,22 +336,22 @@ caption {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: $danger-100;
-      color: $danger;
+      background: variables.$danger-100;
+      color: variables.$danger;
       border-radius: 5px;
-      font-size: $font-size-16;
+      font-size: variables.$font-size-16;
   }
 }
 .invoice-product-table {
-    border-top: 1px solid $light-900;
+    border-top: 1px solid variables.$light-900;
 }
 .table{
     margin: 0;
     tbody{
         tr{
             td{
-                color: $gray-700;
-                font-size: $font-size-14; 
+                color: variables.$gray-700;
+                font-size: variables.$font-size-14; 
                 .product-img{
                     img{
                         border: 0;
@@ -357,10 +360,10 @@ caption {
                 
             .action-icon {
               a {
-                  color: $gray-500;
+                  color: variables.$gray-500;
                   &:hover {
-                      background: $light-900;
-                      color: $gray-900;
+                      background: variables.$light-900;
+                      color: variables.$gray-900;
                   }
               }
             }
@@ -368,16 +371,16 @@ caption {
             &.active{
                 border-bottom: 0;
                 td{
-                    font-size: $font-size-18;
-                    color: $gray-700;
-                    font-weight: $font-weight-semibold;
+                    font-size: variables.$font-size-18;
+                    color: variables.$gray-700;
+                    font-weight: variables.$font-weight-semibold;
                     border-bottom: 0;
                 }
             }
             .checkboxs {
                 .checkmarks {
                     top: 50%;
-                    @include transform(translateY(-50%));
+                    @include mixins.transform(translateY(-50%));
                 }
             }
         }
@@ -407,8 +410,8 @@ caption {
     -webkit-box-align: center;
     -ms-flex-align: center;
     a{
-        color: $secondary;
-        font-weight: $font-weight-medium;
+        color: variables.$secondary;
+        font-weight: variables.$font-weight-medium;
     }
 }
 .table {
@@ -423,25 +426,25 @@ caption {
   tbody{
       tr{
           td{
-              color: $gray-500;
+              color: variables.$gray-500;
               a {
-                  color:$gray-900;
+                  color:variables.$gray-900;
                   .info-img {
                       margin-right: 8px;
                       width: 16px;
                       height: 16px;
                   }
                   &:hover {
-                      color: $secondary;
+                      color: variables.$secondary;
                   }
               }
           }
           &.active{
               border-bottom: 0;
               td{
-                  font-size: $font-size-18;
-                  color: $gray-700;
-                  font-weight: $font-weight-semibold;
+                  font-size: variables.$font-size-18;
+                  color: variables.$gray-700;
+                  font-weight: variables.$font-weight-semibold;
                   border-bottom: 0;
               }
           }
@@ -481,14 +484,14 @@ table.table-bordered thead tr th p {
 }
 .custom-table {
     border-radius: 10px;
-    border: 1px solid $gray-100;
+    border: 1px solid variables.$gray-100;
     table {
         thead {
             tr {
                 th {
-                    background: $light;
-                    color: $gray-900;
-                    font-size: $font-size-14;
+                    background: variables.$light;
+                    color: variables.$gray-900;
+                    font-size: variables.$font-size-14;
                     padding: 12px 15px;
                 }
             }
@@ -498,20 +501,20 @@ table.table-bordered thead tr th p {
                 td {
                     padding: 12px 15px;
                     .detail-link {
-                        font-weight: $font-weight-semibold;
-                        color: $gray-900;
+                        font-weight: variables.$font-weight-semibold;
+                        color: variables.$gray-900;
                         text-decoration: underline;
                         &:hover {
-                            color: $primary;
+                            color: variables.$primary;
                         }
                     }
                     .course-title {
                        h6 {
                         max-width: 262px;   
                         white-space: pre-wrap;
-                        font-size: $font-size-16;
-                        @include respond-below(md) {
-                          font-size: $font-size-14;
+                        font-size: variables.$font-size-16;
+                        @include mixins.respond-below(md) {
+                          font-size: variables.$font-size-14;
                         }
                        }
                     }
@@ -527,11 +530,11 @@ table.table-bordered thead tr th p {
 }
 .table tbody tr td a {
   &.delete-icon {
-      font-size: $font-size-16;
-      color: $danger;
+      font-size: variables.$font-size-16;
+      color: variables.$danger;
 
       &:hover {
-          color: $danger-hover;
+          color: variables.$danger-hover;
       }
   }
 }
@@ -551,8 +554,8 @@ table.table-bordered thead tr th p {
 .hotel-list{
   box-shadow: none;
   @mixin tablecolor($color-bg) {
-      background-color: $white;
-      color: $black;
+      background-color: variables.$white;
+      color: variables.$black;
       --bs-table-color-state: $black;
       border-color: var(--bs-table-border-color);
       --bs-table-bg: rgba(#{$color-bg}, 0.1);
@@ -563,63 +566,63 @@ table.table-bordered thead tr th p {
       &.table-striped > tbody > tr:nth-of-type(odd) > * {
         background-color: var(--bs-table-accent-bg);
         --bs-table-accent-bg: rgba(#{$color-bg}, 0.2);
-        color: $black;
+        color: variables.$black;
       }
       &.table.table-hover > tbody > tr:hover > * {
         background-color: var(--bs-table-accent-bg);
         --bs-table-accent-bg: rgba(#{$color-bg}, 0.4);
-        color: $white;
+        color: variables.$white;
       }
       .table-active {
         background-color: var(--bs-table-accent-bg);
         --bs-table-accent-bg: rgb(#{$color-bg});
-        color: $white;
+        color: variables.$white;
       }
     }
     caption {
-      color: $text-muted;
+      color: variables.$text-muted;
     }
     .table-active{
       --bs-table-color-state: var(--default-text-color);
     }
     @mixin tablehead($color-bg) {
-      background-color: $white;
+      background-color: variables.$white;
       color: var(--bs-table-color);
       --bs-table-color-state: #000;
-      --bs-table-color: #{$black};
+      --bs-table-color: #{variables.$black};
       --bs-table-bg: rgba(#{$color-bg}, 0.1);
       --bs-table-border-color: rgba(#{$color-bg}, 0.1);
       --bs-table-striped-bg: rgba(#{$color-bg}, 0.5);
-      --bs-table-striped-color: #{$black};
+      --bs-table-striped-color: #{variables.$black};
       --bs-table-active-bg: rgba(#{$color-bg}, 0.5);
       --bs-table-hover-bg: rgba(#{$color-bg}, 0.5);
       color: var(--bs-table-color);
       border-color: var(--bs-table-border-color);
     }
     @mixin table-color($color-bg) {
-      --bs-table-color: #{$black};
+      --bs-table-color: #{variables.$black};
       --bs-table-color-state: $black;
       --bs-table-bg: rgba(#{$color-bg}, 0.1);
       --bs-table-border-color: rgba(#{$color-bg}, 0.1);
       --bs-table-striped-bg: rgba(#{$color-bg}, 0.3);
-      --bs-table-striped-color: #{$black};
+      --bs-table-striped-color: #{variables.$black};
       --bs-table-active-bg: rgba(#{$color-bg}, 0.3);
-      --bs-table-active-color: #{$black};
+      --bs-table-active-color: #{variables.$black};
       --bs-table-hover-bg: rgba(#{$color-bg}, 0.3);
-      --bs-table-hover-color: #{$black};
-      color: #{$black};
+      --bs-table-hover-color: #{variables.$black};
+      color: #{variables.$black};
       border-color: rgba(#{$color-bg}, 0.1);
-      background-color: #{$white};
+      background-color: #{variables.$white};
     }
     .table {
-      color: $text-color;
-      border-color: $default-border;
+      color: variables.$text-color;
+      border-color: variables.$default-border;
       margin-block-end: 0;
       tbody {
         tr {
-            border-color: $light-900;
+            border-color: variables.$light-900;
           th {
-            font-weight: $font-weight-medium;
+            font-weight: variables.$font-weight-medium;
           }
         }
       }
@@ -627,55 +630,55 @@ table.table-bordered thead tr th p {
       td {
         padding: 12px 20px;
         vertical-align: middle;
-        font-size: $font-size-14;
+        font-size: variables.$font-size-14;
         white-space: nowrap;
       }
       thead tr {
-        border-color: $light-900;
+        border-color: variables.$light-900;
         th {
-        font-weight: $font-weight-medium;
-        border-color: $light-900;
-        font-size: $font-size-14;
+        font-weight: variables.$font-weight-medium;
+        border-color: variables.$light-900;
+        font-size: variables.$font-size-14;
         }
       }
       &.table-sm > :not(caption) > * > * {
         padding: 0.3rem;
       }
       &.table-dark {
-        color: $light-700;
-        border-color: rgba($white, 0.1);
+        color: variables.$light-700;
+        border-color: rgba(variables.$white, 0.1);
       }
       .thead-primary th {
-          background-color: $primary;
-          color: $white;
+          background-color: variables.$primary;
+          color: variables.$white;
       }
       .thead-secondary th {
-          background-color: $secondary;
-          color: $white;
+          background-color: variables.$secondary;
+          color: variables.$white;
       }
       .thead-info th {
-          background-color: $info;
-          color: $white;
+          background-color: variables.$info;
+          color: variables.$white;
       }
       .thead-warning th {
-          background-color: $warning;
-          color: $white;
+          background-color: variables.$warning;
+          color: variables.$white;
       }
       .thead-danger th {
-          background-color: $danger;
-          color: $white;
+          background-color: variables.$danger;
+          color: variables.$white;
       }
       .thead-success th {
-          background-color: $success;
-          color: $white;
+          background-color: variables.$success;
+          color: variables.$white;
       }
       .thead-dark th {
-          background-color: $dark;
-          color: $white;
+          background-color: variables.$dark;
+          color: variables.$white;
       }
       .thead-light th {
-          background-color: $light-200;
-          color: $gray-900;
+          background-color: variables.$light-200;
+          color: variables.$gray-900;
       }
       &.table-primary {
         @include tablecolor(var(--primary-rgb));
@@ -709,7 +712,7 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($primary, 0.1);
+            border-color: rgba(variables.$primary, 0.1);
           }
         }
         &.border-info {
@@ -719,7 +722,7 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($info, 0.1);
+            border-color: rgba(variables.$info, 0.1);
           }
         }
         &.border-secondary {
@@ -729,7 +732,7 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($secondary, 0.1);
+            border-color: rgba(variables.$secondary, 0.1);
           }
         }
         &.border-warning {
@@ -739,7 +742,7 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($warning, 0.1);
+            border-color: rgba(variables.$warning, 0.1);
           }
         }
         &.border-success {
@@ -749,7 +752,7 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($success, 0.1);
+            border-color: rgba(variables.$success, 0.1);
           }
         }
         &.border-danger {
@@ -759,28 +762,28 @@ table.table-bordered thead tr th p {
           th,
           thead,
           tr {
-            border-color: rgba($danger, 0.1);
+            border-color: rgba(variables.$danger, 0.1);
           }
         }
       }
       &.table-striped > tbody > tr:nth-of-type(odd) > * {
         --bs-table-accent-bg: rgba(var(--dark-rgb),0.0125);
-        color: $text-color;
+        color: variables.$text-color;
       }
       &.table-striped-columns > :not(caption) > tr > :nth-child(2n) {
         --bs-table-accent-bg: rgba(var(--dark-rgb),0.025);
-        color: $text-color;
+        color: variables.$text-color;
       }
       tbody.table-group-divider {
-        border-top: 1px solid $default-border;
+        border-top: 1px solid variables.$default-border;
       }
       &.table-hover > tbody > tr:hover > * {
-        --bs-table-accent-bg: #{$default-background};
-        color: $text-color;
+        --bs-table-accent-bg: #{variables.$default-background};
+        color: variables.$text-color;
       }
       .table-active {
-        --bs-table-accent-bg: #{$light};
-        color: $text-color;
+        --bs-table-accent-bg: #{variables.$light};
+        color: variables.$text-color;
       }
       thead {
         &.table-primary {
@@ -811,7 +814,7 @@ table.table-bordered thead tr th p {
     }
     .datanew {
       tbody{
-          border-top: 1px solid $light-900;
+          border-top: 1px solid variables.$light-900;
       }
     }
     .table-primary {
@@ -849,12 +852,12 @@ table.table-bordered thead tr th p {
       }
     }
     .invoice-table {
-      border: 1px solid $light-900;
+      border: 1px solid variables.$light-900;
       border-radius: 5px;
       margin: 20px 0;
       thead {
           th {
-              border-bottom: 1px solid $light-900;
+              border-bottom: 1px solid variables.$light-900;
               &:first-child {
                   width: 80%;
               }
@@ -876,22 +879,22 @@ table.table-bordered thead tr th p {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: $danger-100;
-          color: $danger;
+          background: variables.$danger-100;
+          color: variables.$danger;
           border-radius: 5px;
-          font-size: $font-size-16;
+          font-size: variables.$font-size-16;
       }
     }
     .invoice-product-table {
-        border-top: 1px solid $light-900;
+        border-top: 1px solid variables.$light-900;
     }
     .table{
         margin: 0;
         tbody{
             tr{
                 td{
-                    color: $gray-700;
-                    font-size: $font-size-14; 
+                    color: variables.$gray-700;
+                    font-size: variables.$font-size-14; 
                     .product-img{
                         img{
                             border: 0;
@@ -901,16 +904,16 @@ table.table-bordered thead tr th p {
                 &.active{
                     border-bottom: 0;
                     td{
-                        font-size: $font-size-18;
-                        color: $gray-700;
-                        font-weight: $font-weight-semibold;
+                        font-size: variables.$font-size-18;
+                        color: variables.$gray-700;
+                        font-weight: variables.$font-weight-semibold;
                         border-bottom: 0;
                     }
                 }
                 .checkboxs {
                     .checkmarks {
                         top: 50%;
-                        @include transform(translateY(-50%));
+                        @include mixins.transform(translateY(-50%));
                     }
                 }
             }
@@ -940,8 +943,8 @@ table.table-bordered thead tr th p {
         -webkit-box-align: center;
         -ms-flex-align: center;
         a{
-            color: $secondary;
-            font-weight: $font-weight-medium;
+            color: variables.$secondary;
+            font-weight: variables.$font-weight-medium;
         }
     }
     .table {
@@ -956,14 +959,14 @@ table.table-bordered thead tr th p {
       tbody{
           tr{
               td{
-                  color: $gray-700;
+                  color: variables.$gray-700;
                   .product-img{
                       img{
                           border: 0;
                       }
                   }
                   a {
-                      color:$gray-900;
+                      color:variables.$gray-900;
                       &.product-img{
                           margin-right: 5px;
                           flex-shrink: 0;
@@ -974,16 +977,16 @@ table.table-bordered thead tr th p {
                           height: 16px;
                       }
                       &:hover {
-                          color: $primary;
+                          color: variables.$primary;
                       }
                   }
               }
               &.active{
                   border-bottom: 0;
                   td{
-                      font-size: $font-size-18;
-                      color: $gray-700;
-                      font-weight: $font-weight-semibold;
+                      font-size: variables.$font-size-18;
+                      color: variables.$gray-700;
+                      font-weight: variables.$font-weight-semibold;
                       border-bottom: 0;
                   }
               }
@@ -1027,9 +1030,9 @@ table.table-bordered thead tr th p {
             thead {
                 tr {
                     th {
-                        background: $gray-100;
-                        color: $gray-900;
-                        font-size: $font-size-14;
+                        background: variables.$gray-100;
+                        color: variables.$gray-900;
+                        font-size: variables.$font-size-14;
                         border: 0;
                         padding: 12px 20px;
                     }
@@ -1041,11 +1044,11 @@ table.table-bordered thead tr th p {
                         border: 0;
                         padding: 12px 20px;
                         .detail-link {
-                            font-weight: $font-weight-semibold;
-                            color: $gray-900;
+                            font-weight: variables.$font-weight-semibold;
+                            color: variables.$gray-900;
                             text-decoration: underline;
                             &:hover {
-                                color: $primary;
+                                color: variables.$primary;
                             }
                         }
                     }
@@ -1055,11 +1058,11 @@ table.table-bordered thead tr th p {
     }
     .table tbody tr td a {
       &.delete-icon {
-          font-size: $font-size-16;
-          color: $danger;
+          font-size: variables.$font-size-16;
+          color: variables.$danger;
     
           &:hover {
-              color: $danger-hover;
+              color: variables.$danger-hover;
           }
       }
     }
@@ -1069,7 +1072,7 @@ table.table-bordered thead tr th p {
           tr {
               th {
                   border: 0;
-                  border-bottom: 1px solid $light-900;
+                  border-bottom: 1px solid variables.$light-900;
               }
               &.report-first-head {
                   th {
@@ -1078,7 +1081,7 @@ table.table-bordered thead tr th p {
               }
               td {
                   border: 0;
-                  border-bottom: 1px solid $light-900;
+                  border-bottom: 1px solid variables.$light-900;
                   input.form-control {
                       min-width: 200px;
                   }

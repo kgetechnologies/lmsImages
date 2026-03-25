@@ -1,24 +1,26 @@
+@use "../utils/variables";
+
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
     border-radius: 50px !important;
 }
 ::-webkit-scrollbar-track {
-    background: $light-500;
+    background: variables.$light-500;
 }
 ::-webkit-scrollbar-thumb {
-    background: $gray-200;
+    background: variables.$gray-200;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: $gray-200;
+    background: variables.$gray-200;
 }
 .swal2-header{
     .swal2-title{
-        font-size: $font-size-18;
+        font-size: variables.$font-size-18;
     }
 }
 hr {
-    border-color: $border-color;
+    border-color: variables.$border-color;
     opacity: 1;
 }
 .checkboxs {
@@ -36,12 +38,12 @@ hr {
     }
 }
 .checkboxs input ~ .checkmarks {
-    border: 1px solid $light-900;
+    border: 1px solid variables.$light-900;
     border-radius: 2px;
 }
 .checkboxs input:checked ~ .checkmarks {
-    background-color: $primary;
-    border-color: $primary;
+    background-color: variables.$primary;
+    border-color: variables.$primary;
     &:after {
         display: block;
     }
@@ -61,11 +63,11 @@ hr {
         transform: translate(-50%, -50%);
         content: "\f00c";
         font-family: 'Font Awesome 5 Free';
-        color: $white;
-        font-weight: $font-weight-semibold;
+        color: variables.$white;
+        font-weight: variables.$font-weight-semibold;
         font-size: 10px;
     }
 }
 .shadow-sm {
-    box-shadow: $box-shadow-xs-2;
+    box-shadow: variables.$box-shadow-xs-2;
 }

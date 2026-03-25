@@ -1,10 +1,13 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 /*============================
   56.chat
 ============================*/
 
 .header-navigation {
     padding-bottom: 20px;
-    border-bottom: 1px solid $light;
+    border-bottom: 1px solid variables.$light;
     margin-bottom: 20px;
 }
 .chat-scroll {
@@ -12,42 +15,42 @@
     overflow-y: auto;
     &::-webkit-scrollbar {
         width: 3px;
-        background: $white;
+        background: variables.$white;
         height: 3px;
     }
     &::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px $white;
+        box-shadow: inset 0 0 5px variables.$white;
         border-radius: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background: $light-900;
+        background: variables.$light-900;
         border-radius: 10px;
         &:hover {
-            background: $light-100;
+            background: variables.$light-100;
         }
     }
 }
 .chat-cont-left {
     width: 340px;
-    border-right: 1px solid $gray-100;
+    border-right: 1px solid variables.$gray-100;
     flex-shrink: 0;
     .chat-scroll {
         max-height: calc(100vh - 100px);
         overflow-y: auto;
         &::-webkit-scrollbar {
             width: 3px;
-            background: $white;
+            background: variables.$white;
             height: 3px;
         }
         &::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px $white;
+            box-shadow: inset 0 0 5px variables.$white;
             border-radius: 10px;
         }
         &::-webkit-scrollbar-thumb {
-            background: $light-900;
+            background: variables.$light-900;
             border-radius: 10px;
             &:hover {
-                background: $light-900;
+                background: variables.$light-900;
             }
         }
     }
@@ -69,26 +72,26 @@
         }
     }
     .card {
-        border: 1px solid $light;
+        border: 1px solid variables.$light;
         box-shadow: none;
     }
     .chat-users-list {
         padding: 20px;
         .chat-member {
-            background: $white;
+            background: variables.$white;
             padding: 10px;
             border-radius: 10px;
-            border: 1px solid $white;
+            border: 1px solid variables.$white;
             box-shadow: 0px 4px 4px 0px #D4D4D440;
             &.active {
-                border-color: $secondary;
+                border-color: variables.$secondary;
             }
             .avatar {
                 img {
                     border-radius: 50%;
                 }
                 &.active img {
-                    border: 2px solid $warning;
+                    border: 2px solid variables.$warning;
                 }
             }
             .msg-count {
@@ -131,8 +134,8 @@
         .media-body {
             .msg-box {
                 .received-message {
-                    background-color: $light-900;
-                    color: $gray-900;
+                    background-color: variables.$light-900;
+                    color: variables.$gray-900;
                     padding: 15px;
                     border-radius: 15px 15px 15px 0;
                     .img-count {
@@ -190,17 +193,17 @@
             .msg-box {
                 margin-left: 70px;
                 position: relative;
-                @include respond-below(sm){
+                @include mixins.respond-below(sm){
                     margin-left: 30px;
                 }
                 &:first-child {
                     .sent-message {
                         margin-top: 0;
-                        background: $primary;
+                        background: variables.$primary;
                         padding: 14px;
                         border-radius: 15px 15px 0 15px;
                         p {
-                            color: $white;
+                            color: variables.$white;
                         }
                     }
                 }
@@ -231,7 +234,7 @@
     }
 }
 .type_msg {
-    background: $white;
+    background: variables.$white;
     border-radius: 50px;
     overflow-y: auto;
     min-height: 40px;
@@ -279,13 +282,13 @@
     -webkit-justify-content: center;
     padding: 0;
     font-size: 12px;
-    @include respond-below(md) {
+    @include mixins.respond-below(md) {
         width: 35px;
         height: 35px;
     }
     i {
         font-size: 20px;
-        @include respond-below(md) {
+        @include mixins.respond-below(md) {
             font-size: 15px;
         }
     }
@@ -308,14 +311,14 @@
         -webkit-align-items: center;
         justify-content: space-between;
         -webkit-justify-content: space-between;
-        border-bottom: 1px solid $gray-100;
+        border-bottom: 1px solid variables.$gray-100;
         z-index: 15;
         .back-user-list {
             display: none;
             padding-right: 10px;
             margin-left: -10px;
             padding-left: 10px;
-            @include respond-below(md) {
+            @include mixins.respond-below(md) {
                 display: block;
             }
         }
@@ -408,7 +411,7 @@
         display: block;
         width: 100%;
         height: 1px;
-        border: 1px solid $light;
+        border: 1px solid variables.$light;
         position: absolute;
         z-index: -1;
         top: 50%;
@@ -439,8 +442,8 @@
         width: 100%;
         min-height: 37px;
         border-radius:5px;
-        background-color: $white;
-        color: $gray-900;
+        background-color: variables.$white;
+        color: variables.$gray-900;
     }
 }
 .chat-search{
@@ -456,7 +459,7 @@
             align-items: center;
             -webkit-box-align: center;
             -ms-flex-align: center;
-            color: $gray-700;
+            color: variables.$gray-700;
             pointer-events: none;
             z-index: 4;
             position: absolute;
@@ -465,7 +468,7 @@
             bottom: 0;
         }
         .input-group-text{
-            background-color: $white;
+            background-color: variables.$white;
         }
     }
     &.visible-chat {
@@ -483,18 +486,18 @@
     .no-bg{
         margin-right: 0;
         padding: 8px;
-        background-color: $white;
-        border: $white;
-        color: $gray-900;
+        background-color: variables.$white;
+        border: variables.$white;
+        color: variables.$gray-900;
         &.show{
-            background-color: $white;
-            border-color:$white ;
-            color: $gray-900;
+            background-color: variables.$white;
+            border-color:variables.$white ;
+            color: variables.$gray-900;
         }
         &:hover{
-            background-color: $white;
-            border: $white;
-            color: $gray-900;
+            background-color: variables.$white;
+            border: variables.$white;
+            color: variables.$gray-900;
         }
     }
 }
@@ -529,8 +532,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: $white;
-    border: 1px solid $light;
+    background: variables.$white;
+    border: 1px solid variables.$light;
     border-radius: 8px;
     padding: 8px;
 }
@@ -544,10 +547,10 @@
   
 }
 .emoj-group-list-foot ul li.add-emoj a {
-    background: $light-500;
+    background: variables.$light-500;
 }
 .emoj-group-list-foot ul li.add-emoj a i {
-    font-size: $font-size-20;
+    font-size: variables.$font-size-20;
 }
 .chat-cont-right{
     display: flex;

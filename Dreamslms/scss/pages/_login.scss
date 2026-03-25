@@ -1,3 +1,6 @@
+@use "../utils/mixins";
+@use "../utils/variables";
+
 .login-content {
 	.login-bg {
 		background: #FEEEF0;
@@ -39,7 +42,7 @@
 			}
 		}
 		p {
-			font-size: $font-size-14;
+			font-size: variables.$font-size-14;
 		}
 	}
 	.slick-dots {
@@ -47,13 +50,13 @@
 			width: 10px;
 			height: 10px;
 			border-radius: 50px;
-			background: $gray-100;
+			background: variables.$gray-100;
 		}
 		.slick-active {
 			width: 50px;
 			height: 10px;
 			border-radius: 50px;
-			background: $secondary;
+			background: variables.$secondary;
 			button {
 				background: transparent;
 			}
@@ -82,6 +85,15 @@
 				width: 100%;
 				font-weight: 600;
 				padding: 20px 100px;
+				@include mixins.respond-below(xl) {
+					padding: 20px 70px;
+				}
+				@include mixins.respond-below(lg) {
+					padding: 20px 60px;
+				}
+				@include mixins.respond-below(md) {
+					padding: 20px 30px;
+				}
 				.img-logo {
 					margin-bottom: 54px;
 					display: -webkit-box;
@@ -99,27 +111,27 @@
 		}
 		.login-header {
 			margin-bottom: 80px;
-			@include respond-below(md) {
+			@include mixins.respond-below(md) {
 				margin-bottom: 50px;
 			}
-			@include respond-below(sm) {
+			@include mixins.respond-below(sm) {
 				margin-bottom: 30px;
 			}
 
 		}
 		.topic {
 			margin-bottom: 40px;
-			@include respond-below(md) {
+			@include mixins.respond-below(md) {
 				margin-bottom: 30px;
 			}
-			@include respond-below(sm) {
+			@include mixins.respond-below(sm) {
 				margin-bottom: 20px;
 			}
 		}
 
 		.form-control {
 			&:focus {
-				border-color: $secondary;
+				border-color: variables.$secondary;
 			}
 		}
 		.email-input {
@@ -143,7 +155,7 @@
 			margin-right: 8px;
 		}
 		.form-check-label {
-			font-weight: $font-weight-normal;
+			font-weight: variables.$font-weight-normal;
 		}
 
 		.form-control.otp {
@@ -151,6 +163,14 @@
 			height: 70px;
 			margin-right: 20px;
 			text-align: center;
+			@include mixins.respond-below(xl) {
+				width: 75px;
+				height: 65px;
+			}
+			@include mixins.respond-below(md) {
+				width: 65px;
+				height: 55px;
+			}
 			&:last-child {
 				margin-right: 0;
 			}		  
@@ -171,7 +191,7 @@
 				content: "";
 				width: 180px;
 				height: 1px;
-				background: $gray-100;
+				background: variables.$gray-100;
 				left: 0;
 			}
 			&::before {
@@ -179,7 +199,7 @@
 				content: "";
 				width: 180px;
 				height: 1px;
-				background: $gray-100;
+				background: variables.$gray-100;
 				right: 0;
 			}
 		}
@@ -223,20 +243,20 @@
 	}
 
 	.link-1 {
-		font-size: $font-size-14;
-		color: $secondary;
-		font-weight: $font-weight-normal;
+		font-size: variables.$font-size-14;
+		color: variables.$secondary;
+		font-weight: variables.$font-weight-normal;
 		text-decoration: underline;
 		&:hover {
-			color: $primary;
+			color: variables.$primary;
 		}
 	}
 	.link-2 {
-		color: $secondary;
-		font-weight: $font-weight-normal;
-		font-size: $font-size-14;
+		color: variables.$secondary;
+		font-weight: variables.$font-weight-normal;
+		font-size: variables.$font-size-14;
 		&:hover {
-			color: $primary;
+			color: variables.$primary;
 		}
 	}
 
@@ -280,12 +300,15 @@
 		max-width: 410px;
 		min-width: 300px;
 		width: 100%;
+		@include mixins.respond-below(sm) {
+			padding: 20px;
+		}
 		.lock-header {
 			margin-bottom: 80px;
-			@include respond-below(md) {
+			@include mixins.respond-below(md) {
 				margin-bottom: 50px;
 			}
-			@include respond-below(sm) {
+			@include mixins.respond-below(sm) {
 				margin-bottom: 30px;
 			}
 		}
@@ -296,7 +319,7 @@
 		}
 		input {
 			&:focus {
-				border-color: $secondary;
+				border-color: variables.$secondary;
 			}
 		}
 	}

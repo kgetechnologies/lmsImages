@@ -1,15 +1,17 @@
+@use "../utils/variables";
+
 
 .daterangepicker {
     .ranges {
         li.active {
-            background-color: $primary;
+            background-color: variables.$primary;
         }
     }
     td {
         &.active {
-            background-color: $primary;
+            background-color: variables.$primary;
             &:hover {
-                background-color: $primary;
+                background-color: variables.$primary;
             }
         }
     }
@@ -17,8 +19,8 @@
 .daterange-wraper {
     .date-range {
         padding-left: 30px;
-        font-size: $font-size-14;
-        color: $gray-700;
+        font-size: variables.$font-size-14;
+        color: variables.$gray-700;
         border: 0;
         min-height: auto;
         height: 36px;

@@ -39,36 +39,43 @@ Version      : 1.0
 	
 	// Sidebar
 
-	if ($(window).width() <= 991) {
-		var Sidemenu = function() {
-			this.$menuItem = $('.main-nav a');
-			this.init();
-		};
-	
-		Sidemenu.prototype.init = function() {
-			var self = this;
-			self.$menuItem.on('click', function(e) {
+	function bindMobileMenu() {
+	// Unbind previous events to avoid duplicates
+	$(document).off('click.mobileMenu');
+
+		// Only bind for mobile view
+		if ($(window).width() <= 991) {
+			$(document).on('click.mobileMenu', '.main-nav a', function (e) {
 				var $this = $(this);
-	
+
 				if ($this.parent().hasClass('has-submenu')) {
 					e.preventDefault();
-				}
-	
-				if (!$this.hasClass('submenu')) {
-					$('ul', $this.parents('ul:first')).slideUp(350);
-					$('a', $this.parents('ul:first')).removeClass('submenu');
-					$this.next('ul').slideDown(350);
-					$this.addClass('submenu');
-				} else {
-					$this.removeClass('submenu');
-					$this.next('ul').slideUp(350);
+
+					if (!$this.hasClass('submenu')) {
+						// Close other open submenus
+						$this.closest('ul').find('ul').slideUp(350);
+						$this.closest('ul').find('a').removeClass('submenu');
+
+						// Open current submenu
+						$this.next('ul').slideDown(350);
+						$this.addClass('submenu');
+					} else {
+						$this.removeClass('submenu');
+						$this.next('ul').slideUp(350);
+					}
 				}
 			});
-		};
-	
-		// Initialize Sidebar
-		new Sidemenu();
+		}
 	}
+
+	// Initial binding
+	bindMobileMenu();
+
+	// Re-bind on window resize
+	$(window).on('resize', function () {
+		bindMobileMenu();
+	});
+
 	
 	// Icon Btn
 	
