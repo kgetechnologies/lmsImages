@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Check out this amazing page!" />
+    <meta property="og:description" content="This is an amazing page on our website that you don't want to miss!" />
+    <meta property="og:image" content="https://yourwebsite.com/images/preview-image.jpg" />
+    <meta property="og:url" content="https://yourwebsite.com/some-page" />
+    <meta property="og:type" content="website" />
+    <title>Elearning</title>
+    <base href="/" />
+    <script src="assets/js/theme-script.js" type="08816c6c5c5fef738414ad25-text/javascript"></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-base.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23cez/3paNdFmC1RsDbylyB+Ffg2vFec9Jo+" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="assets/plugins/feather/feather.css">
+
+    <link rel="stylesheet" href="assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="assets/plugins/slick/slick-theme.css">
+
+    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+
+    <link rel="stylesheet" href="assets/plugins/swiper/css/swiper.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="Elearning.styles.css" rel="stylesheet" />
+    <link href="manifest.webmanifest" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+</head>
+<body class="home-three">
+    <div id="app">
+        <div id="loading-overlay">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+            <div class="loading-progress-text">Preparing Your Experience...</div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui" style="position: fixed; bottom: 0; right: 0; width: 100%; max-width: 400px; background: #ff4d4d; color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; font-family: Arial, sans-serif; font-size: 14px;">
+        <strong style="display: block; margin-bottom: 8px;">⚠️ An Error Has Occurred</strong>
+        <p style="margin: 0 0 10px; line-height: 1.5;">
+            Oops! Something went wrong. Please try reloading the page or contact support if the issue persists.
+        </p>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+            <a href="." class="reload" style="background: #fff; color: #ff4d4d; padding: 8px 12px; border-radius: 4px; text-decoration: none; font-weight: bold;">Reload</a>
+            <button class="dismiss" onclick="document.getElementById('blazor-error-ui').style.display = 'none';" style="background: transparent; border: none; color: #fff; font-size: 16px; cursor: pointer;">🗙</button>
+        </div>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/plugins/aos/aos.js"></script>
+
+    <script src="assets/js/jquery.waypoints.js"></script>
+
+
+    <script src="assets/plugins/select2/js/select2.min.js"></script>
+
+    <script src="assets/plugins/slick/slick.js"></script>
+
+    <script src="assets/plugins/swiper/js/swiper.min.js"></script>
+    <script src="assets/js/theme-script.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="scripts/metadata.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        window.blazorCulture = {
+            get: () => localStorage['BlazorCulture'],
+            set: (value) => localStorage['BlazorCulture'] = value
+        };
+    </script>
+    <script>
+        function setSocialMediaMetadata(title, imageUrl, description) {
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            var ogDescription = document.querySelector('meta[property="og:description"]');
+            var ogImage = document.querySelector('meta[property="og:image"]');
+
+            if (ogTitle) ogTitle.setAttribute('content', title);
+            if (ogDescription) ogDescription.setAttribute('content', description);
+            if (ogImage) ogImage.setAttribute('content', imageUrl);
+        }
+
+    </script>
+    <script>
+        window.initPlyr = (selector) => {
+            try {
+                const players = [];
+                document.querySelectorAll(selector).forEach((videoElement) => {
+                    players.push(new Plyr(videoElement, {
+                        settings: [], // Disable settings menu
+                        youtube: {
+                            noCookie: true,
+                            modestbranding: 1,
+                        },
+                    }));
+                });
+            } catch (error) {
+                console.error("Error initializing Plyr:", error);
+            }
+        };
+
+    </script>
+    <script>
+        async function stripeRedirect(sessionId) {
+            const stripe = Stripe('pk_test_51P2vcYSGwrqerXOKEAjU6TetFidHBoccYWTVaGimlE0xW4RkXI0BEZTTMqAfsE5CAQeQ5LPFSERjVlmowjLdeYZE004OzpBHMS'); // Replace with your Stripe publishable key
+            await stripe.redirectToCheckout({ sessionId: sessionId });
+        }
+
+        async function confirmStripePayment(sessionId) {
+            // Add logic to confirm the payment with Stripe, e.g., using Stripe API
+            return true; // Replace this with actual logic to verify payment success
+        }
+
+    </script>
+    <script>
+        window.addOutsideClickListener = (dotNetObj, menuId, buttonId, callbackMethod) => {
+            const clickHandler = (event) => {
+                const menuElement = document.getElementById(menuId);
+                const buttonElement = document.getElementById(buttonId);
+
+                // Check if click is outside both the menu and button
+                if (
+                    menuElement && !menuElement.contains(event.target) &&
+                    buttonElement && !buttonElement.contains(event.target)
+                ) {
+                    dotNetObj.invokeMethodAsync(callbackMethod);
+                }
+            };
+
+            // Attach the event listener
+            document.addEventListener('click', clickHandler);
+
+            // Return a cleanup function to remove the event listener if needed
+            return {
+                remove: () => document.removeEventListener('click', clickHandler)
+            };
+        };
+    </script>
+
+
+
+    <script>
+        window.toggleDarkMode = () => {
+            const body = document.body;
+            body.classList.toggle("dark");
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Check the stored theme preference on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.body.classList.add('dark');
+            }
+        });
+    </script>
+
+
+    <script>
+
+        function toggleSidebar() {
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+            const mainMenu = document.querySelector('.main-menu-wrapper');
+            mainMenu.classList.toggle('open');
+            sidebarOverlay.style.display = mainMenu.classList.contains('open') ? 'block' : 'none';
+        }
+
+        function closeSidebar() {
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+            const mainMenu = document.querySelector('.main-menu-wrapper');
+            mainMenu.classList.remove('open');
+            sidebarOverlay.style.display = 'none';
+        }
+        function toggleSubmenu(submenuId) {
+            const submenu = document.getElementById(submenuId);
+            if (submenu) {
+                submenu.classList.toggle('open');
+            }
+        }
+
+        window.toggleSubmenu = toggleSubmenu;
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) submenu.style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                const submenu = item.querySelector('.submenu');
+                if (submenu) submenu.style.display = 'none';
+            });
+        });
+
+
+
+        window.initializeOwlCarousel = function () {
+            if ($('.home-three-favourite-carousel').length > 0) {
+                $('.home-three-favourite-carousel').owlCarousel({
+                    margin: 24,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        500: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        900: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        },
+                        1300: {
+                            items: 5
+                        }
+                    }
+                });
+            }
+        };
+
+        window.initializeOwlCarousels1 = function () {
+            if ($('.newcourse-carousel').length > 0) {
+                $('.newcourse-carousel').owlCarousel({
+                    margin: 24,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        500: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        900: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        },
+                        1300: {
+                            items: 5
+                        }
+                    }
+                });
+            }
+        };
+
+        window.initializeOwlCarousels2 = function () {
+            if ($('.upcoming-carousel').length > 0) {
+                $('.upcoming-carousel').owlCarousel({
+                    margin: 24,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        500: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        900: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        },
+                        1300: {
+                            items: 5
+                        }
+                    }
+                });
+            }
+        };
+
+        window.initializeOwlCarouselstrending = function () {
+            if ($('.trending-carousel').length > 0) {
+                $('.trending-carousel').owlCarousel({
+                    margin: 24,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        500: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        900: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        },
+                        1300: {
+                            items: 5
+                        }
+                    }
+                });
+            }
+        };
+        window.initializeOwlCarouselsbestseller = function () {
+            if ($('.bestseller-carousel').length > 0) {
+                $('.bestseller-carousel').owlCarousel({
+                    margin: 24,
+                    nav: true,
+                    loop: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        500: {
+                            items: 1
+                        },
+                        768: {
+                            items: 1
+                        },
+                        900: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        },
+                        1300: {
+                            items: 5
+                        }
+                    }
+                });
+            }
+        };
+        //window.initializeOwlCarouselsinstructors = function () {
+        //    if ($('.instructors-carousel').length > 0) {
+        //        $('.instructors-carousel').owlCarousel({
+        //            margin: 24,
+        //            nav: true,
+        //            loop: true,
+        //            responsive: {
+        //                0: {
+        //                    items: 1
+        //                },
+        //                500: {
+        //                    items: 1
+        //                },
+        //                768: {
+        //                    items: 1
+        //                },
+        //                900: {
+        //                    items: 2
+        //                },
+        //                1000: {
+        //                    items: 3
+        //                },
+        //                1300: {
+        //                    items: 5
+        //                }
+        //            }
+        //        });
+        //    }
+        //};
+
+    </script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        });
+    </script>
+    <script>
+        function setupProfileDropdown() {
+            document.addEventListener('click', function (e) {
+                const dropdown = document.querySelector('.profile-info .dropdown-menu');
+                const isDropdownButton = e.target.matches('.profile-info, .profile-info *');
+                if (isDropdownButton) {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                } else {
+                    dropdown.style.display = 'none';
+                }
+            });
+        }
+
+        window.toggleMobileMenu = function () {
+            const sidebar = document.getElementById("mobileSidebar");
+            sidebar.classList.toggle("show");
+        }
+
+        // Close menu if clicking outside the sidebar
+        document.addEventListener("click", function (event) {
+            const sidebar = document.getElementById("mobileSidebar");
+            const toggleButton = document.querySelector(".mobile-menu-toggle");
+
+            if (sidebar && !sidebar.contains(event.target) && toggleButton && !toggleButton.contains(event.target)) {
+                sidebar.classList.remove("show");
+            }
+        });
+        // sidebar.js
+        function toggleSidebar() {
+            document.body.classList.toggle('sidebar-open');
+        }
+
+    </script>
+    <script>
+        function shareOnSocialMedia(platform, url, description) {
+            let shareUrl;
+            switch (platform) {
+                case "facebook":
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case "twitter":
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(description)}`;
+                    break;
+                case "linkedin":
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(description)}`;
+                    break;
+            }
+            window.open(shareUrl, "_blank");
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+        function printableDiv(divName, callback) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            // Temporarily replace the content of the body with the printable div
+            document.body.innerHTML = printContents;
+
+            // Trigger the print dialog
+            window.print();
+            window.location.reload();
+            // After printing, restore the original content of the page
+            setTimeout(function () {
+                document.body.innerHTML = originalContents;
+                // Call the Blazor callback method after printing
+                callback.invokeMethodAsync("OnPrintCompleted");
+            }, 1000);  // Adjust the delay time as needed
+        }
+    </script>
+
+
+</body>
+
+</html>

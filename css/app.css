@@ -1,0 +1,555 @@
+﻿html, body {
+    font-family: system-ui;
+}
+
+h1:focus {
+    outline: none;
+}
+
+/*a, .btn-link {
+    color: #131315 !important;
+}*/
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+/*.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}*/
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred."
+    }
+/* Loader Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: #ffffff;
+}
+
+/* Spinner Animation */
+.spinner {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.double-bounce1,
+.double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    animation-delay: -1.0s;
+}
+
+/* Loading Text Styling */
+.loading-progress-text {
+    margin-top: 20px;
+    color: #e0e0e0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.5px;
+    animation: fade-in 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0.0);
+    }
+
+    50% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes fade-in {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+
+code {
+    color: #c02d76;
+}
+/* Sidebar and overlay styles */
+/*.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}*/
+
+/*.main-menu-wrapper {
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+    .main-menu-wrapper.open {
+        transform: translateX(0);
+    }*/
+/* Submenu default hidden */
+.submenu {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+    .submenu.open {
+        display: block;
+    }
+
+
+
+/* General styling for the select dropdown */
+.form-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Hide default dropdown arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+    /* Styling options inside the dropdown */
+    .form-select option {
+        padding: 10px;
+        font-size: 14px;
+        background-color: #fff;
+        color: #333;
+    }
+
+        /* Style for top-level categories */
+        .form-select option[data-level="0"] {
+            font-weight: bold;
+            color: #333;
+            background-color: #f1f1f1;
+        }
+
+        /* Style for subcategories */
+        .form-select option[data-level="1"] {
+            color: #555;
+            background-color: #f9f9f9;
+            padding-left: 20px; /* Indentation to show hierarchy */
+        }
+
+        /* Hover effect for dropdown */
+        .form-select option:hover {
+            background-color: #e6e6e6;
+            color: #000;
+        }
+
+        /* Disabled option style */
+        .form-select option:disabled {
+            color: #999;
+            background-color: #fafafa;
+        }
+
+
+
+
+/* Overall card styling */
+.course-cards {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 16px;
+}
+
+/* Course image styling */
+.course-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+/* Wishlist button */
+.wishlist-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* Instructor image styling */
+.instructor-container {
+    display: inline-block;
+    margin: 12px 0;
+}
+
+.instructor-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Course level styling */
+.course-level {
+    display: block;
+    font-size: 14px;
+    color: #333; /* Purple color for the level */
+    margin-bottom: 8px;
+}
+
+/* Course title styling */
+.course-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Course pricing styling */
+.course-pricing {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.course-price {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #333; 
+}
+
+.course-discount-price {
+    font-size: 1em;
+    color: #d9534f; /* Red color for the discount */
+    text-decoration: line-through;
+}
+
+/* Course duration styling */
+.course-duration {
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+    .course-duration i {
+        color: #666;
+    }
+
+
+
+.search-filter {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.filter-widget h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+    .custom-radio input[type="radio"] {
+        display: none;
+    }
+
+.radio-mark {
+    height: 16px;
+    width: 16px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-mark {
+    border-color: #6c63ff;
+}
+
+    .custom-radio input[type="radio"]:checked + .radio-mark::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 8px;
+        width: 8px;
+        background-color: #6c63ff;
+        border-radius: 50%;
+    }
+
+.category-list {
+    padding-left: 20px;
+}
+
+.subcategory-list {
+    padding-left: 24px;
+    font-size: 14px;
+    color: #666;
+}
+
+.subcategory {
+    margin-left: 24px;
+}
+
+.filter-widget i {
+    margin-left: auto;
+    cursor: pointer;
+}
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-image {
+    background-size: cover;
+    background-position: center;
+}
+
+.login-form {
+    padding: 2rem;
+}
+
+.toggle-buttons button {
+    border-radius: 0;
+}
+
+.role-buttons .btn {
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    margin: 0.2rem;
+}
+
+    .role-buttons .btn:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+.header-top {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Hide header top */
+.hide-header-top {
+    transform: translateY(-100%);
+}
+.profile {
+    margin-bottom:30px;
+}
+.icon-btn {
+    background: none;
+    border: none;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #555;
+}
+@media (max-width: 768px) {
+    .top-nav {
+        display: none !important;
+    }
+    .mobile-back {
+        background: gray;
+        padding: 6px;
+    }
+}
+.text-primary {
+    color: #43d477 !important;
+}
+.text-danger {
+    color: #f63c3c !important;
+}
+.cart-totals {
+    margin: 4px 30px;
+    float: right;
+}
+.cart-totals h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+}
+.cart-content {
+    height: 350px;
+    width: 390px;
+    overflow-y: auto;
+    position: relative;
+    padding-right: 0;
+}
+    .cart-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px;
+    }
+        .cart-content ul li {
+            padding: 15px 0;
+            border-bottom: 1px solid #dfdfe0;
+        }
+            .cart-content ul li .media {
+                display: flex;
+                justify-content: space-between;
+            }
+    .cart-content .media-body {
+        overflow: hidden;
+    }
+    .cart-content h6 {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 2px;
+    }
+.cart-content .media .avatar img {
+    width: 84px;
+    height: 63px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+    .cart-content h6 a {
+        color: #000;
+        font-size: 14px;
+    }
+    .cart-content h5 {
+        color: #f66962;
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 0;
+        float: right;
+    }
+.cart-content p {
+    color: #685f78;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+/* Active link styling */
+.nav-item .nav-link.active {
+    color: #7b1ffe !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+/* Default link styling */
+.nav-item .nav-link {
+    color: black; /* Default text color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+    /* Hover effect */
+    .nav-item .nav-link:hover {
+        color: #007bff; /* Hover color */
+    }
+.btn:hover {
+    color: white !important; /* Ensures text color becomes white */
+}
+
+
+
+
+
+
+
+
