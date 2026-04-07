@@ -1,17 +1,8 @@
 body {
-   margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.table {
-    width: 100% !important;
-    vertical-align: middle;
-}
-
-.table td .btn {
-    margin: 2px !important;
-    display: inline-flex;
-    align-items: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
 }
 
 .sidebar {
@@ -19,97 +10,135 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 250px;
-    background: #0f172a;
+    width: 260px;
+    background: #0f172a; 
     overflow-y: auto;
     transition: 0.3s;
     z-index: 1000;
-}
-
-.sidebar.hide {
-   left: -250px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
     text-align: center;
-    padding: 20px;
-    color: white;
+    padding: 25px 15px;
+    color: #ffffff;
+    font-size: 20px;
     border-bottom: 1px solid #1e293b;
+    margin: 0;
 }
 
-.sidebar ul{
+.sidebar ul {
     list-style: none;
-    padding: 0;
+    padding: 10px 0;
     margin: 0;
 }
 
 .sidebar ul li {
-  padding: 15px 20px;
-  border-bottom: 1px solid #1e293b;
-  cursor: pointer;
-  color: #a2a3b7;
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-}    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: all 0.2s;
+    font-size: 14px;
+}
 
-.sidebar ul li:hover { 
+.sidebar ul li:hover {
     background: #1e293b;
-    color: white;
+    color: #f8fafc;
 }
 
 .sidebar ul li.active {
-    background: #2563eb;
-    color: white;
-}
-
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
-}
-
-.header {
-    background: #f1f5f9;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.card {
-    background: white;
-    padding: 25px; 
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    text-align: center;
-}
-
-.btn {
-    background: #2563eb;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover{
-    background: #1d4ed8;
-}
-
-@media (max-width: 991px) { 
-    .sidebar {
-        left: -250px;
-    }
-    .sidebar.open {
-        left: 0;
-    }
-    .main-content {
-        margin-left: 0 !important;
-        padding: 15px;
-    }
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    margin: 5px 12px;
+    padding: 12px 15px;
 }
 
 .sidebar ul li i:last-child {
     font-size: 12px;
-    transition: 0.3s;
+    opacity: 0.7;
+}
+
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.table {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    vertical-align: middle;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #f1f5f9;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.btn {
+    background: #2563eb;
+    color: #ffffff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        left: -260px;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 20px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
 }
