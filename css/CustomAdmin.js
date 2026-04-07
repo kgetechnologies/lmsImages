@@ -1,26 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.querySelector('.sidebar-toggle'); 
-    const sidebar = document.querySelector('.sidebar');
+function toggleSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide");
+}
 
-    if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            sidebar.classList.toggle('open');
+document.querySelectorAll(".sidebar ul li").forEach(item => {
+    item.addEventListener("click", function() {
+        document.querySelectorAll(".sidebar ul li").forEach(i => {
+            i.classList.remove("active");
         });
-    }
-    document.addEventListener('click', function (event) {
-        if (window.innerWidth <= 991) {
-            if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
-                sidebar.classList.remove('open');
-            }
-        }
+        this.classList.remove("active");
     });
-    const currentPath = window.location.pathname;
-    const menuLinks = document.querySelectorAll('.sidebar-menu li a');
-    
-    menuLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.parentElement.classList.add('active');
-        }
+    this.classList.add("active");
+});
+});
+
+functon handleResponsive() {
+const sidebar = document.querySelector(".sidebar");
+
+    if(window.innerWidth <= 768) {
+        sidebar.classList.add("hide");
+    } else{
+        sidebar.classList.remove("hide");
+    }
+}
+
+window.addEventListener("Load", handleResponsive);
+window.addEventListener("resize", handleResponsive);
+
+document.querySelectorAll(".btn").forEach(button => {
+    button.addEventListener("click", function() {
+        this.style.transform = "scale(0.95)";
+    }, 150);
+});
+});
+
+document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+    toggle.addEventListener("click", function() {
+        this.nextElementSibling.classList.toggle("show");
     });
 });
+
+window.addEventListener("load", function() {
+    console.log("Admin Panel Loaded Successfully");
+});
+    
