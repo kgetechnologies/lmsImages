@@ -1,56 +1,34 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("Admin Panel Loaded Successfully");
+    console.log("CustomAdmin.js is Loaded and Working!");
+    
+    const menuLinks = document.querySelectorAll(".sidebar ul li > a");
 
-    const sidebar = document.querySelector(".sidebar");
-    const toggleBtn = document.querySelector(".mobile-toggle-btn"); 
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            const parentLi = this.parentElement;
+            const hasSubmenu = parentLi.querySelector("ul");
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener("click", function() {
-            sidebar.classList.toggle("hide");
+            if (hasSubmenu) {
+                e.preventDefault();
+                document.querySelectorAll(".sidebar ul li").forEach(li => {
+                    if (li !== parentLi) li.classList.remove("active");
+                });
+                parentLi.classList.toggle("active");
+                console.log("Menu Toggled:", this.innerText.trim());
+            }
         });
-    }
-
-    const menuItems = document.querySelectorAll(".sidebar ul li");
-
-    menuItems.forEach(item => 
-        const link = item.querySelector("a");
-        
-        if (link) {
-            link.addEventListener("click", function(e) {
-                const hasSubmenu = item.querySelector("ul");
-
-                if (hasSubmenu) {
-                    e.preventDefault(); 
-                    menuItems.forEach(i => {
-                        if (i !== item) i.classList.remove("active");
-                    });
-
-                    item.classList.toggle("active");
-                } else {
-                    menuItems.forEach(i => i.classList.remove("active"));
-                    item.classList.add("active");
-                }
-            });
-        }
     });
-
-    function handleResponsive() {
-        if (window.innerWidth <= 991) {
-            sidebar.classList.add("hide");
-        } else {
-            sidebar.classList.remove("hide");
+    function checkWidth() {
+        const sidebar = document.querySelector(".sidebar");
+        if (sidebar) {
+            if (window.innerWidth <= 991) {
+                sidebar.classList.add("hide");
+            } else {
+                sidebar.classList.remove("hide");
+            }
         }
     }
 
-    window.addEventListener("load", handleResponsive);
-    window.addEventListener("resize", handleResponsive);
-
-    document.querySelectorAll(".btn").forEach(button => {
-        button.addEventListener("mousedown", function() {
-            this.style.transform = "scale(0.95)";
-        });
-        button.addEventListener("mouseup", function() {
-            this.style.transform = "scale(1)";
-        });
-    });
+    window.addEventListener("resize", checkWidth);
+    checkWidth(); 
 });
