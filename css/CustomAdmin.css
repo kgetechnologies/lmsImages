@@ -14,14 +14,6 @@ body {
     align-items: center;
 }
 
-@media (max-width: 768px) {
-    .main-content {
-        padding: 10px;
-    }
-    .card {
-        padding: 10px;
-    }
-}
 .sidebar {
     position: fixed;
     top: 0;
@@ -31,7 +23,9 @@ body {
     background: #0f172a;
     overflow-y: auto;
     transition: 0.3s;
+    z-index: 1000;
 }
+
 .sidebar.hide {
    left: -250px;
 }
@@ -39,6 +33,7 @@ body {
 .sidebar h2 {
     text-align: center;
     padding: 20px;
+    color: white;
     border-bottom: 1px solid #1e293b;
 }
 
@@ -52,14 +47,20 @@ body {
   padding: 15px 20px;
   border-bottom: 1px solid #1e293b;
   cursor: pointer;
+  color: #a2a3b7;
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
 }    
 
-.sidebar ul li.hover {
+.sidebar ul li:hover { 
     background: #1e293b;
+    color: white;
 }
 
 .sidebar ul li.active {
     background: #2563eb;
+    color: white;
 }
 
 .main-content {
@@ -75,10 +76,11 @@ body {
 
 .card {
     background: white;
-    padding: 20px;
+    padding: 25px; 
     margin-top: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgbs(0.0.0,0.1)
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    text-align: center;
 }
 
 .btn {
@@ -94,14 +96,20 @@ body {
     background: #1d4ed8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) { 
     .sidebar {
-        width: 200px;
+        left: -250px;
     }
-
+    .sidebar.open {
+        left: 0;
+    }
     .main-content {
-        margin-left: 200px;
+        margin-left: 0 !important;
+        padding: 15px;
     }
 }
 
-.btn
+.sidebar ul li i:last-child {
+    font-size: 12px;
+    transition: 0.3s;
+}
