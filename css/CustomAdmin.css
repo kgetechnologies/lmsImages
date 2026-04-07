@@ -1,1 +1,83 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 250px;
+  background: #1e1e2d;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
 
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #a2a3b7;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li.active > a {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    left: -250px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+.table_responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card, .container-fluid {
+  max-width: 100%;
+  padding: 15px;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+.table-responsive {
+  width: 100%;
+  margin-bottom: 1rem;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid #dee2e6;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.login-box {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
