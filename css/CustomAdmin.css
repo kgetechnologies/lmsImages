@@ -1,138 +1,115 @@
-/* --- Root & Body --- */
-:root {
-    --sidebar-bg: #1e1e2d;
-    --sidebar-hover: #2b2b40;
-    --accent-blue: #3699ff;
-    --text-muted: #a2a3b7;
-}
+/* --- FULL RESET --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f5f7f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
 }
 
-/* --- Sidebar Container --- */
+/* --- SIDEBAR --- */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 265px;
-    background-color: var(--sidebar-bg);
+    width: 260px;
+    background: #1e1e2d !important;
     z-index: 1000;
     overflow-y: auto;
-    transition: all 0.3s ease;
 }
 
 /* Profile Section */
 .admin-profile {
-    padding: 30px 20px;
+    padding: 25px 15px;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .admin-profile img {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    border: 3px solid var(--accent-blue);
-    margin-bottom: 10px;
+    border: 2px solid #3699ff;
 }
 
 .admin-profile h4 {
-    color: #ffffff;
-    margin: 0;
+    color: #ffffff !important;
+    margin-top: 10px;
     font-size: 16px;
 }
 
-/* --- Navigation Menu --- */
-.sidebar ul {
-    list-style: none;
-    padding: 20px 0;
-    margin: 0;
-}
+/* Sidebar Links */
+.sidebar ul { list-style: none; padding: 20px 0; }
 
-/* Main Menu Items */
-.sidebar ul li {
-    display: block;
-    width: 100%;
-}
+.sidebar ul li { display: block; width: 100%; }
 
 .sidebar ul li a {
     display: flex !important;
     align-items: center;
     padding: 12px 25px;
-    color: var(--text-muted) !important; /* Text color forced */
+    color: #a2a3b7 !important; /* Default Greyish Text */
     text-decoration: none !important;
     font-size: 14px;
-    transition: all 0.2s;
 }
 
-/* Icons Fix */
+/* Icons styling */
 .sidebar ul li a i {
     margin-right: 15px;
-    font-size: 18px;
-    color: var(--text-muted);
+    width: 20px;
+    text-align: center;
+    color: #a2a3b7 !important;
 }
 
-/* Hover & Active */
+/* Hover & Active States (Inhe White kar diya) */
 .sidebar ul li a:hover, 
 .sidebar ul li.active > a {
-    background-color: var(--sidebar-hover);
-    color: #ffffff !important;
+    background: rgba(255,255,255,0.05);
+    color: #ffffff !important; /* Force White on Hover */
 }
 
 .sidebar ul li a:hover i,
 .sidebar ul li.active > a i {
-    color: var(--accent-blue);
+    color: #3699ff !important; /* Blue icons on hover */
 }
 
-/* --- Sub-menu (Dropdown) Fix --- */
+/* Dropdown Menu (Niche khulega) */
 .sidebar ul li ul {
-    background-color: rgba(0,0,0,0.2);
-    padding: 5px 0;
-    display: none; /* JS will toggle this */
+    background: rgba(0,0,0,0.2);
+    display: none;
 }
 
-.sidebar ul li.active ul {
-    display: block;
-}
+.sidebar ul li.active ul { display: block; }
 
 .sidebar ul li ul li a {
     padding-left: 60px !important;
     font-size: 13px;
 }
 
-/* Arrow alignment */
-.sidebar ul li a::after {
-    margin-left: auto;
-}
-
-/* --- Main Content Area --- */
+/* --- MAIN CONTENT --- */
 .main-content {
-    margin-left: 265px;
+    margin-left: 260px;
     padding: 30px;
-    min-height: 100vh;
 }
 
-/* Dashboard Cards */
+/* Forms & Cards Styling */
 .card {
-    background: #ffffff;
-    border: none;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     margin-bottom: 20px;
 }
 
-.card h3 { font-size: 28px; color: #2c3e50; margin: 10px 0; }
-.card p { color: var(--text-muted); margin: 0; }
+input.form-control {
+    height: 45px;
+    border: 1px solid #ebedf3 !important;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
 
-/* Responsive */
-@media (max-width: 991px) {
-    .sidebar { left: -265px; }
-    .sidebar.open { left: 0; }
-    .main-content { margin-left: 0; padding: 15px; }
+.btn-primary {
+    background-color: #3699ff !important;
+    border: none !important;
+    padding: 10px 25px;
+    border-radius: 5px;
 }
