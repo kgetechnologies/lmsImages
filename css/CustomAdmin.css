@@ -14,58 +14,104 @@ body {
     align-items: center;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 250px;
-    background: #0f172a;
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 1000;
-}
-
-.sidebar.hide {
-   left: -250px;
-}
-
-.sidebar h2 {
-    text-align: center;
-    padding: 20px;
-    color: white;
-    border-bottom: 1px solid #1e293b;
-}
-
-.sidebar ul{
+/* --- Global Sidebar Reset --- */
+.sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* Parent LI: Isse flex nahi banana hai */
 .sidebar ul li {
-  padding: 15px 20px;
-  border-bottom: 1px solid #1e293b;
-  cursor: pointer;
-  color: #a2a3b7;
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-}    
+    display: block !important; 
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-.sidebar ul li:hover { 
+/* Menu Link: Isse flex banaya hai taaki Icon aur Arrow ek line mein rahein */
+.sidebar ul li a {
+    display: flex !important;
+    justify-content: space-between; /* Arrow ko right side chipka dega */
+    align-items: center;
+    padding: 12px 20px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover, 
+.sidebar ul li.active > a {
     background: #1e293b;
-    color: white;
+    color: #fff;
 }
 
-.sidebar ul li.active {
-    background: #2563eb;
-    color: white;
+/* Sidebar Icons */
+.sidebar ul li a i:first-child {
+    margin-right: 10px;
 }
 
+/* Arrow Icon Alignment */
+.sidebar ul li a i.fa-angle-down, 
+.sidebar ul li a i.fa-angle-right {
+    font-size: 12px;
+    margin-left: auto; /* Arrow ko bilkul right mein rakhega */
+}
+
+/* --- Dropdown Sub-menu (New, List items) --- */
+.sidebar ul li ul {
+    display: none; /* By default hide rahega */
+    background: #0a0f1d; 
+    padding: 5px 0;
+    list-style: none;
+}
+
+/* Jab menu open ho (Active class logic) */
+.sidebar ul li.active ul {
+    display: block !important;
+}
+
+.sidebar ul li ul li {
+    border: none;
+}
+
+.sidebar ul li ul li a {
+    padding-left: 50px !important; /* Sub-menu items ko andar dikhane ke liye */
+    font-size: 13px;
+    justify-content: flex-start !important; /* Sub-menu mein arrow ki zaroorat nahi */
+}
+
+/* --- Main Content Area --- */
 .main-content {
-    margin-left: 250px;
+    margin-left: 260px;
+    padding: 30px;
+    background: #f8fafc;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 991px) {
+    .sidebar {
+        left: -260px;
+    }
+    .sidebar.open {
+        left: 0;
+    }
+    .main-content {
+        margin-left: 0 !important;
+        padding: 20px;
+    }
+}
+
+/* --- Quick Card Fix --- */
+.card {
+    background: #fff;
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .header {
