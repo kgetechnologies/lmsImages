@@ -1,157 +1,138 @@
-/* --- Global Reset --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* --- Root & Body --- */
+:root {
+    --sidebar-bg: #1e1e2d;
+    --sidebar-hover: #2b2b40;
+    --accent-blue: #3699ff;
+    --text-muted: #a2a3b7;
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7f8;
 }
 
-/* --- Sidebar Styling --- */
+/* --- Sidebar Container --- */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 260px;
-    background: #1e1e2d; /* Professional Deep Blue */
-    overflow-y: auto;
-    transition: 0.3s ease;
+    width: 265px;
+    background-color: var(--sidebar-bg);
     z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s ease;
 }
 
-.sidebar .admin-profile {
+/* Profile Section */
+.admin-profile {
+    padding: 30px 20px;
     text-align: center;
-    padding: 25px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.sidebar .admin-profile img {
-    width: 70px;
-    height: 70px;
+.admin-profile img {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 2px solid #3498db;
+    border: 3px solid var(--accent-blue);
     margin-bottom: 10px;
 }
 
-.sidebar h4 {
-    color: white;
+.admin-profile h4 {
+    color: #ffffff;
+    margin: 0;
     font-size: 16px;
 }
 
-/* Menu List */
+/* --- Navigation Menu --- */
 .sidebar ul {
     list-style: none;
-    padding: 15px 0;
+    padding: 20px 0;
+    margin: 0;
 }
 
-/* Parent LI - Isse Flex nahi banana */
+/* Main Menu Items */
 .sidebar ul li {
-    display: block !important;
+    display: block;
     width: 100%;
 }
 
-/* Menu Links - Text aur Arrow side-by-side */
 .sidebar ul li a {
     display: flex !important;
-    justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
-    color: #a2a3b7;
-    text-decoration: none;
+    padding: 12px 25px;
+    color: var(--text-muted) !important; /* Text color forced */
+    text-decoration: none !important;
     font-size: 14px;
-    transition: 0.2s;
+    transition: all 0.2s;
 }
 
+/* Icons Fix */
+.sidebar ul li a i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+/* Hover & Active */
 .sidebar ul li a:hover, 
 .sidebar ul li.active > a {
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
+    background-color: var(--sidebar-hover);
+    color: #ffffff !important;
 }
 
-/* Sidebar Icons */
-.sidebar ul li a i:first-child {
-    width: 25px;
-    font-size: 16px;
+.sidebar ul li a:hover i,
+.sidebar ul li.active > a i {
+    color: var(--accent-blue);
 }
 
-/* Dropdown Arrow Fix */
-.sidebar ul li a i.fa-angle-down, 
-.sidebar ul li a i.fa-angle-right {
-    font-size: 12px;
-    margin-left: auto;
-}
-
-/* --- Sub-menu (Dropdown) Items --- */
+/* --- Sub-menu (Dropdown) Fix --- */
 .sidebar ul li ul {
-    display: none; /* JS toggle ke liye ya active class ke liye */
-    background: #161623;
+    background-color: rgba(0,0,0,0.2);
     padding: 5px 0;
+    display: none; /* JS will toggle this */
 }
 
-/* Jab dropdown active ho toh niche khule */
 .sidebar ul li.active ul {
-    display: block !important;
+    display: block;
 }
 
 .sidebar ul li ul li a {
-    padding-left: 50px !important;
+    padding-left: 60px !important;
     font-size: 13px;
-    justify-content: flex-start !important; /* Sub-menu mein arrow nahi chahiye */
 }
 
-/* --- Main Content --- */
+/* Arrow alignment */
+.sidebar ul li a::after {
+    margin-left: auto;
+}
+
+/* --- Main Content Area --- */
 .main-content {
-    margin-left: 260px;
+    margin-left: 265px;
     padding: 30px;
     min-height: 100vh;
 }
 
-/* --- Dashboard Cards --- */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -10px;
-}
-
+/* Dashboard Cards */
 .card {
-    background: white;
-    padding: 25px;
-    margin: 10px;
+    background: #ffffff;
+    border: none;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    flex: 1;
-    min-width: 220px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
     text-align: center;
-    border: 1px solid #edf2f9;
+    margin-bottom: 20px;
 }
 
-.card h3 { font-size: 24px; margin-bottom: 5px; }
-.card p { color: #707070; font-size: 14px; }
+.card h3 { font-size: 28px; color: #2c3e50; margin: 10px 0; }
+.card p { color: var(--text-muted); margin: 0; }
 
-/* --- Table Responsiveness --- */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* --- Mobile Responsive --- */
+/* Responsive */
 @media (max-width: 991px) {
-    .sidebar {
-        left: -260px;
-    }
-    .sidebar.open {
-        left: 0;
-    }
-    .main-content {
-        margin-left: 0 !important;
-        padding: 20px;
-    }
+    .sidebar { left: -265px; }
+    .sidebar.open { left: 0; }
+    .main-content { margin-left: 0; padding: 15px; }
 }
