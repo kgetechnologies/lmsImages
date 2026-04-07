@@ -1,96 +1,148 @@
-body {
-   margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.table {
-    width: 100% !important;
-    vertical-align: middle;
-}
-
-.table td .btn {
-    margin: 2px !important;
-    display: inline-flex;
-    align-items: center;
-}
-
-/* --- Global Sidebar Reset --- */
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+/* --- Global Reset --- */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-/* Parent LI: Isse flex nahi banana hai */
-.sidebar ul li {
-    display: block !important; 
-    width: 100%;
-    position: relative;
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: #1e1e2d; /* Professional Deep Blue */
+    overflow-y: auto;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar .admin-profile {
+    text-align: center;
+    padding: 25px 15px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Menu Link: Isse flex banaya hai taaki Icon aur Arrow ek line mein rahein */
+.sidebar .admin-profile img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    margin-bottom: 10px;
+}
+
+.sidebar h4 {
+    color: white;
+    font-size: 16px;
+}
+
+/* Menu List */
+.sidebar ul {
+    list-style: none;
+    padding: 15px 0;
+}
+
+/* Parent LI - Isse Flex nahi banana */
+.sidebar ul li {
+    display: block !important;
+    width: 100%;
+}
+
+/* Menu Links - Text aur Arrow side-by-side */
 .sidebar ul li a {
     display: flex !important;
-    justify-content: space-between; /* Arrow ko right side chipka dega */
+    justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    color: #94a3b8;
+    color: #a2a3b7;
     text-decoration: none;
-    transition: 0.3s;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
 .sidebar ul li a:hover, 
 .sidebar ul li.active > a {
-    background: #1e293b;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
 }
 
 /* Sidebar Icons */
 .sidebar ul li a i:first-child {
-    margin-right: 10px;
+    width: 25px;
+    font-size: 16px;
 }
 
-/* Arrow Icon Alignment */
+/* Dropdown Arrow Fix */
 .sidebar ul li a i.fa-angle-down, 
 .sidebar ul li a i.fa-angle-right {
     font-size: 12px;
-    margin-left: auto; /* Arrow ko bilkul right mein rakhega */
+    margin-left: auto;
 }
 
-/* --- Dropdown Sub-menu (New, List items) --- */
+/* --- Sub-menu (Dropdown) Items --- */
 .sidebar ul li ul {
-    display: none; /* By default hide rahega */
-    background: #0a0f1d; 
+    display: none; /* JS toggle ke liye ya active class ke liye */
+    background: #161623;
     padding: 5px 0;
-    list-style: none;
 }
 
-/* Jab menu open ho (Active class logic) */
+/* Jab dropdown active ho toh niche khule */
 .sidebar ul li.active ul {
     display: block !important;
 }
 
-.sidebar ul li ul li {
-    border: none;
-}
-
 .sidebar ul li ul li a {
-    padding-left: 50px !important; /* Sub-menu items ko andar dikhane ke liye */
+    padding-left: 50px !important;
     font-size: 13px;
-    justify-content: flex-start !important; /* Sub-menu mein arrow ki zaroorat nahi */
+    justify-content: flex-start !important; /* Sub-menu mein arrow nahi chahiye */
 }
 
-/* --- Main Content Area --- */
+/* --- Main Content --- */
 .main-content {
     margin-left: 260px;
     padding: 30px;
-    background: #f8fafc;
     min-height: 100vh;
-    transition: 0.3s;
 }
 
-/* --- Responsive Fixes --- */
+/* --- Dashboard Cards --- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 220px;
+    text-align: center;
+    border: 1px solid #edf2f9;
+}
+
+.card h3 { font-size: 24px; margin-bottom: 5px; }
+.card p { color: #707070; font-size: 14px; }
+
+/* --- Table Responsiveness --- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* --- Mobile Responsive --- */
 @media (max-width: 991px) {
     .sidebar {
         left: -260px;
@@ -102,59 +154,4 @@ body {
         margin-left: 0 !important;
         padding: 20px;
     }
-}
-
-/* --- Quick Card Fix --- */
-.card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.header {
-    background: #f1f5f9;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.card {
-    background: white;
-    padding: 25px; 
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    text-align: center;
-}
-
-.btn {
-    background: #2563eb;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover{
-    background: #1d4ed8;
-}
-
-@media (max-width: 991px) { 
-    .sidebar {
-        left: -250px;
-    }
-    .sidebar.open {
-        left: 0;
-    }
-    .main-content {
-        margin-left: 0 !important;
-        padding: 15px;
-    }
-}
-.sidebar ul li i:last-child {
-    font-size: 12px;
-    transition: 0.3s;
 }
