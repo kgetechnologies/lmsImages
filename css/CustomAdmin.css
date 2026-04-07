@@ -164,3 +164,59 @@ body {
     border-radius: 4px;
     margin: 2px;
 }
+
+.form-control {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    font-size: 14px;
+    height: auto !important;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3699ff !important;
+    box-shadow: 0 0 0 3px rgba(54, 153, 255, 0.1) !important;
+    outline: none;
+}
+
+.table thead th {
+    background-color: #f8fafc !important;
+    color: #4a5568 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 15px !important;
+    border-bottom: 2px solid #edf2f9 !important;
+}
+
+.table td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.badge-success {
+    background-color: #c6f6d5 !important;
+    color: #22543d !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.btn-primary {
+    background-color: #3699ff !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #187de4 !important;
+    transform: translateY(-1px);
+}
