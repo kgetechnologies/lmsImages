@@ -3,6 +3,25 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.table {
+    width: 100% !important;
+    vertical-align: middle;
+}
+
+.table td .btn {
+    margin: 2px !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+    .card {
+        padding: 10px;
+    }
+}
 .sidebar {
     position: fixed;
     top: 0;
