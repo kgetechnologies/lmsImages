@@ -220,3 +220,36 @@ body {
     background-color: #187de4 !important;
     transform: translateY(-1px);
 }
+
+.card-body {
+    padding: 30px !important;
+}
+
+.form-group label {
+    display: block;
+    text-align: left !important;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.form-group {
+    margin-bottom: 20px !important;
+} 
+
+.btn-secondary, .btn-dark {
+    background-color: #2f3446 !important;
+    border: none !important;
+    padding: 8px 25px !important;
+    border-radius: 6px !important;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #1e222e !important;
+}
+
+.row {
+    margin-bottom: 10px;
+}
