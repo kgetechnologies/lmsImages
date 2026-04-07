@@ -1,12 +1,13 @@
-/* --- FULL RESET --- */
+/* --- Global Reset --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     background-color: #f4f7f6;
+    color: #1e1e2d;
 }
 
-/* --- SIDEBAR --- */
+/* --- Sidebar --- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -16,100 +17,94 @@ body {
     background: #1e1e2d !important;
     z-index: 1000;
     overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
 }
 
-/* Profile Section */
 .admin-profile {
     padding: 25px 15px;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .admin-profile img {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border: 2px solid #3699ff;
+    margin-bottom: 10px;
 }
 
 .admin-profile h4 {
     color: #ffffff !important;
-    margin-top: 10px;
     font-size: 16px;
+    font-weight: 500;
 }
 
-/* Sidebar Links */
-.sidebar ul { list-style: none; padding: 20px 0; }
+/* Sidebar Navigation */
+.sidebar ul { list-style: none; padding: 15px 0; }
 
 .sidebar ul li { display: block; width: 100%; }
 
 .sidebar ul li a {
     display: flex !important;
+    justify-content: space-between;
     align-items: center;
     padding: 12px 25px;
-    color: #a2a3b7 !important; /* Default Greyish Text */
+    color: #a2a3b7 !important; /* Muted text */
     text-decoration: none !important;
     font-size: 14px;
+    transition: 0.3s;
 }
 
-/* Icons styling */
-.sidebar ul li a i {
-    margin-right: 15px;
-    width: 20px;
-    text-align: center;
-    color: #a2a3b7 !important;
-}
+.sidebar ul li a i:first-child { width: 25px; font-size: 16px; }
 
-/* Hover & Active States (Inhe White kar diya) */
-.sidebar ul li a:hover, 
-.sidebar ul li.active > a {
+/* Active & Hover States */
+.sidebar ul li.active > a, 
+.sidebar ul li a:hover {
     background: rgba(255,255,255,0.05);
-    color: #ffffff !important; /* Force White on Hover */
+    color: #ffffff !important;
 }
 
-.sidebar ul li a:hover i,
-.sidebar ul li.active > a i {
-    color: #3699ff !important; /* Blue icons on hover */
-}
+.sidebar ul li.active > a i:first-child { color: #3699ff !important; }
 
-/* Dropdown Menu (Niche khulega) */
+/* --- Sub-menu (New, List, etc.) --- */
 .sidebar ul li ul {
-    background: rgba(0,0,0,0.2);
+    background: #161623; /* Darker background for hierarchy */
     display: none;
+    padding: 5px 0;
 }
 
-.sidebar ul li.active ul { display: block; }
+.sidebar ul li.active ul { display: block !important; }
 
 .sidebar ul li ul li a {
-    padding-left: 60px !important;
+    padding-left: 55px !important;
+    color: #888a9d !important; /* Slightly lighter than main menu */
     font-size: 13px;
 }
 
-/* --- MAIN CONTENT --- */
+.sidebar ul li ul li a:hover {
+    color: #ffffff !important;
+    background: transparent;
+}
+
+/* --- Main Content --- */
 .main-content {
     margin-left: 260px;
     padding: 30px;
 }
 
-/* Forms & Cards Styling */
 .card {
     background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #edf2f9;
 }
 
-input.form-control {
-    height: 45px;
-    border: 1px solid #ebedf3 !important;
-    border-radius: 5px;
-    padding: 10px 15px;
-}
-
-.btn-primary {
-    background-color: #3699ff !important;
-    border: none !important;
-    padding: 10px 25px;
-    border-radius: 5px;
+/* --- Mobile View --- */
+@media (max-width: 991px) {
+    .sidebar { left: -260px; }
+    .sidebar.open { left: 0; }
+    .main-content { margin-left: 0; padding: 20px; }
 }
