@@ -427,3 +427,13 @@ input[type="date"].form-control {
     letter-spacing: 0.5px;
     border-radius: 8px !important;
 }
+
+@media (max-width: 768px) {
+    .row > [class^="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .main-content {
+        padding: 10px !important;
+    }
+}
