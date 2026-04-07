@@ -5,67 +5,53 @@ body {
     color: #1e293b;
 }
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 260px;
-    background: #0f172a; 
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 1000;
-    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h2 {
-    text-align: center;
-    padding: 25px 15px;
-    color: #ffffff;
-    font-size: 20px;
-    border-bottom: 1px solid #1e293b;
-    margin: 0;
-}
-
 .sidebar ul {
     list-style: none;
-    padding: 10px 0;
+    padding: 0;
     margin: 0;
 }
 
 .sidebar ul li {
+    position: relative; 
+    display: block; 
+    width: 100%;
+}
+
+.sidebar ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    cursor: pointer;
     color: #94a3b8;
-    transition: all 0.2s;
-    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.sidebar ul li:hover {
+.sidebar ul li a:hover, 
+.sidebar ul li.active > a {
     background: #1e293b;
-    color: #f8fafc;
+    color: #fff;
 }
 
-.sidebar ul li.active {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    border-radius: 8px;
-    margin: 5px 12px;
-    padding: 12px 15px;
+.sidebar ul li ul {
+    background: #161e2e; 
+    padding: 5px 0;
+    display: none; 
 }
 
-.sidebar ul li i:last-child {
-    font-size: 12px;
-    opacity: 0.7;
+.sidebar ul li.active ul {
+    display: block;
+}
+
+.sidebar ul li ul li a {
+    padding-left: 50px; 
+    font-size: 13px;
 }
 
 .main-content {
     margin-left: 260px;
-    padding: 30px;
-    min-height: 100vh;
+    padding: 25px;
+    background: #f8fafc;
 }
 
 .card {
