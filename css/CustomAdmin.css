@@ -376,3 +376,30 @@ input[type="date"].form-control {
 .nav-pills .nav-link.active {
     background: #3699ff !important;
 }
+
+.table td[colspan] {
+    padding: 60px !important;
+    text-align: center;
+    background-color: #fcfcfd !important;
+    color: #b5b5c3 !important;
+    font-weight: 500;
+    font-size: 15px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.instructor-profile-card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #181c32;
+    margin-bottom: 20px;
+    border-left: 4px solid #3699ff;
+    padding-left: 15px;
+}
