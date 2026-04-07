@@ -13,6 +13,9 @@ body {
     overflow-y: auto;
     transition: 0.3s;
 }
+.sidebar.hide {
+   left: -250px;
+}
 
 .sidebar h2 {
     text-align: center;
