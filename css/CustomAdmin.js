@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
-
-
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const dropdownLinks = document.querySelectorAll('.sidebar ul li > a');
-
     dropdownLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const parentLi = this.parentElement;
@@ -30,10 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
 
+      
                 parentLi.classList.toggle('active', !isAlreadyActive);
             }
         });
     });
+
 
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 991 && sidebar && sidebar.classList.contains('open')) {
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const allForms = document.querySelectorAll('form');
-
     allForms.forEach(form => {
         form.addEventListener('submit', function (e) {
             const inputsToCheck = form.querySelectorAll('input[required], select[required], textarea[required]');
@@ -57,14 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (input.value.trim() === "") {
                     isValid = false;
                     input.style.borderColor = "#f64e60"; 
-
                     const error = document.createElement('span');
                     error.className = 'error-msg';
-                    error.style.cssText = "color: #f64e60; font-size: 11px; display: block; mt-1; font-weight: 500;";
+                    error.style.cssText = "color: #f64e60; font-size: 11px; display: block; margin-top: 5px; font-weight: 500;";
                     error.innerText = "This field is required!";
                     input.parentElement.appendChild(error);
                 } else {
-                    input.style.borderColor = "#e2e8f0"; 
+                    input.style.borderColor = "#e2e8f0";
                 }
             });
 
