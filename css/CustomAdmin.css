@@ -1,40 +1,40 @@
-/* --- Global & Sidebar Fixes --- */
+/* --- Master Layout Fixes --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background-color: #f4f7fb; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
+/* Sidebar Fixed Position */
 .sidebar {
     position: fixed; top: 0; left: 0; height: 100vh; width: 260px;
-    background: #1e1e2d !important; z-index: 9999 !important;
+    background: #1e1e2d !important; z-index: 1050 !important;
     transition: 0.3s; overflow-y: auto;
 }
 
-.main-content { margin-left: 260px; padding: 30px; transition: 0.3s; }
+/* Main Content Area Adjustment */
+.main-content { margin-left: 260px; padding: 30px; transition: 0.3s; min-height: 100vh; }
 
-/* --- 9 Section Tabs (The Radio Fix) --- */
+/* --- 9 Section Tabs (Pill Style & Clickable) --- */
 .nav-tabs {
     display: flex !important; flex-wrap: wrap !important;
-    gap: 15px !important; border: none !important;
-    padding: 20px 0 !important; background: #fff;
-    border-radius: 8px; margin-bottom: 25px;
+    gap: 12px !important; border: none !important; margin-bottom: 25px;
+    padding: 10px; background: #fff; border-radius: 10px;
 }
 
 .nav-tabs label {
-    cursor: pointer !important; padding: 10px 15px;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s; font-weight: 500; color: #4a5568;
-    display: flex; align-items: center; gap: 8px;
+    cursor: pointer !important; padding: 10px 20px !important;
+    background: #f8f9fa !important; border: 1px solid #e2e8f0 !important;
+    border-radius: 30px !important; font-size: 13px; font-weight: 600;
+    transition: 0.3s; color: #4a5568 !important; display: inline-block;
 }
 
-/* Jab radio button select ho toh green line aaye */
+/* Jab Radio check ho toh label highlight ho */
 .nav-tabs input[type="radio"]:checked + label {
-    border-bottom: 3px solid #28a745 !important;
-    color: #28a745 !important;
-    font-weight: 600;
+    background: #3699ff !important; color: #fff !important;
+    border-color: #3699ff !important; box-shadow: 0 4px 10px rgba(54,153,255,0.2);
 }
 
-.nav-tabs input[type="radio"] { display: none; } /* Radio buttons ko chhupa do */
+.nav-tabs input[type="radio"] { display: none !important; } /* Radio chhupa do */
 
-/* --- Form & Validation --- */
+/* --- Error & SEO Styles --- */
 .error-msg { color: #f64e60; font-size: 11px; margin-top: 5px; display: block; font-weight: 500; }
 .is-invalid { border-color: #f64e60 !important; }
 
