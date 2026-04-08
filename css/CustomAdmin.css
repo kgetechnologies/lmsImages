@@ -48,3 +48,34 @@ input.is-invalid, select.is-invalid, textarea.is-invalid { border-color: #f64e60
     .sidebar.open { left: 0; }
     .main-content { margin-left: 0 !important; padding: 15px; }
 }
+
+
+.nav-tabs .nav-link, 
+.nav-tabs input[type="radio"] + label {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    display: block !important;
+    width: 100%;
+}
+
+#pricing-section, #requirements-section {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.add-requirement-btn {
+    background: #3699ff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
