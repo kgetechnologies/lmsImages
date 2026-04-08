@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
 
-    // 1. Universal Sidebar Toggle
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -10,49 +9,48 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. Multi-Level Menu Accordion
-    const dropdowns = document.querySelectorAll('.sidebar ul li > a');
-    dropdowns.forEach(link => {
+    const menuLinks = document.querySelectorAll('.sidebar ul li > a');
+    menuLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            const parent = this.parentElement;
-            if (parent.querySelector('ul')) {
+            const parentLi = this.parentElement;
+            const subMenu = parentLi.querySelector('ul');
+            if (subMenu) {
                 e.preventDefault();
-                // Close others
-                document.querySelectorAll('.sidebar ul li.active').forEach(active => {
-                    if (active !== parent) active.classList.remove('active');
+     
+                document.querySelectorAll('.sidebar ul li.active').forEach(item => {
+                    if (item !== parentLi) item.classList.remove('active');
                 });
-                parent.classList.toggle('active');
+                parentLi.classList.toggle('active');
             }
         });
     });
 
-    // 3. 9-Section Validation (For New Course Page)
+
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const requireds = form.querySelectorAll('[required]');
+            const requiredFields = form.querySelectorAll('[required]');
 
-            requireds.forEach(field => {
+            requiredFields.forEach(field => {
                 const oldMsg = field.parentElement.querySelector('.error-msg');
                 if (oldMsg) oldMsg.remove();
+                field.classList.remove('is-invalid');
 
                 if (!field.value.trim() || field.value === "Select Category") {
                     isValid = false;
-                    field.style.borderColor = "#f64e60";
-                    const span = document.createElement('span');
-                    span.className = 'error-msg';
-                    span.innerText = "This field is mandatory for SEO!";
-                    field.parentElement.appendChild(span);
-                } else {
-                    field.style.borderColor = "#e2e8f0";
+                    field.classList.add('is-invalid');
+                    const error = document.createElement('span');
+                    error.className = 'error-msg';
+                    error.innerText = "This content is required for SEO!";
+                    field.parentElement.appendChild(error);
                 }
             });
 
             if (!isValid) {
                 e.preventDefault();
-                const firstErr = form.querySelector('.error-msg');
-                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const firstInvalid = form.querySelector('.is-invalid');
+                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     });
