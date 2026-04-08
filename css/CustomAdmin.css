@@ -108,67 +108,88 @@
 }
 
 .admin-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 10px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 25px 15px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .admin-profile img {
-    margin-bottom: 10px;
+    width: 65px; height: 65px;
+    border-radius: 50%;
+    border: 2px solid #3699ff;
+    margin-bottom: 12px !important;
+}
+
+.admin-profile .profile-info {
+    text-align: center;
 }
 
 .admin-profile h4, .admin-profile p {
-    color: #fff;
-    margin: 0;
+    color: #ffffff;
+    margin: 2px 0;
     font-size: 14px;
+    font-weight: 500;
 }
 
-.nav-tabs, .wizard-nav {
+.nav.nav-tabs, .wizard-steps {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
     border: none !important;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 30px;
+    padding: 20px 0 !important;
+}
+
+.nav-tabs .nav-item {
+    list-style: none;
 }
 
 .nav-tabs .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    background: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
-    border-radius: 30px !important;
-    padding: 8px 20px !important;
-    background: #fff !important;
+    border-radius: 50px !important; 
+    padding: 10px 20px !important;
     color: #4a5568 !important;
     font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .nav-tabs .nav-link.active {
     background: #3699ff !important;
-    color: #fff !important;
+    color: #ffffff !important;
     border-color: #3699ff !important;
+    box-shadow: 0 4px 12px rgba(54, 153, 255, 0.2);
 }
 
 .form-group label {
     font-weight: 600;
-    font-size: 13px;
+    color: #2d3748;
     margin-bottom: 8px;
     display: block;
-    color: #2d3748;
 }
 
-.row > div {
-    margin-bottom: 15px; 
+.row.form-row {
+    margin-bottom: 20px;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    margin-right: 8px;
-    cursor: pointer;
+.input-group, .form-control, .form-select {
+    border-radius: 8px !important;
 }
 
-h3.section-title, .form-section-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a202c;
-    margin: 25px 0 15px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #edf2f9;
+.btn-back {
+    border: 1px solid #3699ff;
+    color: #3699ff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    background: #3699ff;
+    color: #fff;
 }
