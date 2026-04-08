@@ -1,43 +1,41 @@
-/* --- Master Layout Fixes --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background-color: #f4f7fb; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-
-/* Sidebar Fixed Position */
-.sidebar {
-    position: fixed; top: 0; left: 0; height: 100vh; width: 260px;
-    background: #1e1e2d !important; z-index: 1050 !important;
-    transition: 0.3s; overflow-y: auto;
+/* --- Sidebar & Layout Fixes --- */
+.sidebar { 
+    position: fixed; top: 0; left: 0; height: 100vh; width: 260px; 
+    background: #1e1e2d !important; z-index: 9999 !important; 
+    overflow-y: auto; transition: 0.3s; 
 }
 
-/* Main Content Area Adjustment */
-.main-content { margin-left: 260px; padding: 30px; transition: 0.3s; min-height: 100vh; }
-
-/* --- 9 Section Tabs (Pill Style & Clickable) --- */
-.nav-tabs {
-    display: flex !important; flex-wrap: wrap !important;
-    gap: 12px !important; border: none !important; margin-bottom: 25px;
-    padding: 10px; background: #fff; border-radius: 10px;
+.main-content { 
+    margin-left: 260px; padding: 30px; min-height: 100vh; 
+    background-color: #f4f7fb; transition: 0.3s; 
 }
 
-.nav-tabs label {
-    cursor: pointer !important; padding: 10px 20px !important;
-    background: #f8f9fa !important; border: 1px solid #e2e8f0 !important;
-    border-radius: 30px !important; font-size: 13px; font-weight: 600;
-    transition: 0.3s; color: #4a5568 !important; display: inline-block;
+/* --- 9 Section Tabs (The Final Fix) --- */
+.nav-tabs { 
+    display: flex !important; flex-wrap: wrap !important; gap: 12px; 
+    border: none !important; margin-bottom: 25px; padding: 15px; 
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Jab Radio check ho toh label highlight ho */
-.nav-tabs input[type="radio"]:checked + label {
-    background: #3699ff !important; color: #fff !important;
-    border-color: #3699ff !important; box-shadow: 0 4px 10px rgba(54,153,255,0.2);
+.nav-tabs label { 
+    cursor: pointer !important; padding: 10px 20px; border: 1px solid #e2e8f0; 
+    border-radius: 30px; font-size: 13px; font-weight: 600; color: #4a5568 !important;
+    transition: all 0.3s ease; display: inline-flex; align-items: center;
 }
 
-.nav-tabs input[type="radio"] { display: none !important; } /* Radio chhupa do */
+/* Jab Tab select ho (Radio checked ho) */
+.nav-tabs input[type="radio"]:checked + label { 
+    background: #28a745 !important; color: #fff !important; 
+    border-color: #28a745 !important; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
 
-/* --- Error & SEO Styles --- */
-.error-msg { color: #f64e60; font-size: 11px; margin-top: 5px; display: block; font-weight: 500; }
+.nav-tabs input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+
+/* --- SEO Validation Errors --- */
+.error-msg { color: #f64e60; font-size: 12px; margin-top: 5px; display: block; font-weight: 500; }
 .is-invalid { border-color: #f64e60 !important; }
 
+/* Responsive View */
 @media (max-width: 991px) {
     .sidebar { left: -260px; }
     .sidebar.open { left: 0; }
