@@ -61,80 +61,32 @@
     .main-content { margin-left: 0 !important; }
 }
 
-/* --- Add Course Page Specific Styles --- */
+body { background-color: #151521 !important; color: #ffffff; }
 
-
-.form-card {
-    background: #1e1e2d; 
-    border-radius: 12px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 20px;
-    color: #ffffff;
-}
-.course-steps {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 20px;
+.card, .main-card, .box, .white-box {
+    background-color: #1e1e2d !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    padding: 20px;
 }
 
-.step-box {
-    text-align: center;
-    flex: 1;
-    color: #a2a3b7;
-    font-size: 13px;
-}
-
-.step-box.active {
-    color: #3699ff; 
-    font-weight: bold;
-}
-
-
-.form-control, .form-select {
-    background-color: #161623 !important; /* Sidebar submenu jaisa dark */
+.form-control, .form-select, select, input, textarea {
+    background-color: #161623 !important;
     border: 1px solid #2d2d3f !important;
     color: #ffffff !important;
-    padding: 12px 15px !important;
-    border-radius: 8px !important;
+    padding: 10px 15px !important;
 }
 
-.form-control:focus {
-    border-color: #3699ff !important;
-    box-shadow: 0 0 0 0.2rem rgba(54, 153, 255, 0.25) !important;
-}
-
-.text-danger, .error-msg {
-    color: #f64e60 !important; 
+.error-msg {
+    color: #f64e60 !important;
     font-size: 12px;
     margin-top: 5px;
     display: block;
 }
 
-.btn-primary {
+.btn-primary, button[type="submit"] {
     background-color: #3699ff !important;
     border: none !important;
-    padding: 12px 25px !important;
-    font-weight: 500 !important;
-    border-radius: 8px !important;
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #187de4 !important;
-    transform: translateY(-1px);
-}
-
-.btn-light {
-    background: rgba(255, 255, 255, 0.05) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.page-title {
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 20px;
+    padding: 10px 20px !important;
 }
