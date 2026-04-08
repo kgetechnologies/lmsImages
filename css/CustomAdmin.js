@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
 
-    // 1. Sidebar Mobile Toggle
+    // 1. Sidebar Toggle Fix
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -10,43 +10,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. Sidebar Dropdown Accordion
-    const dropdowns = document.querySelectorAll('.sidebar ul li > a');
-    dropdowns.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const parent = this.parentElement;
-            if (parent.querySelector('ul')) {
-                e.preventDefault();
-                document.querySelectorAll('.sidebar ul li.active').forEach(active => {
-                    if (active !== parent) active.classList.remove('active');
-                });
-                parent.classList.toggle('active');
+    // 2. Tab Click Fix (For 9 Sections)
+    // Hum har tab ke andar jo dabba (radio button) hai use force click karenge
+    const tabLabels = document.querySelectorAll('.nav-tabs label, .nav-tabs input[type="radio"]');
+    
+    tabLabels.forEach(tab => {
+        tab.style.cursor = "pointer"; // Cursor pointer dikhega
+        tab.addEventListener('click', function (e) {
+            // Agar label par click hua hai, toh uske andar ke radio button ko check kardo
+            const radio = this.tagName === 'INPUT' ? this : this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                // Form ko batane ke liye ki tab badal gaya hai (agar zaroorat ho)
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
             }
+            console.log("Tab switched!");
         });
     });
 
-    // 3. Tab Navigation Fix (Pricing & Requirements Sections)
-    // Ye code tabs ko force-click karega agar wo normal click nahi ho rahe
-    const tabs = document.querySelectorAll('.nav-tabs .nav-link, .nav-tabs input[type="radio"]');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // UI Update: Active class change
-            document.querySelectorAll('.nav-tabs .nav-link').forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Note: Agar ye backend tabs hain, toh ye trigger logic browser ko naye section par le jayega
-            console.log("Section Changed to: " + this.innerText);
-        });
-    });
-
-    // 4. Form Validation & SEO Check (For All 9 Sections)
+    // 3. Form Validation (Vishal's SEO Requirement)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const requireds = form.querySelectorAll('[required]');
+            const requiredFields = form.querySelectorAll('[required]');
 
-            requireds.forEach(field => {
+            requiredFields.forEach(field => {
                 const oldMsg = field.parentElement.querySelector('.error-msg');
                 if (oldMsg) oldMsg.remove();
 
@@ -55,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     field.style.borderColor = "#f64e60";
                     const span = document.createElement('span');
                     span.className = 'error-msg';
-                    span.style.cssText = "color:#f64e60; font-size:11px; display:block; margin-top:5px;";
-                    span.innerText = "This content is required for SEO & proper fixing!";
+                    span.style.cssText = "color:#f64e60; font-size:11px; display:block; margin-top:5px; font-weight:500;";
+                    span.innerText = "This content is required for SEO fixing!";
                     field.parentElement.appendChild(span);
                 } else {
                     field.style.borderColor = "#e2e8f0";
@@ -65,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!isValid) {
                 e.preventDefault();
-                const firstErr = form.querySelector('.error-msg');
-                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const firstInvalid = form.querySelector('.error-msg');
+                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     });
