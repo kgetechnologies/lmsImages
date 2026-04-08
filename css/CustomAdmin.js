@@ -1,20 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
-    
+
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             sidebar.classList.toggle('open');
-            
-            document.body.classList.toggle('sidebar-active');
         });
     }
 
-
     const menuLinks = document.querySelectorAll('.sidebar ul li > a');
-    
     menuLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const parentLi = this.parentElement;
@@ -32,23 +28,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
 
+
                 parentLi.classList.toggle('active', !isActive);
             }
         });
     });
 
     const forms = document.querySelectorAll('form');
-    
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             const requiredFields = form.querySelectorAll('[required]');
             let firstInvalidField = null;
 
             requiredFields.forEach(field => {
+               
                 const existingError = field.parentElement.querySelector('.error-msg');
                 if (existingError) existingError.remove();
 
-                if (!field.value.trim()) {
+                if (!field.value.trim() || field.value === "" || field.value === "Select Category") {
                     if (!firstInvalidField) firstInvalidField = field;
                     
                     field.style.borderColor = "#f64e60"; 
@@ -66,9 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (firstInvalidField) {
                 e.preventDefault();
                 firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                firstInvalidField.focus();
+                setTimeout(() => firstInvalidField.focus(), 500);
             }
         });
+
         form.querySelectorAll('input, select, textarea').forEach(input => {
             input.addEventListener('input', function() {
                 if (this.value.trim() !== "") {
@@ -81,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.addEventListener('click', function (e) {
-        if (window.innerWidth <= 991 && sidebar.classList.contains('open')) {
+        if (window.innerWidth <= 991 && sidebar && sidebar.classList.contains('open')) {
             if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
                 sidebar.classList.remove('open');
             }
