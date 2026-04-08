@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
 
+
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
- 
     const dropdownLinks = document.querySelectorAll('.sidebar ul li > a');
 
     dropdownLinks.forEach(link => {
@@ -24,27 +24,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const isAlreadyActive = parentLi.classList.contains('active');
 
+         
                 document.querySelectorAll('.sidebar ul li.active').forEach(activeItem => {
                     if (activeItem !== parentLi) {
                         activeItem.classList.remove('active');
                     }
                 });
 
-                if (isAlreadyActive) {
-                    parentLi.classList.remove('active');
-                } else {
-                    parentLi.classList.add('active');
-                }
+                parentLi.classList.toggle('active', !isAlreadyActive);
             }
         });
     });
 
-    if (sidebar) {
-        sidebar.addEventListener('click', (e) => e.stopPropagation());
-    }
-
-    document.addEventListener('click', () => {
-        if (window.innerWidth <= 991 && sidebar.classList.contains('open')) {
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 991 && !sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
             sidebar.classList.remove('open');
         }
     });
