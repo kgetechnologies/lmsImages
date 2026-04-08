@@ -1,87 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
+
+    // 1. Sidebar Toggle
     if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', function (e) {
+        toggleBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             sidebar.classList.toggle('open');
         });
     }
 
-    const dropdownLinks = document.querySelectorAll('.sidebar ul li > a');
-    dropdownLinks.forEach(link => {
+    // 2. Dropdown Accordion Logic
+    const menuLinks = document.querySelectorAll('.sidebar ul li > a');
+    menuLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            const parentLi = this.parentElement;
-            const subMenu = parentLi.querySelector('ul');
+            const parent = this.parentElement;
+            const subMenu = parent.querySelector('ul');
 
             if (subMenu) {
                 e.preventDefault();
                 e.stopPropagation();
-
-                const isAlreadyActive = parentLi.classList.contains('active');
-
-                document.querySelectorAll('.sidebar ul li.active').forEach(activeItem => {
-                    if (activeItem !== parentLi) {
-                        activeItem.classList.remove('active');
-                    }
-                });
-
-      
-                parentLi.classList.toggle('active', !isAlreadyActive);
+                
+                if (!parent.classList.contains('active')) {
+                    document.querySelectorAll('.sidebar ul li.active').forEach(el => el.classList.remove('active'));
+                    parent.classList.add('active');
+                } else {
+                    parent.classList.remove('active');
+                }
             }
         });
     });
 
-
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 991 && sidebar && sidebar.classList.contains('open')) {
-            if (!sidebar.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
-                sidebar.classList.remove('open');
-            }
-        }
-    });
-
-    const allForms = document.querySelectorAll('form');
-    allForms.forEach(form => {
+    // 3. Form Validation Logic
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
         form.addEventListener('submit', function (e) {
-            const inputsToCheck = form.querySelectorAll('input[required], select[required], textarea[required]');
+            const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
 
-            inputsToCheck.forEach(input => {
-                const existingError = input.parentElement.querySelector('.error-msg');
+            requiredFields.forEach(field => {
+                const existingError = field.parentElement.querySelector('.error-msg');
                 if (existingError) existingError.remove();
 
-                if (input.value.trim() === "") {
+                if (!field.value.trim()) {
                     isValid = false;
-                    input.style.borderColor = "#f64e60"; 
+                    field.style.borderColor = "#f64e60";
+                    
                     const error = document.createElement('span');
                     error.className = 'error-msg';
-                    error.style.cssText = "color: #f64e60; font-size: 11px; display: block; margin-top: 5px; font-weight: 500;";
+                    error.style.cssText = "color: #f64e60; font-size: 11px; display: block; margin-top: 4px;";
                     error.innerText = "This field is required!";
-                    input.parentElement.appendChild(error);
+                    field.parentElement.appendChild(error);
                 } else {
-                    input.style.borderColor = "#e2e8f0";
+                    field.style.borderColor = "#e2e8f0";
                 }
             });
 
             if (!isValid) {
-                e.preventDefault(); 
-                const firstErrorField = form.querySelector('.error-msg');
-                if (firstErrorField) {
-                    firstErrorField.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                e.preventDefault();
+                const firstErr = form.querySelector('.error-msg');
+                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        });
-
-        form.querySelectorAll('input, select, textarea').forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.value.trim() !== "") {
-                    this.style.borderColor = "#e2e8f0";
-                    const error = this.parentElement.querySelector('.error-msg');
-                    if (error) error.remove();
-                }
-            });
         });
     });
 });
