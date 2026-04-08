@@ -119,77 +119,64 @@
     width: 65px; height: 65px;
     border-radius: 50%;
     border: 2px solid #3699ff;
-    margin-bottom: 12px !important;
+    margin-bottom: 10px !important;
+    object-fit: cover;
 }
 
-.admin-profile .profile-info {
-    text-align: center;
-}
+.admin-profile .profile-info { text-align: center; }
+.admin-profile h4 { color: #ffffff; font-size: 14px; margin: 0; }
+.admin-profile p { color: #3699ff; font-size: 12px; margin: 0; }
 
-.admin-profile h4, .admin-profile p {
-    color: #ffffff;
-    margin: 2px 0;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.nav.nav-tabs, .wizard-steps {
+.nav.nav-tabs {
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: flex-start !important;
-    gap: 15px !important;
+    gap: 12px !important;
     border: none !important;
-    padding: 20px 0 !important;
+    margin: 20px 0 !important;
+    padding: 0 !important;
 }
 
-.nav-tabs .nav-item {
-    list-style: none;
-}
+.nav-tabs .nav-item { list-style: none; margin: 0; }
 
 .nav-tabs .nav-link {
-    display: flex !important;
-    align-items: center !important;
-    background: #f8fafc !important;
+    background: #f4f7f6 !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 50px !important; 
     padding: 10px 20px !important;
     color: #4a5568 !important;
     font-size: 13px;
-    font-weight: 600;
-    transition: 0.3s;
+    font-weight: 500;
+    display: flex !important;
+    align-items: center;
+    transition: 0.3s ease;
 }
 
 .nav-tabs .nav-link.active {
     background: #3699ff !important;
     color: #ffffff !important;
     border-color: #3699ff !important;
-    box-shadow: 0 4px 12px rgba(54, 153, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(54, 153, 255, 0.2);
 }
+.form-group { margin-bottom: 20px !important; }
 
 .form-group label {
     font-weight: 600;
+    font-size: 13px;
     color: #2d3748;
     margin-bottom: 8px;
     display: block;
 }
 
-.row.form-row {
-    margin-bottom: 20px;
-}
-
-.input-group, .form-control, .form-select {
+.form-control, .form-select {
     border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px 15px !important;
+    font-size: 14px;
 }
 
-.btn-back {
-    border: 1px solid #3699ff;
-    color: #3699ff;
-    border-radius: 8px;
-    padding: 8px 16px;
-    text-decoration: none;
+.form-control:focus {
+    border-color: #3699ff !important;
+    box-shadow: 0 0 0 2px rgba(54, 153, 255, 0.1) !important;
 }
 
-.btn-back:hover {
-    background: #3699ff;
-    color: #fff;
-}
+.form-check-label { margin-left: 5px; font-size: 13px; cursor: pointer; }
