@@ -14,41 +14,48 @@ body {
     background: #1e1e2d !important;
     z-index: 1050;
     overflow-y: auto;
-    transition: all 0.3s ease;
+    overflow-x: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+
 
 .admin-profile {
-    padding: 20px 10px;
+    padding: 25px 10px;
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .admin-profile img {
-    width: 60px; height: 60px;
+    width: 65px; height: 65px;
     border-radius: 50%;
     border: 2px solid #3699ff;
+    object-fit: cover;
 }
 
-.sidebar ul { list-style: none; padding: 10px 0; }
+.sidebar ul { list-style: none; padding: 15px 0; width: 100%; }
+
+.sidebar ul li { width: 100%; position: relative; }
 
 .sidebar ul li a {
     display: flex !important;
     align-items: center;
-    padding: 12px 20px;
+    padding: 14px 22px;
     color: #a2a3b7 !important;
     text-decoration: none !important;
     font-size: 14px;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: 0.2s ease;
 }
 
-.sidebar ul li a i:first-child { margin-right: 12px; width: 20px; }
+.sidebar ul li a i:first-child { margin-right: 12px; width: 20px; font-size: 16px; }
 
 .sidebar ul li a i.fa-angle-down {
     margin-left: auto;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .sidebar ul li.active > a i.fa-angle-down {
@@ -57,14 +64,14 @@ body {
 
 .sidebar ul li.active > a, 
 .sidebar ul li a:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(54, 153, 255, 0.08);
     color: #ffffff !important;
 }
 
 .sidebar ul li ul {
     display: none;
     background: #161623;
-    list-style: none;
+    padding: 8px 0;
 }
 
 .sidebar ul li.active ul {
@@ -72,14 +79,18 @@ body {
 }
 
 .sidebar ul li ul li a {
-    padding-left: 50px !important;
+    padding: 10px 20px 10px 54px !important;
     font-size: 13px;
+    color: #888a9d !important;
 }
 
-.main-content { margin-left: 260px; padding: 25px; transition: 0.3s; }
+.sidebar ul li ul li a:hover { color: #3699ff !important; }
+
+
+.main-content { margin-left: 260px; padding: 30px; transition: 0.3s; }
 
 @media (max-width: 991px) {
     .sidebar { left: -260px; }
     .sidebar.open { left: 0 !important; }
-    .main-content { margin-left: 0 !important; }
+    .main-content { margin-left: 0 !important; padding: 20px; }
 }
