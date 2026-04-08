@@ -61,32 +61,3 @@
     .main-content { margin-left: 0 !important; }
 }
 
-body { background-color: #151521 !important; color: #ffffff; }
-
-.card, .main-card, .box, .white-box {
-    background-color: #1e1e2d !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-radius: 12px !important;
-    color: #ffffff !important;
-    padding: 20px;
-}
-
-.form-control, .form-select, select, input, textarea {
-    background-color: #161623 !important;
-    border: 1px solid #2d2d3f !important;
-    color: #ffffff !important;
-    padding: 10px 15px !important;
-}
-
-.error-msg {
-    color: #f64e60 !important;
-    font-size: 12px;
-    margin-top: 5px;
-    display: block;
-}
-
-.btn-primary, button[type="submit"] {
-    background-color: #3699ff !important;
-    border: none !important;
-    padding: 10px 20px !important;
-}
