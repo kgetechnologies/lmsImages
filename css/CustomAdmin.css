@@ -1,84 +1,78 @@
-/* --- Global Resets & Layout --- */
+/* --- Global Styles --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: #f4f7fb; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-body { background-color: #f5f7fb; font-family: 'Poppins', sans-serif; }
-
-.main-content { 
-    margin-left: 260px; 
-    padding: 25px; 
-    transition: all 0.3s ease; 
-    min-height: 100vh;
-}
-
-/* --- Sidebar Styling --- */
+/* --- Sidebar Master Fix --- */
 .sidebar {
     position: fixed;
     top: 0; left: 0;
     height: 100vh;
     width: 260px;
     background: #1e1e2d !important;
-    z-index: 1060 !important; /* Higher z-index to stay above content */
-    overflow-y: auto; 
+    z-index: 2000 !important; /* Content se hamesha upar rahega */
     transition: all 0.3s ease;
+    overflow-y: visible !important; /* Submenu ko dikhane ke liye zaroori h */
 }
 
-/* Profile Section Fix */
-.admin-profile { 
-    padding: 25px 15px; 
-    text-align: center; 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+/* Sidebar Profile (Guest/Instructor Fix) */
+.admin-profile {
+    padding: 30px 15px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.admin-profile img { 
-    width: 65px; height: 65px; 
-    border-radius: 50%; 
-    border: 2px solid #3699ff; 
-    margin-bottom: 10px;
+.admin-profile img {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    border: 2px solid #3699ff;
+    margin-bottom: 12px;
     object-fit: cover;
 }
-.admin-profile h4 { color: #fff; font-size: 14px; margin: 5px 0 0 0; }
+.admin-profile h4 { color: #fff; font-size: 15px; margin: 0; font-weight: 500; }
+.admin-profile p { color: #3699ff; font-size: 12px; margin-top: 5px; }
 
-/* Menu & Dropdowns */
-.sidebar ul { list-style: none; padding: 10px 0; }
+/* Submenu/Dropdown Fix */
+.sidebar ul li { position: relative; list-style: none; }
 .sidebar ul li a {
     display: flex !important;
     align-items: center;
-    padding: 13px 22px;
+    padding: 14px 25px;
     color: #a2a3b7 !important;
     text-decoration: none !important;
-    font-size: 14px;
+    transition: 0.3s;
 }
-
-.sidebar ul li a i.fa-angle-down { margin-left: auto; transition: transform 0.3s; }
-.sidebar ul li.active > a i.fa-angle-down { transform: rotate(180deg); }
 
 .sidebar ul li ul {
     display: none;
-    background: #161623;
-    list-style: none;
+    background: #161623 !important;
+    padding: 5px 0;
+    width: 100%;
 }
-.sidebar ul li.active ul { display: block !important; }
+
+.sidebar ul li.active > ul {
+    display: block !important;
+}
 
 .sidebar ul li ul li a {
-    padding: 10px 20px 10px 54px !important;
+    padding: 10px 20px 10px 60px !important;
     font-size: 13px;
 }
 
-/* --- Course Add Page: Wizard Tabs --- */
+/* --- Add Course Page: Pill Tabs Fix --- */
 .nav-tabs {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 12px !important;
+    gap: 10px !important;
     border: none !important;
-    margin: 20px 0 !important;
+    padding: 15px 0 !important;
 }
 .nav-tabs .nav-link {
-    background: #f8fafc !important;
+    background: #fff !important;
     border: 1px solid #e2e8f0 !important;
-    border-radius: 50px !important;
-    padding: 10px 20px !important;
+    border-radius: 50px !important; /* Rounded Pills */
+    padding: 10px 22px !important;
     color: #4a5568 !important;
     font-size: 13px;
     font-weight: 600;
@@ -87,17 +81,18 @@ body { background-color: #f5f7fb; font-family: 'Poppins', sans-serif; }
     background: #3699ff !important;
     color: #fff !important;
     border-color: #3699ff !important;
-    box-shadow: 0 4px 10px rgba(54, 153, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(54, 153, 255, 0.2);
 }
 
-/* --- Form & Table Fixes --- */
-.card { border: none !important; border-radius: 12px !important; box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important; }
-.form-control, .form-select { border-radius: 8px !important; border: 1px solid #e2e8f0 !important; padding: 10px 15px !important; }
-.table-responsive { background: #fff; padding: 15px; border-radius: 10px; }
+/* --- Main Content Area --- */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    z-index: 1;
+}
 
-/* Mobile View */
 @media (max-width: 991px) {
     .sidebar { left: -260px; }
-    .sidebar.open { left: 0 !important; }
-    .main-content { margin-left: 0 !important; }
+    .sidebar.open { left: 0; }
+    .main-content { margin-left: 0; }
 }
