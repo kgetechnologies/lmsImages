@@ -1,4 +1,3 @@
-/* --- Global Layout & Sidebar --- */
 .sidebar { 
     position: fixed; top: 0; left: 0; height: 100vh; width: 260px; 
     background: #1e1e2d !important; z-index: 9999 !important; 
@@ -10,7 +9,6 @@
     background-color: #f8fafc; transition: 0.3s ease-in-out; 
 }
 
-/* --- 9 Sections Tabs (Pill Navigation) --- */
 .nav-tabs { 
     display: flex !important; flex-wrap: wrap !important; gap: 10px; 
     border: none !important; margin-bottom: 30px; padding: 15px; 
@@ -23,7 +21,6 @@
     transition: all 0.2s ease;
 }
 
-/* Active Tab Highlight (Green/Blue) */
 .nav-tabs input[type="radio"]:checked + label { 
     background: #10b981 !important; color: #fff !important; 
     border-color: #10b981 !important; transform: translateY(-2px);
@@ -31,7 +28,6 @@
 
 .nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
 
-/* --- SEO & Validation Styling --- */
 .error-msg { color: #ef4444; font-size: 11px; margin-top: 6px; font-weight: 500; display: block; }
 .is-invalid { border: 1.5px solid #ef4444 !important; background-color: #fef2f2 !important; }
 
