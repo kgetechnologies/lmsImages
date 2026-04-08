@@ -10,52 +10,60 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. Tab Click Fix (For 9 Sections)
-    // Hum har tab ke andar jo dabba (radio button) hai use force click karenge
-    const tabLabels = document.querySelectorAll('.nav-tabs label, .nav-tabs input[type="radio"]');
-    
-    tabLabels.forEach(tab => {
-        tab.style.cursor = "pointer"; // Cursor pointer dikhega
-        tab.addEventListener('click', function (e) {
-            // Agar label par click hua hai, toh uske andar ke radio button ko check kardo
-            const radio = this.tagName === 'INPUT' ? this : this.querySelector('input[type="radio"]');
-            if (radio) {
-                radio.checked = true;
-                // Form ko batane ke liye ki tab badal gaya hai (agar zaroorat ho)
-                radio.dispatchEvent(new Event('change', { bubbles: true }));
+    // 2. Sidebar Dropdown Accordion
+    const menuLinks = document.querySelectorAll('.sidebar ul li > a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const parent = this.parentElement;
+            if (parent.querySelector('ul')) {
+                e.preventDefault();
+                document.querySelectorAll('.sidebar ul li.active').forEach(active => {
+                    if (active !== parent) active.classList.remove('active');
+                });
+                parent.classList.toggle('active');
             }
-            console.log("Tab switched!");
         });
     });
 
-    // 3. Form Validation (Vishal's SEO Requirement)
+    // 3. 9-Section Tab Click Trigger
+    // Ye Pricing aur Requirements wale tabs ko force-click karega
+    const tabLabels = document.querySelectorAll('.nav-tabs label');
+    tabLabels.forEach(label => {
+        label.addEventListener('click', function () {
+            const radio = document.getElementById(this.getAttribute('for')) || this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        });
+    });
+
+    // 4. Final Validation & SEO Check
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const requiredFields = form.querySelectorAll('[required]');
+            const requiredFields = form.querySelectorAll('[required], .seo-field');
 
             requiredFields.forEach(field => {
                 const oldMsg = field.parentElement.querySelector('.error-msg');
                 if (oldMsg) oldMsg.remove();
+                field.classList.remove('is-invalid');
 
                 if (!field.value.trim() || field.value === "Select Category") {
                     isValid = false;
-                    field.style.borderColor = "#f64e60";
+                    field.classList.add('is-invalid');
                     const span = document.createElement('span');
                     span.className = 'error-msg';
-                    span.style.cssText = "color:#f64e60; font-size:11px; display:block; margin-top:5px; font-weight:500;";
                     span.innerText = "This content is required for SEO fixing!";
                     field.parentElement.appendChild(span);
-                } else {
-                    field.style.borderColor = "#e2e8f0";
                 }
             });
 
             if (!isValid) {
                 e.preventDefault();
-                const firstInvalid = form.querySelector('.error-msg');
-                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const firstErr = form.querySelector('.is-invalid');
+                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     });
