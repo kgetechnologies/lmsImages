@@ -1,37 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("CustomAdmin.js is Loaded and Working!");
+document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.querySelector('.sidebar');
+    const toggleBtn = document.querySelector('#sidebarCollapse'); /
+    const body = document.querySelector('body');
 
-    const menuLinks = document.querySelectorAll(".sidebar ul li > a");
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            sidebar.classList.toggle('open');
+            body.classList.toggle('sidebar-open');
+        });
 
-    menuLinks.forEach(link => {
-        link.addEventListener("click", function(e) {
-            const parentLi = this.parentElement;
-            const hasSubmenu = parentLi.querySelector("ul");
-
-            if (hasSubmenu) {
-                e.preventDefault(); 
-                document.querySelectorAll(".sidebar ul li").forEach(li => {
-                    if (li !== parentLi) li.classList.remove("active");
-                });
-
-                
-                parentLi.classList.toggle("active");
-                console.log("Menu Toggled:", this.innerText.trim());
+        document.addEventListener('click', function (e) {
+            if (window.innerWidth <= 991) {
+                if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    sidebar.classList.remove('open');
+                    body.classList.remove('sidebar-open');
+                }
             }
         });
-    });
-    
-    function checkWidth() {
-        const sidebar = document.querySelector(".sidebar");
-        if (sidebar) {
-            if (window.innerWidth <= 991) {
-                sidebar.classList.add("hide");
-            } else {
-                sidebar.classList.remove("hide");
-            }
-        }
-    }
 
-    window.addEventListener("resize", checkWidth);
-    checkWidth(); 
+        sidebar.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    }
 });
