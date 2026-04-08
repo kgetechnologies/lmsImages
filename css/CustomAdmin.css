@@ -107,3 +107,68 @@
     }
 }
 
+.admin-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.admin-profile img {
+    margin-bottom: 10px;
+}
+
+.admin-profile h4, .admin-profile p {
+    color: #fff;
+    margin: 0;
+    font-size: 14px;
+}
+
+.nav-tabs, .wizard-nav {
+    border: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 30px !important;
+    padding: 8px 20px !important;
+    background: #fff !important;
+    color: #4a5568 !important;
+    font-size: 13px;
+}
+
+.nav-tabs .nav-link.active {
+    background: #3699ff !important;
+    color: #fff !important;
+    border-color: #3699ff !important;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    color: #2d3748;
+}
+
+.row > div {
+    margin-bottom: 15px; 
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+h3.section-title, .form-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 25px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #edf2f9;
+}
