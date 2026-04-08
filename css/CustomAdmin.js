@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Sidebar Toggle Logic
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
     }
 
-    // 2. 9 Section Tab Switching (Fix for Pricing/Media/etc.)
     const tabLabels = document.querySelectorAll('.nav-tabs label');
     tabLabels.forEach(label => {
         label.addEventListener('click', function() {
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 3. SEO Goal: Form Validation for All Pages
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
@@ -27,13 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const inputs = form.querySelectorAll('[required]');
 
             inputs.forEach(input => {
-                // Clear old errors
                 const parent = input.parentElement;
                 const oldErr = parent.querySelector('.error-msg');
                 if (oldErr) oldErr.remove();
                 input.classList.remove('is-invalid');
 
-                // Check if empty
                 if (!input.value.trim() || input.value === "Select Category") {
                     isValid = false;
                     input.classList.add('is-invalid');
