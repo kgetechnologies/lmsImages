@@ -1,35 +1,39 @@
+/* --- Global Layout & Sidebar --- */
 .sidebar { 
     position: fixed; top: 0; left: 0; height: 100vh; width: 260px; 
     background: #1e1e2d !important; z-index: 9999 !important; 
-    overflow-y: auto; transition: 0.3s; 
+    overflow-y: auto; box-shadow: 4px 0 10px rgba(0,0,0,0.1);
 }
 
 .main-content { 
     margin-left: 260px; padding: 30px; min-height: 100vh; 
-    background-color: #f4f7fb; transition: 0.3s; 
+    background-color: #f8fafc; transition: 0.3s ease-in-out; 
 }
 
+/* --- 9 Sections Tabs (Pill Navigation) --- */
 .nav-tabs { 
-    display: flex !important; flex-wrap: wrap !important; gap: 12px; 
-    border: none !important; margin-bottom: 25px; padding: 15px; 
-    background: #fff; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex !important; flex-wrap: wrap !important; gap: 10px; 
+    border: none !important; margin-bottom: 30px; padding: 15px; 
+    background: #ffffff; border-radius: 12px;
 }
 
 .nav-tabs label { 
     cursor: pointer !important; padding: 10px 20px; border: 1px solid #e2e8f0; 
-    border-radius: 30px; font-size: 13px; font-weight: 600; color: #4a5568 !important;
-    transition: all 0.3s ease; display: inline-flex; align-items: center;
+    border-radius: 50px; font-size: 13px; font-weight: 600; color: #64748b !important;
+    transition: all 0.2s ease;
 }
 
+/* Active Tab Highlight (Green/Blue) */
 .nav-tabs input[type="radio"]:checked + label { 
-    background: #28a745 !important; color: #fff !important; 
-    border-color: #28a745 !important; box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+    background: #10b981 !important; color: #fff !important; 
+    border-color: #10b981 !important; transform: translateY(-2px);
 }
 
-.nav-tabs input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
 
-.error-msg { color: #f64e60; font-size: 12px; margin-top: 5px; display: block; font-weight: 500; }
-.is-invalid { border-color: #f64e60 !important; }
+/* --- SEO & Validation Styling --- */
+.error-msg { color: #ef4444; font-size: 11px; margin-top: 6px; font-weight: 500; display: block; }
+.is-invalid { border: 1.5px solid #ef4444 !important; background-color: #fef2f2 !important; }
 
 @media (max-width: 991px) {
     .sidebar { left: -260px; }
