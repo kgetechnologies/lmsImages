@@ -1,69 +1,66 @@
-const validatePricingSection = (e) => {
-   
-    const isContinueBtn = e.target.closest('.btn-primary') || e.target.closest('button[type="submit"]');
-    if (!isContinueBtn) return;
+const enforceValidation = () => {
+    const continueBtn = document.querySelector('.btn-primary, button[type="submit"]');
+    if (!continueBtn) return;
 
-   
-    const isFree = document.getElementById('FreeCourse')?.checked;
-    const sellingPrice = document.getElementById('SellingPrice');
-    const noOfMonths = document.getElementById('Noofmonth');
+    const newBtn = continueBtn.cloneNode(true);
+    continueBtn.parentNode.replaceChild(newBtn, continueBtn);
 
-    
-    if (!sellingPrice && !noOfMonths) return;
-
-    let isValid = true;
-
-    document.querySelectorAll('.error-msg').forEach(el => el.remove());
-    document.querySelectorAll('.is-invalid').forEach(el => {
-        el.classList.remove('is-invalid');
-        el.style.borderColor = "";
-    });
-
-    if (!isFree) {
-        if (sellingPrice && (!sellingPrice.value.trim() || sellingPrice.value == "0")) {
-            showError(sellingPrice, "Selling price is required");
-            isValid = false;
-        }
-        if (noOfMonths && (!noOfMonths.value.trim() || noOfMonths.value == "0")) {
-            showError(noOfMonths, "Duration is required");
-            isValid = false;
-        }
-    }
-
-   
-    if (!isValid) {
-        e.preventDefault();
-        e.stopPropagation();
+    newBtn.addEventListener('click', function(e) {
+        let isValid = true;
         
-        const firstError = document.querySelector('.is-invalid');
-        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+      
+        document.querySelectorAll('.error-msg').forEach(el => el.remove());
+        document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+        const isFree = document.getElementById('FreeCourse')?.checked;
+        const sellingPrice = document.getElementById('SellingPrice');
+        const noOfMonths = document.getElementById('Noofmonth');
+
+        if (sellingPrice || noOfMonths) {
+            if (!isFree) {
+                if (!sellingPrice?.value.trim() || sellingPrice.value == "0") {
+                    showError(sellingPrice, "Selling price is required");
+                    isValid = false;
+                }
+                if (!noOfMonths?.value.trim() || noOfMonths.value == "0") {
+                    showError(noOfMonths, "Duration is required");
+                    isValid = false;
+                }
+            }
+        }
+
+        document.querySelectorAll('input[required], select[required]').forEach(field => {
+            if (!field.value.trim() || field.value === "Select Category") {
+                showError(field, "This field is required");
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+        }
+        
+    }, true);
 };
 
 
 function showError(field, message) {
+    if (!field) return;
     field.classList.add('is-invalid');
-    field.style.borderColor = "red";
-    
-    if (!field.parentElement.querySelector('.error-msg')) {
-        const err = document.createElement('span');
-        err.className = 'error-msg';
-        err.style.cssText = "color: red; font-size: 12px; display: block; margin-top: 5px; font-weight: 500;";
-        err.innerText = message;
-        field.parentElement.appendChild(err);
-    }
+    field.style.border = "1px solid red";
+    const err = document.createElement('span');
+    err.className = 'error-msg';
+    err.style.cssText = "color: red; font-size: 11px; display: block; margin-top: 2px;";
+    err.innerText = message;
+    field.parentElement.appendChild(err);
 }
 
-document.addEventListener('click', validatePricingSection, true);
 
-document.addEventListener('click', function(e) {
-    const sidebarLink = e.target.closest('.sidebar .nav-item > a');
-    if (sidebarLink) {
-        const parent = sidebarLink.parentElement;
-        const subMenu = parent.querySelector('.sub-menu');
-        if (subMenu) {
-            e.preventDefault();
-            parent.classList.toggle('active');
-        }
-    }
-}, true);
+const observer = new MutationObserver(() => {
+    enforceValidation();
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+enforceValidation(); 
