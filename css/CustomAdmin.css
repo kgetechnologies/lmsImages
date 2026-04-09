@@ -1,19 +1,30 @@
+.sidebar { 
+    position: fixed; top: 0; left: 0; height: 100vh; width: 260px; 
+    background: #1e1e2d !important; z-index: 9999 !important; 
+    overflow-y: auto; box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.main-content { 
+    margin-left: 260px; padding: 30px; min-height: 100vh; 
+    background-color: #f8fafc; transition: 0.3s ease-in-out; 
+}
+
 .sidebar .nav-item .sub-menu {
-    display: none !important; 
-    visibility: hidden;
+    display: none !important;
+    list-style: none;
+    padding-left: 20px;
 }
 
 .sidebar .nav-item.active .sub-menu {
     display: block !important;
-    visibility: visible !important;
 }
 
 .error-msg { 
     color: #ff0000 !important; 
     font-size: 13px !important; 
+    margin-top: 8px !important; 
     font-weight: 700 !important; 
-    margin-top: 5px !important; 
-    display: block !important;
+    display: block !important; 
 }
 
 .is-invalid { 
@@ -21,9 +32,9 @@
     background-color: #fff1f1 !important; 
 }
 
-.sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: #1e1e2d !important; z-index: 9999 !important; overflow-y: auto; }
-.main-content { margin-left: 260px; padding: 30px; background-color: #f8fafc; }
-.nav-tabs { display: flex; gap: 10px; padding: 15px; background: #fff; border-radius: 12px; }
+.nav-tabs { display: flex !important; flex-wrap: wrap !important; gap: 10px; border: none !important; margin-bottom: 30px; padding: 15px; background: #ffffff; border-radius: 12px; }
+.nav-tabs label { cursor: pointer !important; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 50px; font-size: 13px; font-weight: 600; color: #64748b !important; }
+.nav-tabs input[type="radio"]:checked + label { background: #10b981 !important; color: #fff !important; border-color: #10b981 !important; }
 .nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
-.nav-tabs label { cursor: pointer; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 50px; font-weight: 600; }
-.nav-tabs input[type="radio"]:checked + label { background: #10b981 !important; color: #fff !important; }
+
+@media (max-width: 991px) { .sidebar { left: -260px; } .sidebar.open { left: 0; } .main-content { margin-left: 0 !important; } }
