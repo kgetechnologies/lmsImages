@@ -1,28 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const sidebar = document.querySelector('.sidebar');
-    const toggleBtn = document.querySelector('#sidebarCollapse');
-    if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
-    }
-
+    // 1. Sidebar Dropdown Fix (Single Click)
     const navLinks = document.querySelectorAll('.nav-item > a');
+    
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.onclick = function (e) {
             const parent = this.parentElement;
-            const hasSubMenu = parent.querySelector('.sub-menu');
+            const subMenu = parent.querySelector('.sub-menu');
             
-            if (hasSubMenu) {
+            if (subMenu) {
                 e.preventDefault();
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    if (item !== parent) item.classList.remove('active');
-                });
+                // Toggle 'active' class
                 parent.classList.toggle('active');
             }
-        });
+        };
     });
+
+    // 2. Form Validation Fix (Red Error Message)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
-        form.addEventListener('submit', function (e) {
+        form.onsubmit = function (e) {
             let isValid = true;
             const inputs = form.querySelectorAll('[required]');
 
@@ -35,11 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!input.value.trim() || input.value === "Select Category") {
                     isValid = false;
                     input.classList.add('is-invalid');
-                    
+
                     const error = document.createElement('span');
                     error.className = 'error-msg';
-                    const labelText = parent.querySelector('label') ? parent.querySelector('label').innerText : "This field";
-                    error.innerText = labelText.replace('*', '').trim() + " is required";
+                    
+                    // Specific logic for label text
+                    const label = parent.querySelector('label');
+                    const labelName = label ? label.innerText.replace('*', '') : "This field";
+                    error.innerText = labelName + " is required";
                     
                     parent.appendChild(error);
                 }
@@ -50,6 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const firstErr = form.querySelector('.is-invalid');
                 if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        });
+        };
     });
 });
