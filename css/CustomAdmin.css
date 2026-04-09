@@ -38,3 +38,12 @@
 .nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
 
 @media (max-width: 991px) { .sidebar { left: -260px; } .sidebar.open { left: 0; } .main-content { margin-left: 0 !important; } }
+
+span.error-msg, 
+.error-msg, 
+div.error-msg {
+    color: #ff0000 !important;
+    display: block !important;
+    visibility: visible !important;
+    font-weight: 700 !important;
+}
