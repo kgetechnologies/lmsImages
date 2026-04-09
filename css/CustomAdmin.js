@@ -1,131 +1,84 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const sidebar = document.querySelector(".sidebar");
-    const toggleBtn = document.querySelector(".menu-toggle");
+    document.addEventListener("click", function (e) {
+        const continueBtn = e.target.closest("button, a");
+        if (!continueBtn) return;
 
-    if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener("click", function () {
-            sidebar.classList.toggle("active");
-            document.body.classList.toggle("sidebar-open");
+        if (!continueBtn.textContent.trim().toLowerCase().includes("continue")) return;
+
+        
+        const pricingTab = document.querySelector(
+            'input[type="radio"][value="Pricing"]:checked, #Pricing.active, .Pricing.active'
+        );
+
+
+        const sellingPrice = document.getElementById("SellingPrice");
+        if (!pricingTab && !sellingPrice) return;
+
+        const isFree = document.getElementById("FreeCourse");
+        const noOfMonths = document.getElementById("Noofmonth");
+
+        let isValid = true;
+
+        document.querySelectorAll(".error-msg").forEach(el => el.remove());
+        document.querySelectorAll(".is-invalid").forEach(el => {
+            el.classList.remove("is-invalid");
         });
-    }
 
-   
-   
-    document.querySelectorAll(".sidebar .nav-item > a").forEach(link => {
-        link.addEventListener("click", function (e) {
-            const parent = this.parentElement;
-            const subMenu = parent.querySelector(".sub-menu");
+        if (isFree && !isFree.checked) {
+            if (sellingPrice && (!sellingPrice.value.trim() || sellingPrice.value === "0")) {
+                showError(sellingPrice, "Selling price is required");
+                isValid = false;
+            }
 
-            if (subMenu) {
-                e.preventDefault();
+            if (noOfMonths && (!noOfMonths.value.trim() || noOfMonths.value === "0")) {
+                showError(noOfMonths, "Please enter duration");
+                isValid = false;
+            }
+        }
 
-             
-                document.querySelectorAll(".sidebar .nav-item").forEach(item => {
-                    if (item !== parent) {
-                        item.classList.remove("active");
+      
+        if (!isValid) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            const firstError = document.querySelector(".is-invalid");
+            if (firstError) {
+                firstError.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+                firstError.focus();
+            }
+        }
+    });
+
+    document.querySelectorAll("#SellingPrice, #Noofmonth").forEach(field => {
+        field.addEventListener("input", function () {
+            if (this.value.trim() !== "" && this.value !== "0") {
+                this.classList.remove("is-invalid");
+                const error = this.parentElement.querySelector(".error-msg");
+                if (error) error.remove();
+            }
+        });
+    });
+
+    const freeCourseCheckbox = document.getElementById("FreeCourse");
+    if (freeCourseCheckbox) {
+        freeCourseCheckbox.addEventListener("change", function () {
+            if (this.checked) {
+                ["SellingPrice", "Noofmonth"].forEach(id => {
+                    const field = document.getElementById(id);
+                    if (field) {
+                        field.classList.remove("is-invalid");
+                        const err = field.parentElement.querySelector(".error-msg");
+                        if (err) err.remove();
                     }
                 });
-
-                parent.classList.toggle("active");
             }
         });
-    });
-
-    const currentUrl = window.location.pathname.toLowerCase();
-
-    document.querySelectorAll(".sidebar a").forEach(link => {
-        const href = link.getAttribute("href");
-        if (!href || href === "#" || href.startsWith("javascript")) return;
-
-        const linkPath = new URL(href, window.location.origin).pathname.toLowerCase();
-
-        if (currentUrl === linkPath || currentUrl.startsWith(linkPath)) {
-            link.classList.add("active");
-
-            const parentItem = link.closest(".nav-item");
-            if (parentItem) parentItem.classList.add("active");
-
-            const subMenu = link.closest(".sub-menu");
-            if (subMenu) {
-                const mainParent = subMenu.closest(".nav-item");
-                if (mainParent) mainParent.classList.add("active");
-            }
-        }
-    });
-
- 
-    document.querySelectorAll("form").forEach(form => {
-        form.addEventListener("submit", function (e) {
-            let isValid = true;
-
-            form.querySelectorAll(".error-msg").forEach(el => el.remove());
-            form.querySelectorAll(".is-invalid").forEach(el => {
-                el.classList.remove("is-invalid");
-            });
-
-            form.querySelectorAll("[required]").forEach(field => {
-                if (!validateField(field)) {
-                    isValid = false;
-                }
-            });
-
-            const isFree = document.getElementById("FreeCourse");
-            const sellingPrice = document.getElementById("SellingPrice");
-            const noOfMonths = document.getElementById("Noofmonth");
-
-            if (isFree && !isFree.checked) {
-                if (sellingPrice && (sellingPrice.value.trim() === "" || sellingPrice.value === "0")) {
-                    showError(sellingPrice, "Selling price is required");
-                    isValid = false;
-                }
-
-                if (noOfMonths && (noOfMonths.value.trim() === "" || noOfMonths.value === "0")) {
-                    showError(noOfMonths, "Please enter duration");
-                    isValid = false;
-                }
-            }
-
-            if (!isValid) {
-                e.preventDefault();
-                const firstError = form.querySelector(".is-invalid");
-                if (firstError) {
-                    firstError.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-                    firstError.focus();
-                }
-            }
-        });
-    });
-
- 
-    document.querySelectorAll("input, select, textarea").forEach(field => {
-        field.addEventListener("input", function () {
-            if (this.value.trim() !== "") {
-                this.classList.remove("is-invalid");
-                const error = this.parentElement.querySelector(".error-msg");
-                if (error) error.remove();
-            }
-        });
-
-        field.addEventListener("change", function () {
-            if (this.value.trim() !== "") {
-                this.classList.remove("is-invalid");
-                const error = this.parentElement.querySelector(".error-msg");
-                if (error) error.remove();
-            }
-        });
-    });
-
-    function validateField(field) {
-        if (!field.value || field.value.trim() === "" || field.value === "0") {
-            showError(field, "This field is required");
-            return false;
-        }
-        return true;
     }
+
 
     function showError(field, message) {
         field.classList.add("is-invalid");
@@ -135,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         error.innerText = message;
 
         const container = field.closest(
-            ".form-group, .mb-3, .col-md-6, .col-md-12, .form-floating"
+            ".form-group, .mb-3, .col-md-6, .col-md-12"
         ) || field.parentElement;
 
         container.appendChild(error);
