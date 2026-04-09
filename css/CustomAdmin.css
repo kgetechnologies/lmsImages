@@ -1,30 +1,46 @@
-/* --- UNIVERSAL SIDEBAR & DROPDOWN --- */
-/* Sabhi sub-menus default band */
+/* --- SIDEBAR & LAYOUT FIX --- */
+.sidebar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    height: 100vh; 
+    width: 260px; 
+    background: #1e1e2d !important; 
+    z-index: 9999 !important; 
+    overflow-y: auto; 
+}
+
+.main-content { 
+    margin-left: 260px; 
+    padding: 30px; 
+    background-color: #f8fafc; 
+}
+
+/* Sidebar Dropdown Fix (Single Click) */
 .sidebar .nav-item .sub-menu {
     display: none !important;
 }
 
-/* Active hone par turant display hoga */
 .sidebar .nav-item.active .sub-menu {
     display: block !important;
+    visibility: visible !important;
 }
 
-/* --- FORCED RED ERROR (HAR PAGE KE LIYE) --- */
-/* Ye selector har us tag ko red karega jo error dikhata hai */
+/* --- ERROR MESSAGE COLOR (PURE RED) --- */
+/* Vishal's Requirement: All pages should have red error text */
 .error-msg, 
 .text-danger, 
 .field-validation-error, 
 span[id*="-error"],
-span[class*="error"],
-.Basic-Information span[style*="color: red"] {
-    color: #ff0000 !important; /* Pure Red */
+span[class*="error"] {
+    color: #ff0000 !important; 
     font-size: 13px !important;
     font-weight: 700 !important;
     display: block !important;
     margin-top: 5px !important;
 }
 
-/* Input boxes border red force */
+/* Input boxes border red when invalid */
 .is-invalid, 
 input.error, 
 select.error, 
@@ -33,10 +49,14 @@ textarea.error {
     background-color: #fff1f1 !important;
 }
 
-/* Sidebar & Tabs Layout Essentials */
-.sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: #1e1e2d !important; z-index: 9999; overflow-y: auto; }
-.main-content { margin-left: 260px; padding: 30px; background-color: #f8fafc; }
-.nav-tabs { display: flex; gap: 10px; padding: 15px; background: #fff; border-radius: 12px; border: none !important; }
+/* --- NAVIGATION TABS & RESPONSIVE --- */
+.nav-tabs { display: flex !important; gap: 10px; padding: 15px; background: #fff; border-radius: 12px; border: none !important; }
 .nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
 .nav-tabs label { cursor: pointer; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 50px; font-weight: 600; }
 .nav-tabs input[type="radio"]:checked + label { background: #10b981 !important; color: #fff !important; }
+
+@media (max-width: 991px) {
+    .sidebar { left: -260px; }
+    .sidebar.open { left: 0; }
+    .main-content { margin-left: 0 !important; }
+}
