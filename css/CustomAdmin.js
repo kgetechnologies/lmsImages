@@ -4,6 +4,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
     }
+    const menuItems = document.querySelectorAll('.nav-item');
+    menuItems.forEach(item => {
+        const link = item.querySelector('a'); 
+        if (link) {
+            link.addEventListener('click', function(e) {
+                const hasSubMenu = item.querySelector('.sub-menu');
+                if (hasSubMenu) {
+                    e.preventDefault(); 
+                    item.classList.toggle('active'); 
+                }
+            });
+        }
+    });
 
     const tabLabels = document.querySelectorAll('.nav-tabs label');
     tabLabels.forEach(label => {
@@ -32,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!input.value.trim() || input.value === "Select Category") {
                     isValid = false;
                     input.classList.add('is-invalid');
+                    
                     const error = document.createElement('span');
                     error.className = 'error-msg';
                     error.innerText = "⚠ SEO Warning: This field is mandatory for page indexing!";
