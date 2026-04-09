@@ -1,66 +1,72 @@
-const enforceValidation = () => {
+const setupStrictValidation = () => {
+  
     const continueBtn = document.querySelector('.btn-primary, button[type="submit"]');
-    if (!continueBtn) return;
+    
+    if (continueBtn && !continueBtn.dataset.validated) {
+       
+        const strictBtn = continueBtn.cloneNode(true);
+        continueBtn.parentNode.replaceChild(strictBtn, continueBtn);
+        strictBtn.dataset.validated = "true";
 
-    const newBtn = continueBtn.cloneNode(true);
-    continueBtn.parentNode.replaceChild(newBtn, continueBtn);
+        strictBtn.addEventListener('click', function(e) {
+            let isValid = true;
+            
+          
+            document.querySelectorAll('.error-msg').forEach(el => el.remove());
+            document.querySelectorAll('.is-invalid').forEach(el => {
+                el.classList.remove('is-invalid');
+                el.style.border = "";
+            });
 
-    newBtn.addEventListener('click', function(e) {
-        let isValid = true;
-        
-      
-        document.querySelectorAll('.error-msg').forEach(el => el.remove());
-        document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+          
+            const isFree = document.getElementById('FreeCourse')?.checked;
+            const sellingPrice = document.getElementById('SellingPrice');
+            const noOfMonths = document.getElementById('Noofmonth');
 
-        const isFree = document.getElementById('FreeCourse')?.checked;
-        const sellingPrice = document.getElementById('SellingPrice');
-        const noOfMonths = document.getElementById('Noofmonth');
-
-        if (sellingPrice || noOfMonths) {
-            if (!isFree) {
-                if (!sellingPrice?.value.trim() || sellingPrice.value == "0") {
-                    showError(sellingPrice, "Selling price is required");
-                    isValid = false;
-                }
-                if (!noOfMonths?.value.trim() || noOfMonths.value == "0") {
-                    showError(noOfMonths, "Duration is required");
-                    isValid = false;
+       
+            if (sellingPrice || noOfMonths) {
+                if (!isFree) {
+                    if (!sellingPrice?.value.trim() || sellingPrice.value == "0") {
+                        showError(sellingPrice, "Price is required");
+                        isValid = false;
+                    }
+                    if (!noOfMonths?.value.trim() || noOfMonths.value == "0") {
+                        showError(noOfMonths, "Duration is required");
+                        isValid = false;
+                    }
                 }
             }
-        }
 
-        document.querySelectorAll('input[required], select[required]').forEach(field => {
-            if (!field.value.trim() || field.value === "Select Category") {
-                showError(field, "This field is required");
-                isValid = false;
+            if (!isValid) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                return false;
             }
-        });
 
-        if (!isValid) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            return false;
-        }
-        
-    }, true);
+            
+            strictBtn.click(); 
+        }, true);
+    }
 };
 
 
 function showError(field, message) {
     if (!field) return;
     field.classList.add('is-invalid');
-    field.style.border = "1px solid red";
+    field.style.border = "2px solid red";
     const err = document.createElement('span');
     err.className = 'error-msg';
-    err.style.cssText = "color: red; font-size: 11px; display: block; margin-top: 2px;";
+    err.style.cssText = "color: red; font-size: 12px; display: block; margin-top: 5px; font-weight: bold;";
     err.innerText = message;
     field.parentElement.appendChild(err);
 }
 
 
-const observer = new MutationObserver(() => {
-    enforceValidation();
+const pageObserver = new MutationObserver(() => {
+    setupStrictValidation();
 });
 
-observer.observe(document.body, { childList: true, subtree: true });
-enforceValidation(); 
+pageObserver.observe(document.body, { childList: true, subtree: true });
+
+
+setupStrictValidation();
