@@ -1,24 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Sidebar Dropdown Fix (Single Click)
+    // 1. Sidebar Fix (1-Click Dropdown)
     const navLinks = document.querySelectorAll('.nav-item > a');
-    
     navLinks.forEach(link => {
-        link.onclick = function (e) {
+        link.addEventListener('click', function(e) {
             const parent = this.parentElement;
             const subMenu = parent.querySelector('.sub-menu');
             
             if (subMenu) {
                 e.preventDefault();
-                // Toggle 'active' class
+                e.stopImmediatePropagation(); 
+                
+                // Toggle sirf current menu ko
                 parent.classList.toggle('active');
             }
-        };
+        });
     });
 
-    // 2. Form Validation Fix (Red Error Message)
+    // 2. Form Validation Fix (Red Message)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
-        form.onsubmit = function (e) {
+        form.addEventListener('submit', function (e) {
             let isValid = true;
             const inputs = form.querySelectorAll('[required]');
 
@@ -31,24 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!input.value.trim() || input.value === "Select Category") {
                     isValid = false;
                     input.classList.add('is-invalid');
-
+                    
                     const error = document.createElement('span');
                     error.className = 'error-msg';
-                    
-                    // Specific logic for label text
-                    const label = parent.querySelector('label');
-                    const labelName = label ? label.innerText.replace('*', '') : "This field";
-                    error.innerText = labelName + " is required";
-                    
+                    error.innerText = "This field is required";
                     parent.appendChild(error);
                 }
             });
 
-            if (!isValid) {
-                e.preventDefault();
-                const firstErr = form.querySelector('.is-invalid');
-                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        };
+            if (!isValid) e.preventDefault();
+        });
     });
 });
