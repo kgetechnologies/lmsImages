@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Sidebar Sub-menu Fix (Direct Click)
+    // 1. Sidebar Dropdown Fix (Single Click)
     const sidebarLinks = document.querySelectorAll('.sidebar .nav-item > a');
     
     sidebarLinks.forEach(link => {
@@ -11,13 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 e.stopImmediatePropagation();
                 
-                // Toggle active class (issey CSS wala display:block trigger hoga)
+                // Sabhi dusre menus ko band karo (Optional but clean)
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    if (item !== parent) item.classList.remove('active');
+                });
+
+                // Current menu toggle
                 parent.classList.toggle('active');
             }
         });
     });
 
-    // 2. Form Validation Logic (Red Message Injection)
+    // 2. Form Validation (Force Red Message)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
@@ -27,23 +32,22 @@ document.addEventListener('DOMContentLoaded', function () {
             requiredFields.forEach(field => {
                 const container = field.parentElement;
                 
-                // Purane errors ko saaf karo
+                // Old errors remove
                 const oldErr = container.querySelector('.error-msg');
                 if (oldErr) oldErr.remove();
                 field.classList.remove('is-invalid');
 
-                // Check empty value
-                if (!field.value.trim() || field.value === "Select Category") {
+                // Check empty or default select
+                if (!field.value.trim() || field.value === "Select Category" || field.value === "0") {
                     isValid = false;
                     field.classList.add('is-invalid');
 
-                    // Naya Red error message add karo
                     const errorSpan = document.createElement('span');
-                    errorSpan.className = 'error-msg'; // Ye upar wali CSS se RED hoga
+                    errorSpan.className = 'error-msg'; 
                     
                     const label = container.querySelector('label');
-                    const name = label ? label.innerText.replace('*', '') : "This field";
-                    errorSpan.innerText = name + " is required";
+                    const fieldName = label ? label.innerText.replace('*', '').trim() : "This field";
+                    errorSpan.innerText = fieldName + " is required";
                     
                     container.appendChild(errorSpan);
                 }
