@@ -1,37 +1,60 @@
-const setupStrictValidation = () => {
-  
-    const continueBtn = document.querySelector('.btn-primary, button[type="submit"]');
+document.addEventListener('DOMContentLoaded', function () {
     
-    if (continueBtn && !continueBtn.dataset.validated) {
-       
-        const strictBtn = continueBtn.cloneNode(true);
-        continueBtn.parentNode.replaceChild(strictBtn, continueBtn);
-        strictBtn.dataset.validated = "true";
+   
+    const handleSidebar = () => {
+        const sidebarLinks = document.querySelectorAll('.sidebar .nav-item > a');
+        sidebarLinks.forEach(link => {
+            link.onclick = function (e) {
+                const parent = this.parentElement;
+                const subMenu = parent.querySelector('.sub-menu');
+                if (subMenu) {
+                    e.preventDefault();
+                    parent.classList.toggle('active');
+                }
+            };
+        });
+    };
 
-        strictBtn.addEventListener('click', function(e) {
+   
+    const updateSEO = () => {
+        const activeSection = document.querySelector('.add-course-info.active h4, .card-header h4, h1, h2');
+        const sectionName = activeSection ? activeSection.innerText : "Course Management";
+        
+    
+        document.title = `${sectionName} | KGE Technologies`;
+
+      
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.name = "description";
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = `Manage your ${sectionName} on KGE Technologies platform. Professional course creation tools.`;
+    };
+
+   
+    const applyValidation = () => {
+        const continueBtn = document.querySelector('.btn-primary, #continue-btn');
+        if (!continueBtn) return;
+
+        continueBtn.onclick = function (e) {
             let isValid = true;
-            
-          
             document.querySelectorAll('.error-msg').forEach(el => el.remove());
-            document.querySelectorAll('.is-invalid').forEach(el => {
-                el.classList.remove('is-invalid');
-                el.style.border = "";
-            });
 
-          
             const isFree = document.getElementById('FreeCourse')?.checked;
             const sellingPrice = document.getElementById('SellingPrice');
             const noOfMonths = document.getElementById('Noofmonth');
 
-       
+          
             if (sellingPrice || noOfMonths) {
                 if (!isFree) {
-                    if (!sellingPrice?.value.trim() || sellingPrice.value == "0") {
-                        showError(sellingPrice, "Price is required");
+                    if (!sellingPrice?.value || sellingPrice.value == "0") {
+                        showError(sellingPrice, "Course price is mandatory");
                         isValid = false;
                     }
-                    if (!noOfMonths?.value.trim() || noOfMonths.value == "0") {
-                        showError(noOfMonths, "Duration is required");
+                    if (!noOfMonths?.value || noOfMonths.value == "0") {
+                        showError(noOfMonths, "Course duration is mandatory");
                         isValid = false;
                     }
                 }
@@ -42,31 +65,30 @@ const setupStrictValidation = () => {
                 e.stopImmediatePropagation();
                 return false;
             }
+        };
+    };
 
-            
-            strictBtn.click(); 
-        }, true);
+    function showError(field, msg) {
+        if (!field) return;
+        field.style.border = "1px solid red";
+        const error = document.createElement('div');
+        error.className = 'error-msg';
+        error.style.cssText = "color: red; font-size: 12px; margin-top: 5px;";
+        error.innerText = msg;
+        field.parentElement.appendChild(error);
     }
-};
 
+  
+    const observer = new MutationObserver(() => {
+        handleSidebar();
+        updateSEO();
+        applyValidation();
+    });
 
-function showError(field, message) {
-    if (!field) return;
-    field.classList.add('is-invalid');
-    field.style.border = "2px solid red";
-    const err = document.createElement('span');
-    err.className = 'error-msg';
-    err.style.cssText = "color: red; font-size: 12px; display: block; margin-top: 5px; font-weight: bold;";
-    err.innerText = message;
-    field.parentElement.appendChild(err);
-}
+    observer.observe(document.body, { childList: true, subtree: true });
 
-
-const pageObserver = new MutationObserver(() => {
-    setupStrictValidation();
+  
+    handleSidebar();
+    updateSEO();
+    applyValidation();
 });
-
-pageObserver.observe(document.body, { childList: true, subtree: true });
-
-
-setupStrictValidation();
