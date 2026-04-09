@@ -1,40 +1,30 @@
-.sidebar { 
-    position: fixed; top: 0; left: 0; height: 100vh; width: 260px; 
-    background: #1e1e2d !important; z-index: 9999 !important; 
-    overflow-y: auto; box-shadow: 4px 0 10px rgba(0,0,0,0.1);
-}
-
-.main-content { 
-    margin-left: 260px; padding: 30px; min-height: 100vh; 
-    background-color: #f8fafc; transition: 0.3s ease-in-out; 
-}
-
+/* Sidebar Fix: 1-Click to open */
 .sidebar .nav-item .sub-menu {
-    display: none !important; 
-    list-style: none;
-    padding-left: 20px;
+    display: none !important;
 }
 
+/* Jab click ho toh ye class force karegi display ko */
 .sidebar .nav-item.active .sub-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ERROR MESSAGE FIX: Bright Red */
+.error-msg {
+    color: #ff0000 !important; /* Pure Red */
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-top: 5px !important;
     display: block !important;
 }
 
-.error-msg { 
-    color: #ff0000 !important; 
-    font-size: 13px !important; 
-    margin-top: 8px !important; 
-    font-weight: 700 !important; 
-    display: block !important; 
+/* Input box border red */
+.is-invalid {
+    border: 2px solid #ff0000 !important;
+    background-color: #fff1f1 !important;
 }
 
-.is-invalid { 
-    border: 2px solid #ff0000 !important; 
-    background-color: #fff1f1 !important; 
-}
-
-.nav-tabs { display: flex !important; flex-wrap: wrap !important; gap: 10px; border: none !important; margin-bottom: 30px; padding: 15px; background: #ffffff; border-radius: 12px; }
-.nav-tabs label { cursor: pointer !important; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 50px; font-size: 13px; font-weight: 600; color: #64748b !important; transition: 0.3s ease; }
-.nav-tabs input[type="radio"]:checked + label { background: #10b981 !important; color: #fff !important; border-color: #10b981 !important; transform: translateY(-2px); }
-.nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
-
-@media (max-width: 991px) { .sidebar { left: -260px; } .sidebar.open { left: 0; } .main-content { margin-left: 0 !important; } }
+/* Baki Styles */
+.sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: #1e1e2d !important; z-index: 9999 !important; overflow-y: auto; }
+.main-content { margin-left: 260px; padding: 30px; background-color: #f8fafc; }
