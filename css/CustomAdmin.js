@@ -1,50 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Sidebar Dropdown 1-Click Fix
-    const allLinks = document.querySelectorAll('.sidebar .nav-item > a');
-    
-    allLinks.forEach(link => {
+    // 1. Sidebar Toggle Fix
+    document.querySelectorAll('.sidebar .nav-item > a').forEach(link => {
         link.addEventListener('click', function (e) {
             const parent = this.parentElement;
-            const subMenu = parent.querySelector('.sub-menu');
-            
-            if (subMenu) {
+            if (parent.querySelector('.sub-menu')) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                
-                // Toggle active class
                 parent.classList.toggle('active');
-
-                // Baaki khule hue menus band karne ke liye
-                document.querySelectorAll('.sidebar .nav-item').forEach(item => {
-                    if (item !== parent) item.classList.remove('active');
-                });
             }
         });
     });
 
-    // Form Validation (Red Error Injected)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
+    // 2. All Pages Validation
+    document.querySelectorAll('form').forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const inputs = form.querySelectorAll('[required]');
-
-            inputs.forEach(input => {
-                const parent = input.parentElement;
-                const oldErr = parent.querySelector('.error-msg');
-                if (oldErr) oldErr.remove();
-                input.classList.remove('is-invalid');
-
-                if (!input.value.trim() || input.value === "Select Category" || input.value === "0") {
+            form.querySelectorAll('[required]').forEach(field => {
+                const container = field.parentElement;
+                if (container.querySelector('.error-msg')) container.querySelector('.error-msg').remove();
+                
+                if (!field.value.trim() || field.value === "Select Category") {
                     isValid = false;
-                    input.classList.add('is-invalid');
-                    const error = document.createElement('span');
-                    error.className = 'error-msg';
-                    error.innerText = "This field is required";
-                    parent.appendChild(error);
+                    field.classList.add('is-invalid');
+                    const err = document.createElement('span');
+                    err.className = 'error-msg';
+                    err.innerText = "This field is required";
+                    container.appendChild(err);
                 }
             });
-
             if (!isValid) e.preventDefault();
         });
     });
