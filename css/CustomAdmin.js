@@ -1,23 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // 1. Sidebar Toggle (Mobile View)
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('#sidebarCollapse');
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
     }
+
+    // 2. FIX: Sidebar Sub-menu (Single Click Fix)
+    // Isse sub-menu 1-click pe hi khulega
     const menuItems = document.querySelectorAll('.nav-item');
     menuItems.forEach(item => {
-        const link = item.querySelector('a'); 
+        const link = item.querySelector('a');
         if (link) {
             link.addEventListener('click', function(e) {
-                const hasSubMenu = item.querySelector('.sub-menu');
-                if (hasSubMenu) {
+                const subMenu = item.querySelector('.sub-menu');
+                if (subMenu) {
                     e.preventDefault(); 
-                    item.classList.toggle('active'); 
+                    // Baki sabhi open menus ko band karne ke liye (Optional)
+                    menuItems.forEach(otherItem => {
+                        if (otherItem !== item) otherItem.classList.remove('active');
+                    });
+                    // Current menu ko toggle karein
+                    item.classList.toggle('active');
                 }
             });
         }
     });
 
+    // 3. Tab Labels Selection Fix
     const tabLabels = document.querySelectorAll('.nav-tabs label');
     tabLabels.forEach(label => {
         label.addEventListener('click', function() {
@@ -30,31 +40,42 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // 4. FIX: Course Add Form Validation (Error Message in Red)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const inputs = form.querySelectorAll('[required]');
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
 
             inputs.forEach(input => {
                 const parent = input.parentElement;
+                
+                // Purane error messages ko remove karein
                 const oldErr = parent.querySelector('.error-msg');
                 if (oldErr) oldErr.remove();
                 input.classList.remove('is-invalid');
 
-                if (!input.value.trim() || input.value === "Select Category") {
+                // Validation Check: Khali field ya default "Select" value
+                if (!input.value.trim() || input.value === "Select Category" || input.value === "0") {
                     isValid = false;
-                    input.classList.add('is-invalid');
-                    
+                    input.classList.add('is-invalid'); // CSS mein border red ho jayega
+
+                    // Naya error message create karein
                     const error = document.createElement('span');
-                    error.className = 'error-msg';
-                    error.innerText = "⚠ SEO Warning: This field is mandatory for page indexing!";
+                    error.className = 'error-msg'; // Ye class aapki CSS se RED dikhegi
+                    
+                    // Field ke naam ke sath message
+                    const label = parent.querySelector('label');
+                    const fieldName = label ? label.innerText.replace(':', '') : "This field";
+                    error.innerText = fieldName + " is required";
+                    
                     parent.appendChild(error);
                 }
             });
 
             if (!isValid) {
-                e.preventDefault();
+                e.preventDefault(); // Form submit hone se rokein
+                // Pehle error wale field par scroll karein
                 const firstErr = form.querySelector('.is-invalid');
                 if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
