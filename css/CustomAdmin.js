@@ -1,21 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. GLOBAL SIDEBAR (Single Click Fix for All Items)
-    const allNavLinks = document.querySelectorAll('.sidebar .nav-item > a');
+    // Sidebar Dropdown 1-Click Fix
+    const allLinks = document.querySelectorAll('.sidebar .nav-item > a');
     
-    allNavLinks.forEach(link => {
+    allLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const parent = this.parentElement;
             const subMenu = parent.querySelector('.sub-menu');
             
             if (subMenu) {
-                // Bootstrap ke default action ko rokne ke liye
                 e.preventDefault();
-                e.stopImmediatePropagation(); 
+                e.stopImmediatePropagation();
                 
-                // Toggle active class (Issey hamari CSS trigger hogi)
+                // Toggle active class
                 parent.classList.toggle('active');
 
-                // Baaki menus band karne ke liye (Optional)
+                // Baaki khule hue menus band karne ke liye
                 document.querySelectorAll('.sidebar .nav-item').forEach(item => {
                     if (item !== parent) item.classList.remove('active');
                 });
@@ -23,42 +22,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 2. UNIVERSAL FORM VALIDATION (For All Pages & Next Items)
-    const allForms = document.querySelectorAll('form');
-    allForms.forEach(form => {
+    // Form Validation (Red Error Injected)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
-            const requiredFields = form.querySelectorAll('[required]');
+            const inputs = form.querySelectorAll('[required]');
 
-            requiredFields.forEach(field => {
-                const container = field.parentElement;
-                
-                // Purane custom errors saaf karein
-                const oldErr = container.querySelector('.error-msg');
+            inputs.forEach(input => {
+                const parent = input.parentElement;
+                const oldErr = parent.querySelector('.error-msg');
                 if (oldErr) oldErr.remove();
-                field.classList.remove('is-invalid');
+                input.classList.remove('is-invalid');
 
-                // Validation Logic
-                if (!field.value.trim() || field.value === "Select Category" || field.value === "0") {
+                if (!input.value.trim() || input.value === "Select Category" || input.value === "0") {
                     isValid = false;
-                    field.classList.add('is-invalid');
-
-                    const errorSpan = document.createElement('span');
-                    errorSpan.className = 'error-msg'; 
-                    
-                    const label = container.querySelector('label');
-                    const fieldName = label ? label.innerText.replace('*', '').trim() : "This field";
-                    errorSpan.innerText = fieldName + " is required";
-                    
-                    container.appendChild(errorSpan);
+                    input.classList.add('is-invalid');
+                    const error = document.createElement('span');
+                    error.className = 'error-msg';
+                    error.innerText = "This field is required";
+                    parent.appendChild(error);
                 }
             });
 
-            if (!isValid) {
-                e.preventDefault();
-                const firstErr = form.querySelector('.is-invalid');
-                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            if (!isValid) e.preventDefault();
         });
     });
 });
