@@ -1,52 +1,118 @@
-document.addEventListener('click', function (e) {
-    // 1. Sirf "Continue" button par click hone par chalega
-    const continueBtn = e.target.closest('.btn-primary, #continue-btn, .btn-next');
-    if (!continueBtn) return;
+document.addEventListener("DOMContentLoaded", function () {
 
-    // 2. Pricing fields ko dhoondna
-    const sellingPrice = document.getElementById('SellingPrice');
-    const noOfMonths = document.getElementById('Noofmonth');
-    const isFree = document.getElementById('FreeCourse')?.checked;
+   
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.querySelector(".menu-toggle");
 
-    // 3. Agar hum Pricing wale section par hain tabhi check karega
-    if (sellingPrice || noOfMonths) {
-        let hasError = false;
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+            sidebar.classList.toggle("active");
+            document.body.classList.toggle("sidebar-open");
+        });
+    }
 
-        // Purane error hatana
-        document.querySelectorAll('.pricing-error').forEach(el => el.remove());
-        if (sellingPrice) sellingPrice.style.border = "";
-        if (noOfMonths) noOfMonths.style.border = "";
+    
+    document.querySelectorAll(".sidebar .nav-item > a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            const parent = this.parentElement;
+            const subMenu = parent.querySelector(".sub-menu");
 
-        // 4. Validation (Sirf agar Free Course tick nahi hai)
-        if (!isFree) {
-            // Price Check
-            if (!sellingPrice?.value || sellingPrice.value === "0" || sellingPrice.value.trim() === "") {
-                showPricingError(sellingPrice, "Selling price is required");
-                hasError = true;
+            if (subMenu) {
+                e.preventDefault();
+                parent.classList.toggle("active");
+
+                document.querySelectorAll(".sidebar .nav-item").forEach(item => {
+                    if (item !== parent) {
+                        item.classList.remove("active");
+                    }
+                });
             }
-            // Duration Check
-            if (!noOfMonths?.value || noOfMonths.value === "0" || noOfMonths.value.trim() === "") {
-                showPricingError(noOfMonths, "Duration is required");
-                hasError = true;
-            }
+        });
+    });
+
+    const currentUrl = window.location.href;
+    document.querySelectorAll(".sidebar a").forEach(link => {
+        if (currentUrl.includes(link.getAttribute("href"))) {
+            link.classList.add("active");
+            const parent = link.closest(".nav-item");
+            if (parent) parent.classList.add("active");
         }
+    });
 
-        // 5. Agar error hai toh stop karo
-        if (hasError) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
+    document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            let isValid = true;
+
+           
+            form.querySelectorAll(".error-msg").forEach(el => el.remove());
+            form.querySelectorAll(".is-invalid").forEach(el => {
+                el.classList.remove("is-invalid");
+            });
+
+            
+            form.querySelectorAll("[required]").forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+
+            const isFree = document.getElementById("FreeCourse");
+            const sellingPrice = document.getElementById("SellingPrice");
+            const noOfMonths = document.getElementById("Noofmonth");
+
+            if (isFree && !isFree.checked) {
+                if (sellingPrice && (sellingPrice.value.trim() === "" || sellingPrice.value === "0")) {
+                    showError(sellingPrice, "Selling price is required");
+                    isValid = false;
+                }
+
+                if (noOfMonths && (noOfMonths.value.trim() === "" || noOfMonths.value === "0")) {
+                    showError(noOfMonths, "Please enter duration");
+                    isValid = false;
+                }
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+                const firstError = form.querySelector(".is-invalid");
+                if (firstError) {
+                    firstError.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                    firstError.focus();
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll("input, select, textarea").forEach(field => {
+        field.addEventListener("input", function () {
+            if (this.value.trim() !== "") {
+                this.classList.remove("is-invalid");
+                const error = this.parentElement.querySelector(".error-msg");
+                if (error) error.remove();
+            }
+        });
+    });
+
+    function validateField(field) {
+        if (!field.value || field.value.trim() === "" || field.value === "0") {
+            showError(field, "This field is required");
             return false;
         }
+        return true;
     }
-}, true); // 'true' catch karne ke liye zaroori hai
 
-// Red Text Error Function (Wahi subah wala style)
-function showPricingError(element, message) {
-    if (!element) return;
-    element.style.border = "1px solid red";
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'pricing-error';
-    errorDiv.style.cssText = "color: red; font-size: 13px; margin-top: 5px; font-weight: 500;";
-    errorDiv.innerText = message;
-    element.parentElement.appendChild(errorDiv);
-}
+    function showError(field, message) {
+        field.classList.add("is-invalid");
+
+        const error = document.createElement("span");
+        error.className = "error-msg";
+        error.innerText = message;
+
+        const container = field.closest(".form-group, .mb-3, .col-md-6, .col-md-12") || field.parentElement;
+        container.appendChild(error);
+    }
+});
