@@ -1,3 +1,4 @@
+console.log("CustomAdmin.js Loaded Successfully");
 document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", function (e) {
