@@ -1,3 +1,4 @@
+/* --- SIDEBAR & LAYOUT --- */
 .sidebar { 
     position: fixed; 
     top: 0; 
@@ -15,21 +16,24 @@
     background-color: #f8fafc; 
 }
 
-/* Dropdown Single Click Fix */
+/* UNIVERSAL DROPDOWN FIX (All Sidebar Items) */
 .sidebar .nav-item .sub-menu { 
     display: none !important; 
 }
 
+/* Jab JS se 'active' class lagegi tabhi dikhega */
 .sidebar .nav-item.active .sub-menu { 
     display: block !important; 
+    visibility: visible !important;
 }
 
-/* --- Global Red Error Fix (Vishal's Task) --- */
+/* --- GLOBAL RED ERROR FIX (Vishal's Task - All Pages) --- */
 .error-msg, 
 .text-danger, 
 .field-validation-error, 
 span[id*="-error"], 
-span[class*="error"] {
+span[class*="error"],
+.Basic-Information span[style*="color: red"] {
     color: #ff0000 !important;
     font-size: 13px !important;
     font-weight: 700 !important;
@@ -40,12 +44,13 @@ span[class*="error"] {
 /* Invalid Input Borders Red */
 .is-invalid, 
 input.error, 
-select.error {
+select.error,
+textarea.error {
     border: 2px solid #ff0000 !important;
     background-color: #fff1f1 !important;
 }
 
-/* --- Navigation Tabs --- */
+/* --- NAVIGATION TABS --- */
 .nav-tabs { 
     display: flex !important; 
     gap: 10px; 
