@@ -1,94 +1,84 @@
-document.addEventListener('DOMContentLoaded', function () {
-    
-   
-    const handleSidebar = () => {
-        const sidebarLinks = document.querySelectorAll('.sidebar .nav-item > a');
-        sidebarLinks.forEach(link => {
-            link.onclick = function (e) {
-                const parent = this.parentElement;
-                const subMenu = parent.querySelector('.sub-menu');
-                if (subMenu) {
-                    e.preventDefault();
-                    parent.classList.toggle('active');
-                }
-            };
-        });
-    };
-
-   
-    const updateSEO = () => {
-        const activeSection = document.querySelector('.add-course-info.active h4, .card-header h4, h1, h2');
-        const sectionName = activeSection ? activeSection.innerText : "Course Management";
-        
-    
-        document.title = `${sectionName} | KGE Technologies`;
-
-      
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) {
-            metaDesc = document.createElement('meta');
-            metaDesc.name = "description";
-            document.head.appendChild(metaDesc);
-        }
-        metaDesc.content = `Manage your ${sectionName} on KGE Technologies platform. Professional course creation tools.`;
-    };
-
-   
-    const applyValidation = () => {
-        const continueBtn = document.querySelector('.btn-primary, #continue-btn');
-        if (!continueBtn) return;
-
-        continueBtn.onclick = function (e) {
-            let isValid = true;
-            document.querySelectorAll('.error-msg').forEach(el => el.remove());
-
-            const isFree = document.getElementById('FreeCourse')?.checked;
-            const sellingPrice = document.getElementById('SellingPrice');
-            const noOfMonths = document.getElementById('Noofmonth');
-
-          
-            if (sellingPrice || noOfMonths) {
-                if (!isFree) {
-                    if (!sellingPrice?.value || sellingPrice.value == "0") {
-                        showError(sellingPrice, "Course price is mandatory");
-                        isValid = false;
-                    }
-                    if (!noOfMonths?.value || noOfMonths.value == "0") {
-                        showError(noOfMonths, "Course duration is mandatory");
-                        isValid = false;
-                    }
-                }
-            }
-
-            if (!isValid) {
+(function() {
+    // 1. Sidebar Logic (Admin/Instructor Menu)
+    document.addEventListener('click', function(e) {
+        const toggle = e.target.closest('.sidebar .nav-item > a');
+        if (toggle) {
+            const parent = toggle.parentElement;
+            const subMenu = parent.querySelector('.sub-menu');
+            if (subMenu) {
                 e.preventDefault();
-                e.stopImmediatePropagation();
-                return false;
+                e.stopPropagation();
+                parent.classList.toggle('active');
             }
-        };
+        }
+    }, true);
+
+    // 2. SEO & Title Management
+    const updatePageSEO = () => {
+        const header = document.querySelector('h1, h2, h4.card-title, .breadcrumb-item.active');
+        if (header) {
+            const title = header.innerText.trim();
+            document.title = `${title} | KGE Admin`;
+            
+            // Meta Description update
+            let meta = document.querySelector('meta[name="description"]');
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.name = "description";
+                document.head.appendChild(meta);
+            }
+            meta.content = `Editing ${title} section on KGE Technologies.`;
+        }
     };
+
+    // 3. THE MASTER VALIDATOR (Blocks everything if invalid)
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.btn-primary, #continue-btn');
+        if (!btn) return;
+
+        // Pricing Page Inputs
+        const isFree = document.getElementById('FreeCourse')?.checked;
+        const sellingPrice = document.getElementById('SellingPrice');
+        const noOfMonths = document.getElementById('Noofmonth');
+
+        let invalid = false;
+        document.querySelectorAll('.error-msg').forEach(el => el.remove());
+
+        // Check Pricing only if visible
+        if (sellingPrice || noOfMonths) {
+            if (!isFree) {
+                if (!sellingPrice?.value || sellingPrice.value == "0") {
+                    showError(sellingPrice, "Price cannot be zero");
+                    invalid = true;
+                }
+                if (!noOfMonths?.value || noOfMonths.value == "0") {
+                    showError(noOfMonths, "Duration required");
+                    invalid = true;
+                }
+            }
+        }
+
+        // Agar invalid hai, toh yahan "Stop" lagega
+        if (invalid) {
+            e.preventDefault();
+            e.stopImmediatePropagation(); // Ye Blazor ke code ko chalne se rok dega
+            return false;
+        }
+    }, true); // 'true' is critical here (Event Capturing)
 
     function showError(field, msg) {
         if (!field) return;
-        field.style.border = "1px solid red";
+        field.style.border = "2px solid red";
         const error = document.createElement('div');
         error.className = 'error-msg';
-        error.style.cssText = "color: red; font-size: 12px; margin-top: 5px;";
+        error.style.cssText = "color: red; font-size: 12px; font-weight: bold; margin-top: 4px;";
         error.innerText = msg;
         field.parentElement.appendChild(error);
     }
 
-  
-    const observer = new MutationObserver(() => {
-        handleSidebar();
-        updateSEO();
-        applyValidation();
+    // Blazor dynamic change observer
+    const obs = new MutationObserver(() => {
+        updatePageSEO();
     });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-  
-    handleSidebar();
-    updateSEO();
-    applyValidation();
-});
+    obs.observe(document.body, { childList: true, subtree: true });
+})();
