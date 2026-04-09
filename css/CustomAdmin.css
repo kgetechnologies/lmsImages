@@ -1,23 +1,28 @@
+/* --- SIDEBAR FIX (Single Click) --- */
 .sidebar .nav-item .sub-menu {
-    display: none !important;
+    display: none !important; /* Default hidden */
 }
 
+/* Jab JS se 'active' class lagegi tab khulega */
 .sidebar .nav-item.active .sub-menu {
     display: block !important;
     visibility: visible !important;
 }
 
+/* --- ERROR MESSAGE COLOR FIX --- */
+/* Vishal ki correction: Sab kuch pure RED hona chahiye */
 .error-msg, 
-span[class*="error"], 
-.field-validation-error,
-.text-danger {
-    color: #ff0000 !important; 
+.text-danger, 
+span[id*="-error"], 
+.field-validation-error {
+    color: #ff0000 !important; /* Pure Red */
     font-size: 13px !important;
     font-weight: 700 !important;
     display: block !important;
     margin-top: 5px !important;
 }
 
+/* Input boxes border color change */
 .is-invalid, 
 input.error, 
 select.error {
@@ -25,9 +30,10 @@ select.error {
     background-color: #fff1f1 !important;
 }
 
-.sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: #1e1e2d !important; z-index: 9999 !important; overflow-y: auto; }
+/* --- Layout & Tabs --- */
+.sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 260px; background: #1e1e2d !important; z-index: 9999 !important; }
 .main-content { margin-left: 260px; padding: 30px; background-color: #f8fafc; }
-.nav-tabs { display: flex; gap: 10px; margin-bottom: 30px; background: #fff; padding: 15px; border-radius: 12px; }
+.nav-tabs { display: flex; gap: 10px; padding: 15px; background: #fff; border-radius: 12px; }
 .nav-tabs input[type="radio"] { position: absolute; opacity: 0; }
 .nav-tabs label { cursor: pointer; padding: 10px 20px; border: 1px solid #e2e8f0; border-radius: 50px; font-weight: 600; }
 .nav-tabs input[type="radio"]:checked + label { background: #10b981 !important; color: #fff !important; }
