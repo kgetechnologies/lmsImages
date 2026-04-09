@@ -1,28 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const sidebarLinks = document.querySelectorAll('.sidebar .nav-item > a');
+
+    const allNavLinks = document.querySelectorAll('.sidebar .nav-item > a');
     
-    sidebarLinks.forEach(link => {
+    allNavLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const parent = this.parentElement;
             const subMenu = parent.querySelector('.sub-menu');
             
+       
             if (subMenu) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-            
-                document.querySelectorAll('.nav-item').forEach(item => {
+
+                document.querySelectorAll('.sidebar .nav-item').forEach(item => {
                     if (item !== parent) item.classList.remove('active');
                 });
 
-             
                 parent.classList.toggle('active');
             }
         });
     });
 
-   
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
+    const allForms = document.querySelectorAll('form');
+    allForms.forEach(form => {
         form.addEventListener('submit', function (e) {
             let isValid = true;
             const requiredFields = form.querySelectorAll('[required]');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     errorSpan.className = 'error-msg'; 
                     
                     const label = container.querySelector('label');
-                    const fieldName = label ? label.innerText.replace('*', '').trim() : "This field";
+                    const fieldName = label ? label.innerText.replace('*', '').trim() : "Field";
                     errorSpan.innerText = fieldName + " is required";
                     
                     container.appendChild(errorSpan);
