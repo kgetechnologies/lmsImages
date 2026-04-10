@@ -1,34 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    const subscribeBtn = document.querySelector('.subscribe-now-btn') || document.querySelector('button:contains("Subscribe Now")'); 
-    const emailInput = document.querySelector('input[type="email"]') || document.querySelector('.footer-email-input');
+  
+    const getUpdatesBtn = document.querySelector('.subscribe-now-btn'); 
+    const emailField = document.querySelector('.footer-email-input') || document.querySelector('input[type="email"]');
 
-    if (subscribeBtn && emailInput) {
-        subscribeBtn.addEventListener('click', (e) => {
+    if (getUpdatesBtn && emailField) {
+        getUpdatesBtn.addEventListener('click', function(e) {
             e.preventDefault(); 
-            
-            const emailValue = emailInput.value.trim();
-            
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const emailValue = emailField.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
             if (emailValue === "") {
-                alert("Please enter an email address.");
-                emailInput.style.border = "2px solid red";
-            } else if (!emailPattern.test(emailValue)) {
-                
-                alert("Invalid email format! Please include a dot (.) and a domain (e.g., .com)");
-                emailInput.style.border = "2px solid red";
-            } else {
-                
-                alert("Subscription successful! Thank you for updating.");
-                emailInput.style.border = "2px solid green";
-                emailInput.value = ""; 
+                alert("Please enter your email!");
+                emailField.classList.add('error-border');
+            } 
+            else if (!emailRegex.test(emailValue)) {
+                alert("Invalid format! Please use a valid email (e.g. name@example.com)");
+                emailField.classList.add('error-border');
+                emailField.focus();
+            } 
+            else {
+                alert("Success! You are subscribed.");
+                emailField.classList.remove('error-border');
+                emailField.value = ""; 
             }
         });
 
-      
-        emailInput.addEventListener('input', () => {
-            emailInput.style.border = "1px solid #ccc";
+        emailField.addEventListener('input', () => {
+            emailField.classList.remove('error-border');
         });
     }
+  
 });
