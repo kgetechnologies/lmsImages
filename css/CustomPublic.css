@@ -1,21 +1,20 @@
-.validation-summary-errors ul, 
-.validation-summary-errors li,
-div[data-valmsg-summary="true"] ul,
-div[data-valmsg-summary="true"] li {
-    display: none !important;
-    list-style: none !important;
-    visibility: hidden !important;
-}
-
-ul.text-danger, 
-ul.text-danger li {
+.validation-summary-errors, 
+.validation-summary-valid, 
+div[data-valmsg-summary="true"], 
+ul.text-danger,
+form ul { 
     display: none !important;
 }
 
-span.field-validation-error {
+span.field-validation-error, 
+.text-danger.field-validation-error {
     display: block !important;
-    color: #e74c3c !important;
-    font-size: 13px;
-    margin-top: 5px;
+    color: #ff0000 !important;
+    font-size: 13px !important;
+    margin-top: 5px !important;
     font-weight: 500;
+}
+
+input.input-validation-error {
+    border: 1px solid #ff0000 !important;
 }
