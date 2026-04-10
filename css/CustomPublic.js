@@ -1,36 +1,26 @@
-function loadCalendar() {
-   
-    const rangeInput = jQuery('input[placeholder*="dd/mm/yyyy"]');
+function forceCalendarInit() {
+    
+    const inputs = document.querySelectorAll('input[placeholder*="dd/mm/yyyy"]');
 
-    if (rangeInput.length > 0 && jQuery.fn.daterangepicker) {
-        rangeInput.daterangepicker({
-            autoUpdateInput: false,
-            locale: {
-                format: 'DD/MM/YYYY',
-                cancelLabel: 'Clear'
+    inputs.forEach(input => {
+       
+        input.addEventListener('focus', function() {
+            this.type = 'date';
+        });
+
+        
+        input.onclick = function() {
+            if (typeof this.showPicker === 'function') {
+                this.showPicker();
             }
-        });
+        };
+        
+        input.style.cursor = 'pointer';
+    });
 
-       
-        rangeInput.on('apply.daterangepicker', function(ev, picker) {
-            jQuery(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
-        });
-
-        rangeInput.on('cancel.daterangepicker', function(ev, picker) {
-            jQuery(this).val('');
-        });
-
-        console.log("DateRangePicker successfully bound!");
-    } else {
-       
-        console.log("Library not found, trying native fallback...");
-        document.querySelectorAll('input[placeholder*="dd/mm/yyyy"]').forEach(el => {
-            el.type = 'date'; 
-        });
-    }
+    console.log("Force Calendar logic applied!");
 }
 
 
-jQuery(document).ready(function() {
-    loadCalendar();
-});
+window.addEventListener('load', forceCalendarInit);
+setInterval(forceCalendarInit, 2000);
