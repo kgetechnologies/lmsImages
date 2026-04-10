@@ -47,11 +47,14 @@ input.input-validation-error {
 
 
 
-header.header-one .main-menu-wrapper .main-nav > li > a {
-    color: #333333 !important; 
+
+html body header.header-one .main-menu-wrapper ul.main-nav > li > a {
+    color: #333333 !important;
     font-weight: 700 !important;
+    opacity: 1 !important;
 }
 
-header.header-one .main-menu-wrapper .main-nav > li > a:hover {
-    color: #ff4d4d !important; 
+
+html body header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
+    color: #ff4d4d !important;
 }
