@@ -1,3 +1,26 @@
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.innerText.trim() === 'Subscribe') {
+        
+        const emailBox = document.querySelector('input[type="email"]');
+        const emailValue = emailBox ? emailBox.value.trim() : "";
+
+        if (emailValue === "") {
+            alert("Please enter your email!");
+        } else if (!emailValue.includes("@")) {
+            alert("Invalid email format!");
+        } else {
+            
+            alert("Success! Subscribed with: " + emailValue);
+            emailBox.value = ""; 
+        }
+    }
+});
+
+
+
+
+
+
 function fixCalendarBug() {
     
     const dateInputs = document.querySelectorAll('.bookingrange, .date-range, input[placeholder*="dd/mm/yyyy"]');
