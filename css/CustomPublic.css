@@ -47,13 +47,20 @@ input.input-validation-error {
 
 
 
-/* --- BUG #104: FINAL CSS SOLUTION --- */
-header.header-one .main-menu-wrapper ul.main-nav > li > a {
+
+html body header.header-one .main-menu-wrapper ul.main-nav > li > a,
+html body .main-nav > li > a {
     color: #000000 !important;
     font-weight: 700 !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 
-header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
+html body header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
     color: #ff4d4d !important;
+    animation: none !important;
 }
