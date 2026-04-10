@@ -1,29 +1,16 @@
 .validation-summary-errors, 
-.validation-summary-valid, 
-div[data-valmsg-summary="true"], 
-ul[data-valmsg-summary="true"] {
+.validation-summary-valid,
+div[data-valmsg-summary="true"] {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-    overflow: hidden !important;
 }
 
-span.field-validation-error, 
-.text-danger.field-validation-error {
-    color: #e74c3c !important; 
+.field-validation-error {
+    color: #d9534f !important;
     font-size: 13px !important;
     display: block !important;
     margin-top: 5px !important;
-    font-weight: 500;
-}
-
-input.input-validation-error {
-    border: 1px solid #e74c3c !important;
-    background-color: #fff2f2 !important;
-}
-.error-border {
-    border: 2px solid #e74c3c !important;
-    background-color: #fdf2f2 !important;
 }
