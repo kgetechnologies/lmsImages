@@ -60,3 +60,13 @@ function fixCalendarBug() {
 
 window.onload = fixCalendarBug;
 setInterval(fixCalendarBug, 1500);
+
+
+
+
+window.addEventListener('load', function() {
+    document.querySelectorAll('.main-nav li a').forEach(item => {
+        item.style.setProperty('color', '#000000', 'important');
+        item.style.setProperty('font-weight', 'bold', 'important');
+    });
+});
