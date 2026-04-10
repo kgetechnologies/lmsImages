@@ -1,33 +1,21 @@
-.validation-summary-errors, 
-.validation-summary-valid, 
-#validationSummary, 
-[data-valmsg-summary="true"],
-.alert-danger ul, 
-div.validation-summary-errors {
+.validation-summary-errors ul, 
+.validation-summary-errors li,
+div[data-valmsg-summary="true"] ul,
+div[data-valmsg-summary="true"] li {
     display: none !important;
+    list-style: none !important;
     visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
 }
 
-
-.validation-summary-errors li, 
-[data-valmsg-summary="true"] li {
+ul.text-danger, 
+ul.text-danger li {
     display: none !important;
 }
 
-span.field-validation-error, 
-.text-danger.field-validation-error {
-    display: block !important; 
-    color: #ff0000 !important;
-    font-size: 13px !important;
-    margin-top: 5px !important;
-    font-weight: bold;
-}
-
-
-input.input-validation-error {
-    border: 1px solid #ff0000 !important;
+span.field-validation-error {
+    display: block !important;
+    color: #e74c3c !important;
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 500;
 }
