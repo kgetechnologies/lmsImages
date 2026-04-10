@@ -47,3 +47,16 @@
     background: #f9f9f9;
     border: 1px solid #ddd;
 }
+
+input[type="email"] {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+}
+
+
+.input-error {
+    border: 2px solid red !important;
+    background-color: #fff5f5;
+}
