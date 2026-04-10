@@ -22,33 +22,30 @@ input.input-validation-error {
 
 
 
-header, .header, .main-header {
+
+header, .header, .main-header, .header-fixed {
     background: #ffffff !important;
-    position: relative !important;
-    z-index: 1100 !important;
-    border-bottom: 1px solid #eee;
+    position: sticky !important; 
+    top: 0 !important;
+    z-index: 2000 !important;
+    width: 100% !important;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.1) !important;
 }
 
 
 .breadcrumb-bar, 
 .inner-banner, 
-section.course-content,
-.breadcrumb-area {
-    margin-top: 115px !important; 
-    padding-top: 20px !important;
+section.course-content, 
+.breadcrumb-area,
+div.breadcrumb-bar {
+    margin-top: 130px !important; 
+    padding-top: 10px !important;
     position: relative !important;
     z-index: 1 !important;
     display: block !important;
 }
 
 
-main#main-content, .main-wrapper {
-    margin-top: 10px !important;
-}
-
-
-.main-wrapper {
-    margin-top: 10px !important;
-}
-    margin-top: 5px !important;
+body {
+    padding-top: 0 !important;
 }
