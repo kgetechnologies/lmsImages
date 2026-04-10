@@ -16,6 +16,16 @@ document.addEventListener('click', function(e) {
     }
 });
 
+window.addEventListener('load', function() {
+    document.querySelectorAll('li').forEach(function(li) {
+        if (li.nextSibling && li.nextSibling.nodeType === 3) {
+            if (li.nextSibling.nodeValue.trim() === 'c') {
+                li.nextSibling.remove();
+            }
+        }
+    });
+});
+
 
 
 
