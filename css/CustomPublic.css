@@ -48,13 +48,3 @@ input.input-validation-error {
 
 
 
-html body header.header-one .main-menu-wrapper ul.main-nav > li > a {
-    color: #333333 !important;
-    font-weight: 700 !important;
-    opacity: 1 !important;
-}
-
-
-html body header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
-    color: #ff4d4d !important;
-}
