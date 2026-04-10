@@ -60,7 +60,3 @@ function fixCalendarBug() {
 
 window.onload = fixCalendarBug;
 setInterval(fixCalendarBug, 1500);
-
-
-
-
