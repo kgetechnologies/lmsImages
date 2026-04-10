@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    
+    const mainForm = document.querySelector('form');
+    if (mainForm) {
+        mainForm.addEventListener('submit', function() {
+        
+            const errorSummary = document.querySelector('.validation-summary-errors');
+            if (errorSummary) {
+                errorSummary.style.display = 'none';
+            }
+        });
+    }
     
     const getUpdatesBtn = document.querySelector('.subscribe-now-btn'); 
     const emailField = document.querySelector('.footer-email-input') || document.querySelector('input[type="email"]');
