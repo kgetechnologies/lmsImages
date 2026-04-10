@@ -68,29 +68,42 @@ html body header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
 
 
 
-header.header-one .main-menu-wrapper ul.main-nav > li > a {
+
+
+/* --- UI MASTER FIX: BUG #104 & #108 --- */
+
+/* 1. Navigation Force-Visible (Black Text & Kill Animations) */
+html body header.header-one .main-menu-wrapper ul.main-nav > li > a {
     color: #000000 !important;
     font-weight: 700 !important;
     animation: none !important;
     -webkit-animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-
+/* 2. Search Box Highlight & Alignment Fix */
 .search-filter {
-    border: 2px solid #6c63ff !important; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    border: 2px solid #6c63ff !important; /* Bold highlight border */
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.15) !important;
     border-radius: 8px !important;
-    overflow: hidden;
+    background-color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 2px 10px !important;
 }
 
-
+/* 3. Search Input Padding (Fixes 'e' being cut off) */
 .search-filter input.form-control {
-    padding-right: 15px !important;
-    font-size: 15px !important;
-    color: #333 !important;
+    padding-left: 10px !important;
+    padding-right: 25px !important; /* Extra space for the word 'courses' */
+    font-size: 14px !important;
+    border: none !important;
+    width: 100% !important;
 }
 
-.search-filter:focus-within {
-    border-color: #4CAF50 !important; /* Focus hone par green border */
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2) !important;
+/* 4. Hover State for Nav Links */
+header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
+    color: #ff4d4d !important;
 }
