@@ -1,32 +1,17 @@
 .validation-summary-errors, 
 .validation-summary-valid, 
-#validation-summary-box,
-[data-valmsg-summary="true"] {
+div[data-valmsg-summary="true"], 
+#validation-summary-box {
     display: none !important;
     visibility: hidden !important;
+    opacity: 0 !important;
     height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-}
-
-
-.error-border, .input-validation-error {
-    border: 2px solid #d9534f !important;
-    background-color: #fdf2f2 !important;
+    overflow: hidden !important;
 }
 
 .field-validation-error {
-    color: #d9534f !important;
-    font-size: 13px !important;
+    color: red !important;
+    font-size: 12px !important;
     display: block !important;
     margin-top: 5px !important;
-    font-weight: 500 !important;
-}
-
-.footer-email-input {
-    outline: none;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
