@@ -1,67 +1,38 @@
-.footer-email-input {
-    outline: none;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const getUpdatesBtn = document.querySelector('.subscribe-now-btn'); 
+    const emailField = document.querySelector('.footer-email-input') || document.querySelector('input[type="email"]');
 
+    if (getUpdatesBtn && emailField) {
+        getUpdatesBtn.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            e.stopPropagation();
 
-.error-border {
-    border: 2px solid #e74c3c !important; 
-    background-color: #fdf2f2 !important; 
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
-}
+            const emailValue = emailField.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
+            if (emailValue === "") {
+                alert("Opps! Email field khali hai.");
+                emailField.classList.add('error-border');
+            } 
+            else if (!emailRegex.test(emailValue)) {
+                // Step 3: Yahan invalid format pakda jayega
+                alert("Invalid Email Format! Please include '.com' or '.in' (e.g., veena@gmail.com)");
+                emailField.classList.add('error-border');
+                emailField.focus();
+            } 
+            else {
+                
+                alert("Thank you! Subscription successful.");
+                emailField.classList.remove('error-border');
+                emailField.value = ""; 
+                
+                
+                console.log("Email validated. Form submission blocked to prevent 404.");
+            }
+        });
 
-header .nav-link, 
-.menu-bar ul li a,
-.navbar-nav .nav-link {
-    color: #333 !important;
-    font-weight: 500;
-}
-
-header .nav-link:hover {
-    color: #007bff !important; 
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5%;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #007bff;
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.search-input {
-    border: none;
-    outline: none;
-    font-family: 'Arial', sans-serif; 
-}
-
-.page-details-indicator {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 11px;
-    color: #777;
-    z-index: 999;
-}
-
-.subscribe-now-btn {
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.subscribe-now-btn:active {
-    transform: scale(0.98);
-}
+        emailField.addEventListener('input', () => {
+            emailField.classList.remove('error-border');
+        });
+    }
+});
