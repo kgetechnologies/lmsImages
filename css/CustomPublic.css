@@ -47,4 +47,13 @@ input.input-validation-error {
 
 
 
+/* --- BUG #104: FINAL CSS SOLUTION --- */
+header.header-one .main-menu-wrapper ul.main-nav > li > a {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
 
+
+header.header-one .main-menu-wrapper ul.main-nav > li > a:hover {
+    color: #ff4d4d !important;
+}
