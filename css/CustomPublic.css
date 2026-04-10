@@ -1,3 +1,31 @@
+/* --- BUG #104: THE ULTIMATE OVERRIDE --- */
+body #root .header-one .main-menu-wrapper ul.main-nav > li > a,
+body .header-nav .main-nav > li > a,
+body a.nav-link {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* --- BUG #108: SEARCH BOX HIGHLIGHT --- */
+body .search-filter, 
+body div[class*="search"] {
+    border: 2px solid #6c63ff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2) !important;
+}
+
+
+
+
+
+
+
+
+
 .validation-summary-errors, 
 .validation-summary-valid, 
 div[data-valmsg-summary="true"], 
@@ -41,35 +69,4 @@ input.input-validation-error {
 
 .pagination {
     margin: 0 !important;
-}
-
-
-
-
-
-
-
-
-
-
-/* 1. Sabse pehle Menu Links ko target karo direct unki class se */
-.main-nav a, 
-.main-nav li a, 
-header a {
-    color: #000000 !important;
-    animation: none !important;
-    -webkit-animation: none !important;
-    opacity: 1 !important;
-}
-
-/* 2. Search box ko highlight karne ke liye (Sabse simple selector) */
-div[class*="search"] {
-    border: 2px solid #6c63ff !important;
-    border-radius: 8px !important;
-}
-
-/* 3. Search input ka letter 'e' fix karne ke liye padding */
-input[placeholder*="Search"] {
-    padding-right: 30px !important; 
-    color: #000 !important;
 }
