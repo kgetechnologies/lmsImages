@@ -1,17 +1,1 @@
-.validation-summary-errors, 
-.validation-summary-valid, 
-div[data-valmsg-summary="true"], 
-#validation-summary-box {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-}
 
-.field-validation-error {
-    color: red !important;
-    font-size: 12px !important;
-    display: block !important;
-    margin-top: 5px !important;
-}
