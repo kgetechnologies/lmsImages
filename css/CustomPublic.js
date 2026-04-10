@@ -1,37 +1,37 @@
+/* --- BUG #112: VANILLA JS CALENDAR FIX (NO JQUERY) --- */
 
 (function() {
-    function openCalendar() {
-        
-        const calendarInput = jQuery('input[placeholder*="dd/mm/yyyy"]');
+    function activateCalendar() {
+        // 1. Placeholder ke basis par input box ko dhoondo
+        const dateInput = document.querySelector('input[placeholder*="dd/mm/yyyy"]');
 
-        if (calendarInput.length > 0) {
-            
-            if (typeof jQuery.fn.daterangepicker === 'function') {
-                calendarInput.daterangepicker({
-                    autoUpdateInput: true,
-                    showDropdowns: true,
-                    locale: { format: 'DD/MM/YYYY' }
-                }).focus(); // Force focus to open it
+        if (dateInput) {
+            // 2. Cursor pointer karo taaki pata chale click ho sakta hai
+            dateInput.style.cursor = "pointer";
+
+            // 3. Jab user click kare, tab input type badal do
+            dateInput.addEventListener('click', function() {
+                this.type = 'date'; // Text se Date mein convert
                 
-                console.log("Calendar opened via Library");
-            } else {
-                // Fallback: If no library, use browser's native date picker
-                calendarInput.attr('type', 'date');
-                if (calendarInput[0].showPicker) {
-                    calendarInput[0].showPicker();
+                // Modern browsers mein calendar popup kholne ke liye
+                if (this.showPicker) {
+                    this.showPicker();
                 }
-                console.log("Calendar opened via Native Fallback");
-            }
+            });
+
+            // 4. Agar user date select karke hat jaye, toh format wapas set karein (Optional)
+            dateInput.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.type = 'text';
+                }
+            });
         }
     }
 
-    // Har jagah click sunne ke liye
-    document.addEventListener('mousedown', function(e) {
-        if (e.target.placeholder && e.target.placeholder.includes('dd/mm/yyyy')) {
-            openCalendar();
-        }
-    });
-
-    // Page load par bhi ek baar check karein
-    window.onload = openCalendar;
+    // Page load hote hi run karein
+    if (document.readyState === 'complete') {
+        activateCalendar();
+    } else {
+        window.addEventListener('load', activateCalendar);
+    }
 })();
