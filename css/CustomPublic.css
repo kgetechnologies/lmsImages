@@ -18,3 +18,18 @@ span.field-validation-error,
 input.input-validation-error {
     border: 1px solid #ff0000 !important;
 }
+
+
+body, .main-wrapper, #main-content {
+    padding-top: 20px !important; 
+}
+
+header, .header-area {
+    position: relative !important;
+    margin-bottom: 15px !important;
+    z-index: 1000;
+}
+
+.course-list-area, .category-area {
+    margin-top: 10px !important;
+}
