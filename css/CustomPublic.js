@@ -1,25 +1,25 @@
-/* --- BUG #112: VANILLA JS CALENDAR FIX (NO JQUERY) --- */
+/* --- BUG #112: FINAL CALENDAR FIX --- */
 
 (function() {
-    function activateCalendar() {
-        // 1. Placeholder ke basis par input box ko dhoondo
+    function initCalendar() {
+        // Console mein jo input mila tha usay target karna
         const dateInput = document.querySelector('input[placeholder*="dd/mm/yyyy"]');
 
         if (dateInput) {
-            // 2. Cursor pointer karo taaki pata chale click ho sakta hai
+            // Cursor pointer taaki user ko pata chale click karna hai
             dateInput.style.cursor = "pointer";
 
-            // 3. Jab user click kare, tab input type badal do
+            // Click event listener
             dateInput.addEventListener('click', function() {
-                this.type = 'date'; // Text se Date mein convert
+                // Input type change karke calendar trigger karna
+                this.type = 'date';
                 
-                // Modern browsers mein calendar popup kholne ke liye
                 if (this.showPicker) {
                     this.showPicker();
                 }
             });
 
-            // 4. Agar user date select karke hat jaye, toh format wapas set karein (Optional)
+            // Agar user date select kiye bina bahar click kare toh wapas placeholder dikhana
             dateInput.addEventListener('blur', function() {
                 if (!this.value) {
                     this.type = 'text';
@@ -28,10 +28,10 @@
         }
     }
 
-    // Page load hote hi run karein
-    if (document.readyState === 'complete') {
-        activateCalendar();
+    // DOM load hone par run karein
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCalendar);
     } else {
-        window.addEventListener('load', activateCalendar);
+        initCalendar();
     }
 })();
