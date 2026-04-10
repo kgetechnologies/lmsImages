@@ -46,25 +46,12 @@ input.input-validation-error {
 
 
 
-.main-nav > li > a {
+
+header.header-one .main-menu-wrapper .main-nav > li > a {
     color: #333333 !important; 
-    font-weight: 700 !important; 
-    font-size: 16px !important; 
-    transition: all 0.3s ease;
+    font-weight: 700 !important;
 }
 
-
-.main-nav > li > a:hover {
+header.header-one .main-menu-wrapper .main-nav > li > a:hover {
     color: #ff4d4d !important; 
-    text-decoration: none !important;
 }
-
-
-.main-nav > li > a i {
-    color: #333333 !important;
-    margin-left: 5px;
-}
-
-
-
-
