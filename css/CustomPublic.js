@@ -1,3 +1,4 @@
+alert("JS File Loaded!");
 const observer = new MutationObserver(() => {
     
     const bulkyElements = document.querySelectorAll('.validation-summary-errors, [data-valmsg-summary="true"], ul.text-danger');
