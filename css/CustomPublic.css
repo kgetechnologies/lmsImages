@@ -22,26 +22,22 @@ input.input-validation-error {
 
 
 
-header, .header, .header-fixed, .main-header {
-    background-color: white !important;
-    position: fixed !important;
-    top: 0 !important;
-    z-index: 9999 !important; 
-    height: auto !important;
-    width: 100% !important;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
+body, .main-content {
+  padding-top: 80px; 
+}
 
-.breadcrumb-bar, 
-.inner-banner, 
-section.course-content, 
-.breadcrumb-area {
-    margin-top: 100px !important; 
-    padding-top: 50px !important; 
-    position: relative !important;
-    z-index: 1 !important;
-    display: block !important;
-    background: #f8f9fa !important; 
+img.user-img {
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #f0f0f0; 
 }
 
 
