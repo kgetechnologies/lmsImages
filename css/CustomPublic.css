@@ -1,16 +1,23 @@
 .validation-summary-errors, 
-.validation-summary-valid,
-div[data-valmsg-summary="true"] {
+.validation-summary-valid, 
+#validationSummary, 
+[data-valmsg-summary="true"] {
     display: none !important;
     visibility: hidden !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important; 
 }
 
-.field-validation-error {
-    color: #d9534f !important;
-    font-size: 13px !important;
+.validation-summary-errors ul, 
+.validation-summary-errors li {
+    display: none !important;
+}
+
+
+span.field-validation-error {
     display: block !important;
-    margin-top: 5px !important;
+    color: #e74c3c !important;
+    font-size: 13px;
+    margin-top: 5px;
 }
