@@ -1,41 +1,36 @@
-(function() {
-    function initCalendar() {
-        
-        const selectors = [
-            'input[name="datetimes"]',
-            'input.datepicker',
-            '.datetimepicker',
-            'input[placeholder*="dd/mm/yyyy"]',
-            '.daterange'
-        ];
+function loadCalendar() {
+   
+    const rangeInput = jQuery('input[placeholder*="dd/mm/yyyy"]');
 
-        selectors.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            
-            elements.forEach(el => {
-                
-                if (window.jQuery && jQuery.fn.daterangepicker) {
-                    jQuery(el).daterangepicker({
-                        opens: 'left',
-                        locale: { format: 'DD/MM/YYYY' }
-                    });
-                    console.log("Calendar initialized via Library");
-                } 
-                
-                else {
-                    el.addEventListener('click', function() {
-                        if (typeof this.showPicker === 'function') {
-                            this.showPicker();
-                        }
-                    });
-                }
-            });
+    if (rangeInput.length > 0 && jQuery.fn.daterangepicker) {
+        rangeInput.daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                format: 'DD/MM/YYYY',
+                cancelLabel: 'Clear'
+            }
+        });
+
+       
+        rangeInput.on('apply.daterangepicker', function(ev, picker) {
+            jQuery(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+        });
+
+        rangeInput.on('cancel.daterangepicker', function(ev, picker) {
+            jQuery(this).val('');
+        });
+
+        console.log("DateRangePicker successfully bound!");
+    } else {
+       
+        console.log("Library not found, trying native fallback...");
+        document.querySelectorAll('input[placeholder*="dd/mm/yyyy"]').forEach(el => {
+            el.type = 'date'; 
         });
     }
+}
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCalendar);
-    } else {
-        initCalendar();
-    }
-})();
+
+jQuery(document).ready(function() {
+    loadCalendar();
+});
