@@ -1,31 +1,29 @@
-(function() {
-    function initMyCalendar() {
+function fixCalendarBug() {
+    
+    const dateInputs = document.querySelectorAll('.bookingrange, .date-range, input[placeholder*="dd/mm/yyyy"]');
+
+    dateInputs.forEach(input => {
         
-        const dateInput = document.querySelector('.bookingrange');
+        input.style.cursor = 'pointer';
 
-        if (dateInput) {
-          
-            dateInput.style.cursor = "pointer";
-
-            dateInput.addEventListener('click', function() {
-                this.type = 'date'; 
-                if (this.showPicker) {
-                    this.showPicker(); 
-                }
-            });
-
+        
+        input.addEventListener('mousedown', function() {
+            this.type = 'date'; 
             
-            dateInput.addEventListener('blur', function() {
-                if (!this.value) {
-                    this.type = 'text';
-                }
-            });
             
-            console.log("Calendar logic successfully attached to .bookingrange");
-        }
-    }
+            if (this.showPicker) {
+                this.showPicker();
+            }
+        });
+
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.type = 'text';
+            }
+        });
+    });
+}
 
 
-    window.addEventListener('load', initMyCalendar);
-    setTimeout(initMyCalendar, 2000); 
-})();
+window.onload = fixCalendarBug;
+setInterval(fixCalendarBug, 1500);
