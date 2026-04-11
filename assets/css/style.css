@@ -24450,13 +24450,12 @@ color: #B9B7C0 ;
   .main-nav li + li {
     margin-left: 0;
   }
-  .main-nav > li > a {
-    line-height: 1.5;
-    padding: 15px 20px !important;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-  }
+ .main-nav > li > a {
+    line-height: 70px;
+    padding: 0 !important;
+	 color: #000000 !important;
+    font-weight: 800 !important;
+}
   .header-two .main-nav li a {
     color: #fff;
   }
@@ -30155,19 +30154,4 @@ color: #B9B7C0 ;
   }
 }
 
-	/* ==========================================================================
-   FINAL OVERRIDE FOR HEADER & NEWSLETTER (BY SARIKA)
-   ========================================================================== */
-   
-/* 1. Menu links ko bold aur black karne ke liye */
-body .header-one .main-menu-wrapper ul.main-nav > li > a {
-    color: #000000 !important;
-    font-weight: 800 !important;
-    -webkit-text-fill-color: #000000 !important;
-    opacity: 1 !important;
-}
-
-/* 2. Subscribe button ka border fix */
-.footer-newsletter form {
-    border: 2px solid #6c63ff !important;
-}
+	
