@@ -70,3 +70,28 @@ input.input-validation-error {
 .pagination {
     margin: 0 !important;
 }
+
+
+
+
+
+
+
+
+
+
+/* Media query use kar rahe hain taaki bootstrap ki specificity match ho jaye */
+@media (min-width: 992px) {
+    header.header-one .main-menu-wrapper ul.main-nav > li > a {
+        color: #000000 !important;
+        font-weight: 700 !important; /* Bold karne ke liye */
+        -webkit-text-fill-color: #000000 !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Common fix for all screens */
+.main-nav li a {
+    color: #000000 !important;
+    font-weight: bold !important;
+}
