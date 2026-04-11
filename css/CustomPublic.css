@@ -79,16 +79,26 @@ input.input-validation-error {
 
 
 
-
-/* 1. Menu links ko zabardasti Black aur Bold karo */
-header.header-one .main-menu-wrapper ul.main-nav > li > a {
+/* 1. Header Links Fix - Direct Body targetting for Max Priority */
+body .header-one .main-menu-wrapper ul.main-nav > li > a {
     color: #000000 !important;
     font-weight: 800 !important;
     -webkit-text-fill-color: #000000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* 2. Subscribe button ka border aur look fix karo */
+/* 2. Desktop View Fix (Specific for your Bootstrap break point) */
+@media (min-width: 992px) {
+    body header.header-one .main-nav > li > a {
+        color: #000000 !important;
+        font-weight: bold !important;
+    }
+}
+
+/* 3. Search Box Styling */
 .footer-newsletter form, .subscribe-form form {
     border: 2px solid #6c63ff !important;
     border-radius: 8px !important;
+    overflow: hidden;
 }
