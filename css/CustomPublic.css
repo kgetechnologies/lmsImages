@@ -80,18 +80,15 @@ input.input-validation-error {
 
 
 
-/* Media query use kar rahe hain taaki bootstrap ki specificity match ho jaye */
-@media (min-width: 992px) {
-    header.header-one .main-menu-wrapper ul.main-nav > li > a {
-        color: #000000 !important;
-        font-weight: 700 !important; /* Bold karne ke liye */
-        -webkit-text-fill-color: #000000 !important;
-        opacity: 1 !important;
-    }
+/* 1. Menu links ko zabardasti Black aur Bold karo */
+header.header-one .main-menu-wrapper ul.main-nav > li > a {
+    color: #000000 !important;
+    font-weight: 800 !important;
+    -webkit-text-fill-color: #000000 !important;
 }
 
-/* Common fix for all screens */
-.main-nav li a {
-    color: #000000 !important;
-    font-weight: bold !important;
+/* 2. Subscribe button ka border aur look fix karo */
+.footer-newsletter form, .subscribe-form form {
+    border: 2px solid #6c63ff !important;
+    border-radius: 8px !important;
 }
