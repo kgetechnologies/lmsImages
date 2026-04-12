@@ -72,3 +72,27 @@
         margin: 10px 0 !important;
     }
 }
+
+/* --- Dropdown Double Click Fix & Hover Effect --- */
+
+/* Hover par menu open karne ke liye */
+.nav-item:hover > .collapse, 
+.nav-item:hover > .nav-second-level {
+    display: block !important;
+}
+
+/* Single click ke liye Bootstrap ki show class ko force karein */
+.collapse.show {
+    display: block !important;
+}
+
+/* Sub-menu items ki styling */
+.sidebar .collapse .nav-link {
+    padding-left: 50px !important; /* Icons se door dikhega */
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Arrow rotation fix */
+.nav-item .nav-link[aria-expanded="true"] .fa-angle-left {
+    transform: rotate(-90deg);
+}
