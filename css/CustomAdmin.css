@@ -1,106 +1,89 @@
-/* 1. Dashboard Layout Fix */
-.content-wrapper {
-    padding: 25px !important;
-    background-color: #f8f9fa;
+/* --- Root Layout Fix --- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
 }
 
-/* 2. Stats Cards Fix (Inhe ek line mein aur sundar banane ke liye) */
-.row {
-    display: flex;
-    flex-wrap: wrap;
+#content {
+    width: 100%;
+    padding: 20px !important;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    margin-top: 0 !important; /* Extra gap hatane ke liye */
+}
+
+/* --- Stats Cards Grid (The Main Fix) --- */
+.dashboard-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
+    margin-top: 20px; /* Header se thoda gap */
     margin-bottom: 30px;
 }
 
 .card {
+    background: #ffffff;
     border: none !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
-    transition: 0.3s;
-    flex: 1; /* Isse saare cards equal width ke honge */
-    min-width: 200px;
+    border-radius: 12px !important;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s ease;
+    height: 100%; /* Saare cards ek size ke */
+    margin: 0 !important; /* Staggered layout fix karne ke liye */
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-.card-body {
-    padding: 20px !important;
-    text-align: center;
+.card i, .card img {
+    font-size: 35px !important;
+    margin-bottom: 15px;
+    color: #34495e;
 }
 
-/* Icons styling - Inhe thoda chota aur colorful banate hain */
-.card-body i, .card-body img {
-    font-size: 30px !important;
+.card h5 {
+    font-size: 15px;
+    color: #7f8c8d;
     margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-.card-body h5 {
-    font-size: 14px;
-    color: #6c757d;
     font-weight: 500;
 }
 
-.card-body h2 {
-    font-size: 24px;
+.card h2 {
+    font-size: 28px;
     font-weight: 700;
+    color: #2c3e50;
     margin: 0;
-    color: #333;
 }
 
-/* 3. Sidebar Alignment Fix */
-.sidebar {
-    background-color: #263544 !important;
-}
-
-.nav-item {
-    width: 100%;
-}
-
-.nav-link {
-    display: flex !important;
-    align-items: center !important;
+/* --- Sidebar Items Alignment --- */
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
     padding: 12px 20px !important;
-    color: #a3b1c2 !important;
-    gap: 15px; /* Icon aur text ke beech barabar gap */
+    gap: 12px;
+    color: #bdc3c7 !important;
 }
 
-.nav-link:hover, .nav-link.active {
-    background-color: #1e2833 !important;
-    color: #fff !important;
-}
-
-.nav-link i {
-    font-size: 18px !important;
-    width: 25px; /* Fixed width taaki text ek line mein dikhe */
+.sidebar .nav-link i {
+    width: 25px;
     text-align: center;
 }
 
-/* 4. Sales Chart Section */
-.sales-chart-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+/* --- Chart Area --- */
+.sales-chart-section {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
 }
 
-.sales-chart-container h4 {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-/* 5. Header / Profile Fix */
-.navbar-custom {
-    padding: 0 25px !important;
-    height: 70px;
-}
-
-.profile-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Responsive Fix for mobile */
+@media (max-width: 768px) {
+    .dashboard-stats-row {
+        grid-template-columns: 1fr; /* Mobile par ek ke niche ek */
+    }
 }
