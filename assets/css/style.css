@@ -30157,25 +30157,41 @@ color: #B9B7C0 ;
 
 
 
+/* --- Internship Task: Layout Fixes --- */
 
-	/* Slider agar load nahi ho raha toh ye logos ko line mein layega */
-.brand-slide {
+/* 1. Brand/Client Logos Alignment Fix */
+.brand-slide, .cliets-section-one .brand-slide {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    justify-content: flex-start !important;
+    overflow-x: auto !important; /* Mobile par scroll ke liye */
     align-items: center !important;
-    gap: 40px !important;
-    padding: 30px 0 !important;
+    justify-content: flex-start !important;
+    gap: 50px !important;
+    padding: 40px 0 !important;
 }
 
-.brand-slide > div {
+.brand-slide div, .brand-slide .owl-item {
     flex: 0 0 auto !important;
     width: auto !important;
 }
 
 .brand-slide img {
-    height: 40px !important; /* Logo ka size adjust karein */
+    height: 35px !important; 
     width: auto !important;
-    display: block !important;
+    filter: grayscale(1); /* Optional: Consistent look ke liye */
+    opacity: 0.7;
+}
+
+/* 2. Header Overlap & Alignment Fix */
+.header, header {
+    background: #ffffff !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Home Banner padding fix */
+.home-five-banner, .home-banner {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
 }
