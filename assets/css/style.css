@@ -30157,41 +30157,38 @@ color: #B9B7C0 ;
 
 
 
-/* --- Internship Task: Layout Fixes --- */
+/* --- LOGO ALIGNMENT FORCE FIX --- */
 
-/* 1. Brand/Client Logos Alignment Fix */
-.brand-slide, .cliets-section-one .brand-slide {
+/* Parent container ko flex banana hai */
+div.cliets-section-one div.brand-slide {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important; /* Mobile par scroll ke liye */
+    flex-wrap: nowrap !important; /* Ek hi line mein rakhne ke liye */
+    overflow-x: auto !important; /* Agar screen se bahar jayein toh scroll ho sakein */
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 50px !important;
-    padding: 40px 0 !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding: 50px 0 !important;
+    width: 100% !important;
 }
 
-.brand-slide div, .brand-slide .owl-item {
+/* Har logo ke div ko line mein lane ke liye */
+div.cliets-section-one div.brand-slide > div {
+    display: inline-block !important;
     flex: 0 0 auto !important;
     width: auto !important;
 }
 
-.brand-slide img {
-    height: 35px !important; 
+/* Image ka size control karne ke liye */
+div.cliets-section-one div.brand-slide img {
+    height: 40px !important;
     width: auto !important;
-    filter: grayscale(1); /* Optional: Consistent look ke liye */
-    opacity: 0.7;
+    max-width: none !important;
 }
 
-/* 2. Header Overlap & Alignment Fix */
-.header, header {
-    background: #ffffff !important;
+/* Header background ko solid karne ke liye */
+header.header {
+    background-color: #ffffff !important;
     position: relative !important;
-    z-index: 1000 !important;
-}
-
-/* Home Banner padding fix */
-.home-five-banner, .home-banner {
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
+    z-index: 9999 !important;
 }
