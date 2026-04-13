@@ -121,3 +121,19 @@ span.text-danger {
 .is-invalid {
     border: 1px solid #dc3545 !important;
 }
+
+
+/* --- Validation Message Fix --- */
+.field-validation-error {
+    color: #ff0000 !important; /* Pure Red */
+    font-size: 13px !important;
+    font-weight: bold !important;
+    display: block !important;
+    margin-top: 5px !important;
+}
+
+/* Agar input box ko bhi red border dena hai galti hone par */
+.input-validation-error {
+    border: 1px solid #ff0000 !important;
+    background-color: #fff8f8 !important; /* Light red background */
+}
