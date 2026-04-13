@@ -30192,3 +30192,13 @@ body.home-three header.header {
     background: #ffffff !important;
     position: relative !important;
 }
+
+
+
+	/* Instructors section ki images ka size control karne ke liye */
+.instructor-item .instructors-img img {
+    max-width: 150px !important; 
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 auto;
+}
