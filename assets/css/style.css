@@ -30202,3 +30202,13 @@ body.home-three header.header {
     height: auto !important;
     margin: 0 auto;
 }
+
+
+
+	/* FAQ Section Image Fix */
+.faq-section .faq-img img {
+    max-width: 500px !important; /* Aap screen ke hisaab se isey 400px ya 500px kar sakte hain */
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 20px; /* Optional: corners soft karne ke liye */
+}
