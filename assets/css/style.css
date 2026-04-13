@@ -30210,6 +30210,25 @@ body.home-three header.header {
     max-width: 500px !important; /* Aap screen ke hisaab se isey 400px ya 500px kar sakte hain */
     width: 100% !important;
     height: auto !important;
-    border-radius: 20px; /* Optional: corners soft karne ke liye */
+    border-radius: 20px; 
+}
+
+
+
+
+	/* Hero Section Images Fix */
+.home-five-course .header-img img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Specific control for the floating student image */
+.home-five-course .header-img .header-inner-img img {
+    max-width: 250px !important; 
+}
+
+/* Students Enrolled card position fix */
+.home-five-course .header-img .course-enrolled {
+    z-index: 10; 
 }
 
