@@ -96,3 +96,28 @@
 .nav-item .nav-link[aria-expanded="true"] .fa-angle-left {
     transform: rotate(-90deg);
 }
+
+
+/* --- 7. Validation & Required Field Styling --- */
+
+/* Specific labels ya error messages ko red karne ke liye */
+.text-danger, 
+.invalid-feedback,
+span.text-danger {
+    color: #dc3545 !important; /* Perfect Red Color */
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    margin-top: 5px !important;
+    display: block !important; /* Taaki ye niche ki line mein dikhe */
+}
+
+/* Star (*) icon ko red karne ke liye agar label mein hai */
+.required:after {
+    content: " *";
+    color: red;
+}
+
+/* Input box ka border red karne ke liye jab error ho */
+.is-invalid {
+    border: 1px solid #dc3545 !important;
+}
