@@ -30154,4 +30154,28 @@ color: #B9B7C0 ;
   }
 }
 
-	
+
+
+
+
+	/* Slider agar load nahi ho raha toh ye logos ko line mein layega */
+.brand-slide {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 40px !important;
+    padding: 30px 0 !important;
+}
+
+.brand-slide > div {
+    flex: 0 0 auto !important;
+    width: auto !important;
+}
+
+.brand-slide img {
+    height: 40px !important; /* Logo ka size adjust karein */
+    width: auto !important;
+    display: block !important;
+}
