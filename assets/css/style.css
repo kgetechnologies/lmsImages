@@ -30157,38 +30157,38 @@ color: #B9B7C0 ;
 
 
 
-/* --- LOGO ALIGNMENT FORCE FIX --- */
 
-/* Parent container ko flex banana hai */
-div.cliets-section-one div.brand-slide {
+	/* --- FINAL ALIGNMENT --- */
+body.home-three .cliets-section-one .brand-slide {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important; /* Ek hi line mein rakhne ke liye */
-    overflow-x: auto !important; /* Agar screen se bahar jayein toh scroll ho sakein */
-    align-items: center !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
+    align-items: center !important;
     gap: 40px !important;
-    padding: 50px 0 !important;
+    padding: 60px 0 !important;
     width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
 }
 
-/* Har logo ke div ko line mein lane ke liye */
-div.cliets-section-one div.brand-slide > div {
-    display: inline-block !important;
-    flex: 0 0 auto !important;
+body.home-three .brand-slide div {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     width: auto !important;
+    float: none !important; 
 }
 
-/* Image ka size control karne ke liye */
-div.cliets-section-one div.brand-slide img {
+body.home-three .brand-slide img {
     height: 40px !important;
     width: auto !important;
+    display: block !important;
     max-width: none !important;
 }
 
-/* Header background ko solid karne ke liye */
-header.header {
-    background-color: #ffffff !important;
+/* Header fix */
+body.home-three header.header {
+    background: #ffffff !important;
     position: relative !important;
-    z-index: 9999 !important;
 }
