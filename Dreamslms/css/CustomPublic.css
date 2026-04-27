@@ -1,11 +1,12 @@
 
 .main-nav .submenu,
 .main-nav .megamenu {
-    display: none;
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #392C7D;
+    background-color: #392C7D !important;
+    background:#392C7D !important;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -41,6 +42,17 @@
     transform: translateX(-50%);
     display: flex;
     justify-content: space-around;
+}
+.main-nav > li > a,
+.header .logo-text,
+.navbar-nav > li > a{
+    color:#ffffff !important;
+}
+.main-nav >li:first-child >a,
+.main-nav > li > a[href*="Home"]{
+    color:#ffffff !important;
+    visibility: visible !important;
+    display:inline-block !important;
 }
 
  
