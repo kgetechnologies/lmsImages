@@ -1,4 +1,12 @@
-
-
-
+.header-btn{
+  background:transparent !important;
+  position:absolute;
+  top:0;
+  right:0;
+}
+.header-one,
+.main-menu-wrapper{
+  background:transparent !important;
+  box-shadow:none !important;
+}
   
