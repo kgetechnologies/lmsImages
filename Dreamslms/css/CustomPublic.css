@@ -7,7 +7,7 @@
 .header-one,
 .main-menu-wrapper,
 .header-btn{
-  background:#392C7D;
+  background:#392C7D !important;
   box-shadow:none !important;
 }
   
