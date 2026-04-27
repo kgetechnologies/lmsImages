@@ -1,1 +1,24 @@
-
+.header-one,
+.main-menu-wrapper{
+  background:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+}
+.main-nav li a{
+  color:white !important;
+  font-weight:500;
+}
+.main-nav li a:hover{
+  color:#ff5a57 !important;
+}
+.header-one{
+position:absolute;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:red !important;
+}
+.main-wrapper{
+  padding-top:0 !important;
+}
+  
