@@ -13,7 +13,7 @@
 }
 .header-one,
 .main-menu-wrapper{
-position:absolute;
+position:relative;
   top:0;
   width:100%;
   z-index:1000;
@@ -28,5 +28,28 @@ position:absolute;
   margin-top:0 !important;
   padding-top:0 !important;
 }
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.main-nav li{
+  list-style:none;
+  position:relative;
+}
+.main-nav li a{
+  color:white !important;
+}
+.main-nav li ul{
+  position:absolute;
+  top:100%;
+  left:0;
+  display:none;
+  background:white;
+}
+.main-nav li:hover ul{
+  display:block;
+}
+
 
   
