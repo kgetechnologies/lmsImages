@@ -66,6 +66,49 @@
     visibility:visible !important;
     display:inline-block !important;
 }
+.banner-content {
+    text-align: left !important;
+    max-width: 700px !important; /* Prevents text from hitting the cards on the right */
+}
+
+/* Force the paragraph to align left and look clean */
+.banner-content p {
+    text-align: left !important;
+    margin-left: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding-bottom: 20px !important;
+}
+
+/* Style the big heading to match the reference font and spacing */
+.banner-content h1 {
+    text-align: left !important;
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+}
+
+ 
+.banner-content h1 span.text-highlight {
+    color: #ff5b5c !important; /* The reddish-pink from the demo */
+    border-bottom: 3px solid #ff5b5c;
+    display: inline-block;
+}
+/* Aligns the search bar container to the left */
+.banner-search,
+.search-bar-container {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+ 
+
+
+ 
+
 
  
 
