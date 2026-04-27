@@ -1,6 +1,6 @@
 .main-menu-wrapper ul{
   display:flex !important;
-  flex-direction:row !important;
+  flex-direction:column !important;
   list-style:none;
   gap:20px;
 }
