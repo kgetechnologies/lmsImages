@@ -1,17 +1,35 @@
-.main-menu-wrapper ul{
-  display:flex !important;
-  flex-direction:column !important;
-  list-style:none;
-  gap:20px;
+/* REMOVE WHITE HEADER BACKGROUND */
+.header-one {
+    background-color: #392C7D !important;
+  box-shadow: none !important;
 }
-.main-menu-wrapper ul li{
-  display:inline-block;
+
+/* NAVBAR BACKGROUND MATCH BANNER */
+.main-menu-wrapper {
+    background: transparent !important;
 }
-.header{
-  background:#fff;
-  position:relative;
-  z-index:1000;
-  width:100%;
+
+/* NAV LINKS COLOR */
+.main-nav li a {
+    color: white !important;
 }
+
+/* HOVER COLOR */
+.main-nav li a:hover {
+    color: #ff5a57 !important;
+}
+
+/* RIGHT SIDE BUTTON SECTION */
+.header-btn {
+    background: transparent !important;
+}
+
+/* OPTIONAL: BUTTON STYLING */
+.header-btn .btn {
+    background: #ff5a57 !important;
+    color: white !important;
+    border: none !important;
+} 
+
     
 
