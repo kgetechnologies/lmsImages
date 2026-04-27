@@ -1,23 +1,104 @@
-
-.header,
-.header-fixed,
-.main-menu-wrapper {
-    background-color: #392C7D !important;
-    background: #392C7D !important;
+.header {
+    background-color: #392C7D !important; /* Your reference blue */
+    height: 80px !important;
+    border-bottom: none !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 1000 !important;
 }
 
+.header .container,
+.header-main {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+/* 2. NAVIGATION BAR (FIXES THE VERTICAL LIST) */
+.main-menu-wrapper {
+    display: flex !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
 
 .main-nav {
     display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    min-width: 600px; /* Gives the links room to exist */
+    flex-direction: row !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* MAKE ALL NAV LINKS WHITE (Including Home) */
+.main-nav > li {
+    display: inline-block !important;
+    position: relative !important;
+    margin: 0 15px !important;
+}
+
 .main-nav > li > a {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Make text white on blue */
+    font-weight: 500 !important;
+    padding: 25px 0 !important;
+}
+
+/* 3. SYMBOLS & BUTTONS (ALIGNS THEM BESIDE NAV) */
+.header-btn,
+.header-right-btns,
+.header-navbar-right {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    background: transparent !important; /* Removes the white line */
+    margin-left: 20px !important;
+    gap: 12px !important;
+}
+
+.header-btn li,
+.header-widget-items {
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.header-btn i,
+.header-btn span,
+.header-widget-items i {
+    color: #ffffff !important; /* Icons white */
+    font-size: 18px !important;
+}
+
+/* 4. DROPDOWN STYLING (THE BOXES) */
+.main-nav .submenu,
+.main-nav .megamenu {
+    display: none; /* Stays hidden until hover */
+    position: absolute !important;
+    background-color: #ffffff !important; /* Keep dropdowns white */
+    top: 100% !important;
+    left: 0 !important;
+    min-width: 200px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+    padding: 15px !important;
+    border-top: 3px solid #ff5b5c !important; /* Red accent line */
+}
+
+.main-nav li:hover > .submenu,
+.main-nav li:hover > .megamenu {
     display: block !important;
 }
 
+.main-nav .submenu li a {
+    color: #333333 !important; /* Dark text inside white dropdown */
+    padding: 8px 0 !important;
+    display: block !important;
+}
+
+/* 5. FIX THE WHITE GAP BELOW HEADER */
+.home-three-banner {
+    margin-top: 0 !important;
+    padding-top: 100px !important;
+}
+
  
+
