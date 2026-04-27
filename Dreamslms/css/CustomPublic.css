@@ -24,5 +24,9 @@ position:absolute;
   box-shadow:none !important;
   background:red !important;
 }
+.banner-section{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
 
   
