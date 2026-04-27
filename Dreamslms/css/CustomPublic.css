@@ -1,35 +1,48 @@
-/* REMOVE WHITE HEADER BACKGROUND */
-.header-one {
-    background-color: #392C7D !important;
-  box-shadow: none !important;
+
+.main-nav .submenu,
+.main-nav .megamenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 9999;
+    min-width: 200px;
 }
 
-/* NAVBAR BACKGROUND MATCH BANNER */
-.main-menu-wrapper {
-    background: transparent !important;
+/* 2. Show the menu when you hover over the parent link */
+.main-nav li:hover > .submenu,
+.main-nav li:hover > .megamenu {
+    display: block !important;
 }
 
-/* NAV LINKS COLOR */
-.main-nav li a {
-    color: white !important;
+/* 3. Force the top-level menu to stay horizontal */
+.main-nav {
+    display: flex !important;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* HOVER COLOR */
-.main-nav li a:hover {
-    color: #ff5a57 !important;
+.main-nav > li {
+    position: relative; /* Essential for absolute positioning of dropdowns */
+    margin-right: 25px;
 }
 
-/* RIGHT SIDE BUTTON SECTION */
-.header-btn {
-    background: transparent !important;
+/* 4. Fix for the Mega Menu (the one with images in your screenshot) */
+.megamenu {
+    width: 800px; /* Adjust based on your screen width */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
 }
 
-/* OPTIONAL: BUTTON STYLING */
-.header-btn .btn {
-    background: #ff5a57 !important;
-    color: white !important;
-    border: none !important;
-} 
+ 
 
     
 
