@@ -19,5 +19,9 @@ position:absolute;
   z-index:1000;
   
 }
+.header-btn{
+  backgroung:transparent !important;
+  box-shadow:none !important;
+}
 
   
