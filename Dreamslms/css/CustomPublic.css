@@ -13,7 +13,7 @@
     min-width: 200px;
 }
 
-/* 2. Show the menu when you hover over the parent link */
+
 .main-nav li:hover > .submenu,
 .main-nav li:hover > .megamenu {
     display: block !important;
@@ -29,13 +29,14 @@
 }
 
 .main-nav > li {
-    position: relative; /* Essential for absolute positioning of dropdowns */
+    position: relative; 
     margin-right: 25px;
+    color:black !important;
 }
 
-/* 4. Fix for the Mega Menu (the one with images in your screenshot) */
+
 .megamenu {
-    width: 800px; /* Adjust based on your screen width */
+    width: 800px; 
     left: 50%;
     transform: translateX(-50%);
     display: flex;
