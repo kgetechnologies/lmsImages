@@ -12,7 +12,7 @@
     min-width: 200px;
 }
 
-/* 2. Show the menu when you hover over the parent link */
+
 .main-nav li:hover > .submenu,
 .main-nav li:hover > .megamenu {
     display: block !important;
@@ -32,7 +32,7 @@
     margin-right: 25px;
 }
 
-/* 4. Fix for the Mega Menu (the one with images in your screenshot) */
+
 .megamenu {
     width: 800px; /* Adjust based on your screen width */
     left: 50%;
@@ -47,15 +47,15 @@
     background: #392C7D !important;
 }
 
-/* PREVENT THE CONTENT FROM HIDING THE "HOME" LINK */
+
 .main-nav {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    min-width: 600px; /* Gives the links room to exist */
+    min-width: 600px; 
 }
 
-/* MAKE ALL NAV LINKS WHITE (Including Home) */
+
 .main-nav > li > a {
     color: #ffffff !important;
     display: block !important;
@@ -68,10 +68,10 @@
 }
 .banner-content {
     text-align: left !important;
-    max-width: 700px !important; /* Prevents text from hitting the cards on the right */
+    max-width: 700px !important; 
 }
 
-/* Force the paragraph to align left and look clean */
+
 .banner-content p {
     text-align: left !important;
     margin-left: 0 !important;
@@ -81,7 +81,7 @@
     padding-bottom: 20px !important;
 }
 
-/* Style the big heading to match the reference font and spacing */
+/
 .banner-content h1 {
     text-align: left !important;
     font-size: 56px !important;
@@ -103,6 +103,59 @@
     display: flex !important;
     justify-content: flex-start !important;
 }
+.swiper-wrapper {
+    display: block !important; /* Breaks the flex row of the slider */
+    position: relative !important;
+}
+
+.swiper-slide {
+    width: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+ 
+.banner-image {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 500px; /* Adjust based on your card height */
+}
+
+/
+.course-item-two {
+    position: absolute !important;
+    transition: all 0.3s ease;
+    border-radius: 20px !important;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+
+.swiper-slide:nth-child(1) .course-item-two {
+    z-index: 5 !important;
+    position: relative !important; /* This card defines the space */
+    transform: none;
+}
+
+
+.swiper-slide:nth-child(2) .course-item-two {
+    z-index: 3 !important;
+    transform: rotate(3deg) translateX(15px) translateY(10px) !important;
+    opacity: 0.8;
+}
+
+
+.swiper-slide:nth-child(3) .course-item-two {
+    z-index: 1 !important;
+    transform: rotate(6deg) translateX(30px) translateY(20px) !important;
+    opacity: 0.5;
+}
+
+ 
+
 
  
 
