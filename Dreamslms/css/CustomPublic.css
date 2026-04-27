@@ -7,7 +7,16 @@
 .header-one,
 .main-menu-wrapper,
 .header-btn{
-  background:red !important;
+  background:#392C7D !important;
   box-shadow:none !important;
+  position:sticky;
+}
+.main-nav li a {
+    color: white !important;
+}
+
+
+.main-nav li a:hover {
+    color: #ff5a57 !important;
 }
   
