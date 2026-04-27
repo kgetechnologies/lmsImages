@@ -60,6 +60,12 @@
     color: #ffffff !important;
     display: block !important;
 }
+.main-nav > li:first-child > a,
+.main-nav > li >a[href*="home"]{
+    color:#ffffff !important;
+    visibility:visible !important;
+    display:inline-block !important;
+}
 
  
 
