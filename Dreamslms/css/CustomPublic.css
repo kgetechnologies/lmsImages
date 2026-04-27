@@ -5,8 +5,9 @@
   right:0;
 }
 .header-one,
-.main-menu-wrapper{
-  background:transparent !important;
+.main-menu-wrapper,
+.header-btn{
+  background:#392C7D;
   box-shadow:none !important;
 }
   
