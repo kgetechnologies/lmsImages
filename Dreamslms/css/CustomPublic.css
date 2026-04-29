@@ -135,49 +135,54 @@
 
 
 
-.banner-image .swiper-wrapper {
+..col-lg-5.col-xl-4,
+.banner-image {
+    display: flex !important;
+    justify-content: center !important; /* Forces the contents to the horizontal center */
+    align-items: center !important;
+    position: relative !important;
+}
+
+/* 2. Center the absolute-positioned cards */
+.banner-image .swiper-slide {
+    position: absolute !important;
+    left: 50% !important; /* Move the start point to the middle of the column */
+    right: auto !important; /* Break the 'right: 0' rule seen in your inspector */
+    width: 320px !important; /* Ensure the width is fixed so centering works */
+    margin: 0 auto !important;
+}
+
+/* 3. Re-apply stacking logic using the NEW center as the baseline */
+/* Front Card */
+.banner-image .swiper-slide:nth-child(1) {
+    z-index: 10 !important;
+    transform: translateX(-50%) !important; /* This pulls the card back so its middle hits the 50% line */
+}
+
+/* Middle Card */
+.banner-image .swiper-slide:nth-child(2) {
+    z-index: 5 !important;
+    /* TranslateX(-50%) centers it, then we add 20px to make it 'peek' out to the right */
+    transform: translateX(-50%) translate(20px, 15px) rotate(3deg) !important;
+    opacity: 0.8 !important;
+}
+
+/* Back Card */
+.banner-image .swiper-slide:nth-child(3) {
+    z-index: 2 !important;
+    /* TranslateX(-50%) centers it, then we add 40px for a deeper 'peek' */
+    transform: translateX(-50%) translate(40px, 30px) rotate(6deg) !important;
+    opacity: 0.5 !important;
+}
+
+ 
+banner-image .swiper-wrapper {
     display: block !important;
     position: relative !important;
     width: 100% !important;
 }
 
 
-.banner-image .swiper-slide {
-    position: absolute !important;
-    top: 0 !important;
-    left: 50% !important; /* Move to middle of the column */
-    transform: translateX(-50%) !important; /* Pull back by half its width to truly center */
-    width: 320px !important;
-    right: auto !important; /* Disable the far-right pinning */
-}
-
-/* Re-apply the 'One Behind One' offsets relative to the new center */
-.banner-image .swiper-slide:nth-child(1) {
-    z-index: 10 !important;
-    transform: translateX(-50%) translate3d(0, 0, 0) !important;
-}
-
-.banner-image .swiper-slide:nth-child(2) {
-    z-index: 5 !important;
-    transform: translateX(-50%) translate3d(20px, 15px, -100px) rotate(3deg) !important;
-    opacity: 0.8 !important;
-}
-
-.banner-image .swiper-slide:nth-child(3) {
-    z-index: 2 !important;
-    transform: translateX(-50%) translate3d(40px, 30px, -200px) rotate(6deg) !important;
-    opacity: 0.5 !important;
-}
-.home-three-banner .row.align-items-center {
-    display: flex !important;
-    align-items: center !important;
-    min-height: 600px !important; /* Gives space for the stack to exist */
-}
-
-/* Optional: Add some space at the top of the card column */
-.banner-image {
-    margin-top: -50px !important;
-}
 
  
 
