@@ -168,6 +168,9 @@ section.home-three-banner .col-lg-5 {
     transform: translate(calc(-50% + 40px), calc(-50% + 30px)) rotate(6deg) !important;
     opacity: 0.5 !important;
 }
+.benefit-title{
+    color:black;
+}
 
  
 
