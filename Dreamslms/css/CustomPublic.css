@@ -145,27 +145,38 @@
 .banner-image .swiper-slide {
     position: absolute !important;
     top: 0 !important;
-    right: 0 !important; /* Align to the right side of the banner */
-    width: 300px !important; /* Adjust width to match your card size */
+    left: 50% !important; /* Move to middle of the column */
+    transform: translateX(-50%) !important; /* Pull back by half its width to truly center */
+    width: 320px !important;
+    right: auto !important; /* Disable the far-right pinning */
 }
 
-
+/* Re-apply the 'One Behind One' offsets relative to the new center */
 .banner-image .swiper-slide:nth-child(1) {
-    z-index: 3 !important;
-    transform: translate3d(0, 0, 0) !important;
+    z-index: 10 !important;
+    transform: translateX(-50%) translate3d(0, 0, 0) !important;
 }
 
 .banner-image .swiper-slide:nth-child(2) {
-    z-index: 2 !important;
-    /* Adjust these values to control the 'peek' amount */
-    transform: translate3d(20px, 15px, -100px) rotate(3deg) !important;
-    opacity: 0.8;
+    z-index: 5 !important;
+    transform: translateX(-50%) translate3d(20px, 15px, -100px) rotate(3deg) !important;
+    opacity: 0.8 !important;
 }
 
 .banner-image .swiper-slide:nth-child(3) {
-    z-index: 1 !important;
-    transform: translate3d(40px, 30px, -200px) rotate(6deg) !important;
-    opacity: 0.5;
+    z-index: 2 !important;
+    transform: translateX(-50%) translate3d(40px, 30px, -200px) rotate(6deg) !important;
+    opacity: 0.5 !important;
+}
+.home-three-banner .row.align-items-center {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 600px !important; /* Gives space for the stack to exist */
+}
+
+/* Optional: Add some space at the top of the card column */
+.banner-image {
+    margin-top: -50px !important;
 }
 
  
@@ -173,14 +184,3 @@
 
  
 
-
- 
-
-
- 
-
-
- 
-
-
- 
