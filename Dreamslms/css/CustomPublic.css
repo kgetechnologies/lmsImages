@@ -108,21 +108,10 @@
     position: relative !important;
 }
 
-.swiper-slide {
-    width: 100% !important;
-    position: absolute !important;
-    top: 0;
-    left: 0;
-}
+
 
  
-.banner-image {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    min-height: 500px; /* Adjust based on your card height */
-}
+
 
 /
 .course-item-two {
