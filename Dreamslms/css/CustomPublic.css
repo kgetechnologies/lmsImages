@@ -182,58 +182,6 @@ section.home-three-banner .col-xl-4 {
 }
 
 
-.benefit-section .card.shadow-sm {
-    border: none !important;
-    border-radius: 15px !important;
-    padding: 30px 20px !important;
-    background: #ffffff !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    height: 100% !important;
-}
 
-.benefit-section .card.shadow-sm:hover {
-    transform: translateY(-10px) !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
-}
-
-
-.benefit-section .card-body .position-relative {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-
-.benefit-section .card-body .position-absolute.top-0 {
-    position: relative !important; 
-    width: 70px !important;
-    height: 70px !important;
-    background: #F8F9FA !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-bottom: 20px !important;
-    top: auto !important;
-    right: auto !important;
-}
-
-.benefit-section .card-body img[src*="shapes/bg-2.png"] {
-    display: none !important; 
-}
-.benefit-section .card-body h4,
-.benefit-section .card-body .h4 {
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    color: #000000 !important;
-    margin-bottom: 12px !important;
-}
-
-.benefit-section .benefit-subtext {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    color: #6C757D !important;
-}
 
  
