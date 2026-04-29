@@ -107,13 +107,6 @@
     display: block !important; /* Breaks the flex row of the slider */
     position: relative !important;
 }
-
-
-
- 
-
-
-/
 .course-item-two {
     position: absolute !important;
     transition: all 0.3s ease;
@@ -121,59 +114,57 @@
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
-
-
-
-..col-lg-5.col-xl-4,
-.banner-image {
+section.home-three-banner div.container div.row .col-lg-5,
+section.home-three-banner div.container div.row .col-xl-4 {
     display: flex !important;
-    justify-content: center !important; /* Forces the contents to the horizontal center */
+    justify-content: center !important;
     align-items: center !important;
     position: relative !important;
 }
 
-/* 2. Center the absolute-positioned cards */
+/* 2. Target the banner-image div and force it to the middle */
+.banner-section .banner-image,
+section.home-three-banner .banner-image {
+    position: relative !important;
+    right: auto !important; /* Kills the right-side pinning */
+    left: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-height: 450px !important; /* Keeps space for the stack */
+}
+
+/* 3. The Absolute Centering Trick */
 .banner-image .swiper-slide {
     position: absolute !important;
-    left: 50% !important; /* Move the start point to the middle of the column */
-    right: auto !important; /* Break the 'right: 0' rule seen in your inspector */
-    width: 320px !important; /* Ensure the width is fixed so centering works */
-    margin: 0 auto !important;
+    left: 50% !important;
+    top: 0 !important;
+    width: 320px !important; /* Adjust if your cards are a different width */
+    /* translateX(-50%) moves the card center to the 50% line */
+    transform: translateX(-50%) !important;
 }
 
-/* 3. Re-apply stacking logic using the NEW center as the baseline */
-/* Front Card */
+/* 4. The Stack (Relative to the new center) */
 .banner-image .swiper-slide:nth-child(1) {
     z-index: 10 !important;
-    transform: translateX(-50%) !important; /* This pulls the card back so its middle hits the 50% line */
+    transform: translateX(-50%) !important;
 }
 
-/* Middle Card */
 .banner-image .swiper-slide:nth-child(2) {
     z-index: 5 !important;
-    /* TranslateX(-50%) centers it, then we add 20px to make it 'peek' out to the right */
-    transform: translateX(-50%) translate(20px, 15px) rotate(3deg) !important;
-    opacity: 0.8 !important;
+    transform: translateX(-50%) translate(25px, 20px) rotate(3deg) !important;
+    opacity: 0.9 !important;
 }
 
-/* Back Card */
 .banner-image .swiper-slide:nth-child(3) {
     z-index: 2 !important;
-    /* TranslateX(-50%) centers it, then we add 40px for a deeper 'peek' */
-    transform: translateX(-50%) translate(40px, 30px) rotate(6deg) !important;
-    opacity: 0.5 !important;
+    transform: translateX(-50%) translate(50px, 40px) rotate(6deg) !important;
+    opacity: 0.6 !important;
 }
 
  
-banner-image .swiper-wrapper {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-}
 
-
-
- 
 
 
  
