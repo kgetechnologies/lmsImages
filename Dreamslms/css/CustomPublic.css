@@ -114,68 +114,126 @@
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
-section.home-three-banner .row.align-items-center {
-    min-height: 600px !important; /* Adjust this to match your banner height */
+section.home-three-banner .col-lg-5,
+section.home-three-banner .col-xl-4 {
+    min-height: 550px !important;
     display: flex !important;
-    align-items: center !important; /* Vertically centers the two columns */
-}
-
-/* 2. Position the right column correctly */
-section.home-three-banner .col-lg-5 {
-    display: flex !important;
-    align-items: center !important;
+    align-items: center !important; /* Forces vertical center of its children */
     justify-content: center !important;
-    height: 100% !important;
-}
-
-/* 3. Lift the cards into the center of that column */
-.banner-image {
     position: relative !important;
+}
+
+/* 2. Lock the banner-image container to the vertical middle */
+.home-three-banner .banner-image {
+    height: 500px !important; /* Explicit height is the 'anchor' */
     width: 100% !important;
-    height: 480px !important; /* This 'box' holds the cards in place */
-    margin-top: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
     display: flex !important;
-    justify-content: center !important;
     align-items: center !important;
+    justify-content: center !important;
+    bottom: auto !important; /* Prevents it from sticking to the bottom */
 }
 
-/* 4. Fine-tune the stack so it stays centered inside the 480px box */
-.banner-image .swiper-slide {
+/* 3. The 'Zero-Gravity' Stack */
+/* This moves the cards based on the center of the 500px box above */
+.home-three-banner .banner-image .swiper-slide {
     position: absolute !important;
-    top: 50% !important; /* Move to the middle of the banner-image box */
+    top: 50% !important;
     left: 50% !important;
-    /* translate(-50%, -50%) perfectly centers the card vertically and horizontally */
+    
     transform: translate(-50%, -50%) !important;
-    width: 310px !important;
+    width: 320px !important;
 }
 
-/* 5. Re-apply the 'One Behind One' offsets relative to the NEW center */
-.banner-image .swiper-slide:nth-child(1) {
+/* 4. Re-apply the 'One Behind One' offsets */
+.home-three-banner .banner-image .swiper-slide:nth-child(1) {
     z-index: 10 !important;
-    transform: translate(-50%, -50%) !important;
 }
 
-.banner-image .swiper-slide:nth-child(2) {
+.home-three-banner .banner-image .swiper-slide:nth-child(2) {
     z-index: 5 !important;
-    /* Maintain center, then nudge slightly right and down */
-    transform: translate(calc(-50% + 20px), calc(-50% + 15px)) rotate(3deg) !important;
+    transform: translate(calc(-50% + 25px), calc(-50% + 20px)) rotate(3deg) !important;
     opacity: 0.8 !important;
 }
 
-.banner-image .swiper-slide:nth-child(3) {
+.home-three-banner .banner-image .swiper-slide:nth-child(3) {
     z-index: 2 !important;
-    /* Maintain center, then nudge further right and down */
-    transform: translate(calc(-50% + 40px), calc(-50% + 30px)) rotate(6deg) !important;
+    transform: translate(calc(-50% + 50px), calc(-50% + 40px)) rotate(6deg) !important;
     opacity: 0.5 !important;
+}
+.benefit-section .section-header {
+    margin-bottom: 40px !important;
+}
+
+.benefit-section .section-header .text-secondary {
+    color: #FF5555 !important; /
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+.benefit-section .benefit-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #1A1A1A !important;
+    margin-top: 10px !important;
 }
 
 
+.benefit-section .card.shadow-sm {
+    border: none !important;
+    border-radius: 15px !important;
+    padding: 30px 20px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    height: 100% !important;
+}
+
+.benefit-section .card.shadow-sm:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.benefit-section .card-body .position-relative {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+
+.benefit-section .card-body .position-absolute.top-0 {
+    position: relative !important; 
+    width: 70px !important;
+    height: 70px !important;
+    background: #F8F9FA !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+    top: auto !important;
+    right: auto !important;
+}
+
+.benefit-section .card-body img[src*="shapes/bg-2.png"] {
+    display: none !important; 
+}
+.benefit-section .card-body h4,
+.benefit-section .card-body .h4 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin-bottom: 12px !important;
+}
+
+.benefit-section .benefit-subtext {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: #6C757D !important;
+}
+
  
-
-
- 
-
-
-
- 
-
