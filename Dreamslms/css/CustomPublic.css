@@ -255,7 +255,6 @@
 }
 .categories-item {
     background: #FFFFFF !important;
-    border: 1px solid #EAEAEA !important;
     border-radius: 12px !important;
     padding: 25px !important;
     width: 260px !important; /* Set a consistent width for each card */
