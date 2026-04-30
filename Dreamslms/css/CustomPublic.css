@@ -192,6 +192,68 @@
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
 }
+.client-section .container h6.fw-medium {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #2D2D2D !important;
+    margin-bottom: 40px !important;
+    text-decoration: none !important; 
+}
+
+
+.client-section .container h6 span.text-secondary {
+    color: #FF5555 !important;
+    text-decoration: none !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.client-section .container h6 span.text-secondary::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 2px !important;
+    width: 100% !important;
+    height: 2px !important;
+    background-color: #FF5555 !important;
+}
+
+/
+.institutions-slider.slick-initialized {
+    padding: 20px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 3. Individual Logo Styling */
+.institutions-items {
+    padding: 0 15px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.institutions-items img.img-fluid {
+    max-height: 45px !important; 
+    width: auto !important;
+    filter: grayscale(100%) !important; 
+    opacity: 0.5 !important;
+    transition: all 0.3s ease !important;
+}
+
+.institutions-items img.img-fluid:hover {
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+    transform: scale(1.1) !important;
+}
+
+
+.slick-slide, .slick-slide:focus, .slick-slide div {
+    outline: none !important;
+    border: none !important;
+}
+
+ 
 
  
 
