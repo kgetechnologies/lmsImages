@@ -222,6 +222,59 @@
     filter: grayscale(0%) !important;
     opacity: 1 !important;
 }
+.section-header.text-center {
+    margin-bottom: 50px !important;
+}
+
+.section-header h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #1A1A1A !important;
+}
+.top-courses-slider {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+}
+.categories-item {
+    background: #FFFFFF !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    width: 260px !important; /* Set a consistent width for each card */
+    transition: all 0.3s ease-in-out !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.categories-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+    border-color: #FF5555 !important;
+}
+.categories-item img.mx-auto {
+    width: 100% !important;
+    max-height: 180px !important;
+    object-fit: contain !important;
+    margin-bottom: 20px !important;
+    border-radius: 8px !important;
+}
+
+.categories-item h6.title a {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    transition: color 0.3s !important;
+}
+
+.categories-item h6.title a:hover {
+    color: #FF5555 !important;
+}
+
+ 
 
  
 
