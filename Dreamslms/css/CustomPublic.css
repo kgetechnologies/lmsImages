@@ -11,14 +11,10 @@
     z-index: 9999;
     min-width: 200px;
 }
-
-
 .main-nav li:hover > .submenu,
 .main-nav li:hover > .megamenu {
     display: block !important;
 }
-
-/* 3. Force the top-level menu to stay horizontal */
 .main-nav {
     display: flex !important;
     align-items: center;
@@ -26,13 +22,10 @@
     margin: 0;
     padding: 0;
 }
-
 .main-nav > li {
     position: relative; 
     margin-right: 25px;
 }
-
-
 .megamenu {
     width: 800px; 
     left: 50%;
@@ -46,16 +39,12 @@
     background-color: #392C7D !important;
     background: #392C7D !important;
 }
-
-
 .main-nav {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     min-width: 600px; 
 }
-
-
 .main-nav > li > a {
     color: #ffffff !important;
     display: block !important;
@@ -70,8 +59,6 @@
     text-align: left !important;
     max-width: 600px !important; 
 }
-
-
 .banner-content p {
     text-align: left !important;
     margin-left: 0 !important;
@@ -80,8 +67,6 @@
     color: rgba(255, 255, 255, 0.9) !important;
     padding-bottom: 20px !important;
 }
-
-/
 .banner-content h1 {
     text-align: left !important;
     font-size: 56px !important;
@@ -89,13 +74,11 @@
     color: #ffffff !important;
 }
 
- 
-.banner-content h1 span.text-highlight {
+ .banner-content h1 span.text-highlight {
     color: #ff5b5c !important; 
     border-bottom: 3px solid #ff5b5c;
     display: inline-block;
 }
-/* Aligns the search bar container to the left */
 .banner-search,
 .search-bar-container {
     margin-left: 0 !important;
@@ -114,15 +97,12 @@
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
-
 .home-three-banner .col-lg-5,
 .home-three-banner .col-xl-4 {
     position: relative !important;
     display: block !important;
     min-height: 500px !important;
 }
-
-
 .home-three-banner .banner-image,
 .home-three-banner .swiper-slider-banner {
     position: absolute !important;
@@ -133,8 +113,6 @@
     height: 450px !important;
     right: auto !important;
 }
-
-
 .home-three-banner .swiper-slide {
     position: absolute !important;
     top: 0 !important;
@@ -145,20 +123,16 @@
     opacity: 1 !important;
     visibility: visible !important;
 }
-
-
 .home-three-banner .swiper-slide:nth-child(1) {
     z-index: 30 !important;
     transform: translate(0, 0) !important;
 }
-
 .home-three-banner .swiper-slide:nth-child(2) {
     z-index: 20 !important;
     /* Move it slightly right and down to show the edge */
     transform: translate(25px, 20px) rotate(3deg) !important;
     opacity: 0.85 !important;
 }
-
 .home-three-banner .swiper-slide:nth-child(3) {
     z-index: 10 !important;
     /* Move it further right and down */
@@ -173,8 +147,6 @@
     margin-bottom: 20px !important;
     line-height: 1.3 !important;
 }
-
-
 .benefit-section .section-header .benefit-subtext {
     font-size: 15px !important;
     color: #6C757D !important;
@@ -182,8 +154,6 @@
     max-width: 600px !important; 
     margin: 0 auto !important; 
 }
-
-
 .benefit-section .section-header span.fw-medium {
     color: #FF5555 !important;
     font-size: 14px !important;
@@ -199,8 +169,6 @@
     margin-bottom: 40px !important;
     text-decoration: none !important; 
 }
-
-
 .client-section .container h6 span.text-secondary {
     color: #FF5555 !important;
     font-weight:800 !important;
@@ -218,10 +186,6 @@
     background-color: #FF5555 !important;
 }
 
-
-
-
-
 .slick-slide, .slick-slide:focus, .slick-slide div {
     outline: none !important;
     border: none !important;
@@ -230,11 +194,6 @@
     padding: 60px 0 !important;
     text-align: center !important;
 }
-
-
-
-
-
 .client-section h6 span.text-secondary::after {
     content: "" !important;
     position: absolute !important;
@@ -244,19 +203,14 @@
     height: 2px !important;
     background-color: #FF5555 !important;
 }
-
-
 .institutions-slider.slick-initialized {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
 }
-
 .institutions-items {
     padding: 0 30px !important;
 }
-
-
 .institutions-items img.img-fluid {
     max-height: 40px !important;
     width: auto !important;
@@ -264,7 +218,6 @@
     opacity: 0.6 !important;
     transition: all 0.3s ease !important;
 }
-
 .institutions-items img.img-fluid:hover {
     filter: grayscale(0%) !important;
     opacity: 1 !important;
