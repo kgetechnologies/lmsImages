@@ -309,52 +309,30 @@
     margin: 0 auto !important;
     color: #686F7C !important;
 }
-.feature-course-slider-2 {
+.featured-courses-section .feature-course-slider-2 {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 24px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; /* Allows items to wrap if screen is small */
     justify-content: center !important;
-    padding: 30px 0 !important;
-}
-.course-item {
-    background: #ffffff !important;
-    border: 1px solid #f0f0f0 !important;
-    border-radius: 12px !important;
-    width: 380px !important; /* Forces side-by-side layout */
-    padding: 0 !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-    transition: transform 0.3s ease !important;
-}
-.course-item:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-}
-.course-img {
-    height: 220px !important;
+    gap: 30px !important; /* Space between the course cards */
     width: 100% !important;
-    background: #f8f9fa !important;
+}
+.featured-courses-section .course-item {
+    flex: 0 0 calc(33.33% - 40px) !important;
+    min-width: 320px !important; /* Prevents cards from getting too skinny */
+    background: #ffffff !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05) !important;
 }
 .course-img img {
     width: 100% !important;
-    height: 100% !important;
+    height: 200px !important;
     object-fit: cover !important;
+    border-radius: 15px 15px 0 0 !important;
 }
-.course-item .pb-3.border-bottom {
-    padding: 20px !important;
-    border-bottom: 1px solid #f0f0f0 !important;
-}
-.course-item .btn-course {
-    display: block !important;
-    background: #FF5555 !important;
-    color: #fff !important;
-    text-align: center !important;
-    padding: 12px !important;
-    margin: 20px !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-}
+
+ 
+
 
  
 
