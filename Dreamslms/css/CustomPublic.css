@@ -97,6 +97,22 @@
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
+.border-section, 
+.home-banner,
+.banner-content{
+    border:none !important;
+    outline:none !important;
+}
+.banner-section::after,
+.banner-section::before,
+.banner-content::after{
+    display:none !important;
+    content:none !important;
+}
+.banner-section hr{
+    display:none !important;
+}
+    
 .home-three-banner .col-lg-5,
 .home-three-banner .col-xl-4 {
     position: relative !important;
