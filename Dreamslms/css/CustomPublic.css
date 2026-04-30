@@ -288,38 +288,18 @@
 .categories-item h6.title a:hover {
     color: #FF5555 !important;
 }
-.featured-courses-section .section-header {
-    margin-bottom: 50px !important;
-    text-align: center !important;
-}
-.featured-courses-section .section-header h2 {
-    font-size: 36px !important;
-    font-weight: 700 !important;
-    color: #1A1A1A !important;
-}
-.featured-courses-section .section-header .text-secondary {
-    color: #FF5555 !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    display: inline-block !important;
-    margin-bottom: 10px !important;
-}
-.featured-courses-section .section-header p {
-    max-width: 600px !important;
-    margin: 0 auto !important;
-    color: #686F7C !important;
-}
 .featured-courses-section .feature-course-slider-2 {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important; /* Allows items to wrap if screen is small */
+    flex-wrap: wrap !important; 
     justify-content: center !important;
-    gap: 30px !important; /* Space between the course cards */
+    gap: 30px !important; 
     width: 100% !important;
 }
 .featured-courses-section .course-item {
+    
     flex: 0 0 calc(33.33% - 40px) !important;
-    min-width: 320px !important; /* Prevents cards from getting too skinny */
+    min-width: 320px !important; 
     background: #ffffff !important;
     border-radius: 15px !important;
     box-shadow: 0 5px 25px rgba(0,0,0,0.05) !important;
@@ -330,6 +310,59 @@
     object-fit: cover !important;
     border-radius: 15px 15px 0 0 !important;
 }
+.featured-courses-section .feature-course-slider-2 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; 
+    justify-content: center !important;
+    gap: 30px !important; 
+    width: 100% !important;
+}
+.featured-courses-section .course-item {
+    flex: 0 0 calc(33.33% - 40px) !important;
+    min-width: 320px !important; 
+    background: #ffffff !important;
+    border-radius: 15px !important;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05) !important;
+}
+.course-img img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 15px 15px 0 0 !important;
+}
+.featured-courses-section .section-header {
+    text-align: center !important;
+    max-width: 800px !important; 
+    margin: 0 auto 50px auto !important;  
+}
+
+
+.featured-courses-section .section-header span {
+    display: inline-block !important;
+    color: #FF5555 !important; 
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    margin-bottom: 10px !important;
+    text-decoration: none !important; 
+.featured-courses-section .section-header h2 {
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #1A1A1A !important;
+    margin-bottom: 15px !important;
+    line-height: 1.2 !important;
+}
+.featured-courses-section .section-header p {
+    font-size: 16px !important;
+    color: #686F7C !important; /* Professional grey for secondary info */
+    line-height: 1.6 !important;
+}
+
+ 
+
+
+ 
+
 
  
 
