@@ -59,10 +59,13 @@
    font-weight: 900 !important;
     margin-left: 5px !important;
 }
-.header-navbar-rht li a i {
-    color: #ffffff !important;
+.main-nav ul li ul{
+    background-color:#ffffff !important;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1) !important;
 }
-
+.main-nav ul li ul li a{
+color:#333333 !important;
+}
 .banner-content {
     text-align: left !important;
     max-width: 600px !important; 
