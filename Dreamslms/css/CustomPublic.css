@@ -363,6 +363,42 @@
     filter: brightness(0) invert(1); 
     opacity: 0.8 !important;
 }
+.featured-instructor-sec .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 40px 0 !important;
+}
+
+.featured-instructor-sec .section-header h2 {
+    color: #ffffff !important; 
+    margin: 15px 0 !important;
+    width: 100% !important;
+}
+.featured-instructor-slider.lazy {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important; 
+}
+.instructor-item {
+    flex: 0 0 calc(33.33% - 20px) !important;
+    min-width: 300px !important;
+    background: #ffffff !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+}
+.instructor-img img {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+}
+
+ 
+
 
  
 
