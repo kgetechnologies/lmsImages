@@ -40,6 +40,12 @@
     background-color: #392C7D !important;
     background: #392C7D !important;
 }
+.header, .header-three{
+    position:fixed !important;
+    top:0;
+    left:0;
+    width:100%;
+}
 .main-nav > li > a {
     color: #ffffff !important;
     display: inline-block !important;
