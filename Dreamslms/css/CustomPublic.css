@@ -40,22 +40,33 @@
     background-color: #392C7D !important;
     background: #392C7D !important;
 }
-.main-nav {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    min-width: 600px; 
-}
 .main-nav > li > a {
     color: #ffffff !important;
-    display: block !important;
+    display: inline-block !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    padding: 10px 15px !important;
+    position: relative !important;
+    z-index: 1001 !important; 
 }
-.main-nav > li:first-child > a,
-.main-nav > li >a[href*="home"]{
-    color:#ffffff !important;
-    visibility:visible !important;
-    display:inline-block !important;
+.main-menu-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
 }
+.main-nav li.has-submenu > a:after {
+    color: #ffffff !important;
+    content: "\f107" !important; /* FontAwesome down arrow */
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    margin-left: 5px !important;
+}
+.header-navbar-rht li a i {
+    color: #ffffff !important;
+}
+
+ 
+
 
 .banner-content {
     text-align: left !important;
