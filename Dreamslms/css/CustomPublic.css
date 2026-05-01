@@ -56,9 +56,7 @@
 }
 .main-nav li.has-submenu > a:after {
     color: #ffffff !important;
-    content: "\f107" !important; /* FontAwesome down arrow */
-    font-family: "Font Awesome 5 Free" !important;
-    font-weight: 900 !important;
+   font-weight: 900 !important;
     margin-left: 5px !important;
 }
 .header-navbar-rht li a i {
