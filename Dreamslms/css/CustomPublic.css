@@ -34,7 +34,7 @@
     justify-content: space-around;
 }
 .header,
-.header-fixed,
+.header-btn,
 .main-menu-wrapper {
     background-color: #392C7D !important;
     background: #392C7D !important;
@@ -55,6 +55,7 @@
     visibility:visible !important;
     display:inline-block !important;
 }
+
 .banner-content {
     text-align: left !important;
     max-width: 600px !important; 
