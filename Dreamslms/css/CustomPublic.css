@@ -1,15 +1,15 @@
 .main-nav .submenu,
 .main-nav .megamenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: ;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    z-index: 9999;
-    min-width: 200px;
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    z-index: 9999 !important;
+    min-width: 200px !important;
 }
 .main-nav li:hover > .submenu,
 .main-nav li:hover > .megamenu {
@@ -288,22 +288,7 @@
 .categories-item h6.title a:hover {
     color: #FF5555 !important;
 }
-.featured-courses-section .feature-course-slider-2 {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important; 
-    justify-content: center !important;
-    gap: 30px !important; 
-    width: 100% !important;
-}
-.featured-courses-section .course-item {
-    
-    flex: 0 0 calc(33.33% - 40px) !important;
-    min-width: 320px !important; 
-    background: #ffffff !important;
-    border-radius: 15px !important;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.05) !important;
-}
+
 .course-img img {
     width: 100% !important;
     height: 200px !important;
@@ -346,6 +331,7 @@
     text-transform: uppercase !important;
     margin-bottom: 10px !important;
     text-decoration: none !important; 
+}
 .featured-courses-section .section-header h2 {
     font-size: 36px !important;
     font-weight: 700 !important;
@@ -355,12 +341,33 @@
 }
 .featured-courses-section .section-header p {
     font-size: 16px !important;
-    color: #686F7C !important; /* Professional grey for secondary info */
+    color: #686F7C !important; 
     line-height: 1.6 !important;
     text-align:center;
 }
+    .cliets-section-one .brand-slide {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; 
+    justify-content: space-around !important; 
+    align-items: center !important;
+    width: 100% !important;
+    overflow-x: auto !important; 
+.cliets-section-one .brand-slide > div {
+    flex: 0 0 auto !important;
+    padding: 0 20px !important;
+}
+.cliets-section-one .brand-slide img {
+    height: 35px !important; 
+    width: auto !important;
+    filter: brightness(0) invert(1); 
+    opacity: 0.8 !important;
+}
 
  
+
+    
+
 
 
  
