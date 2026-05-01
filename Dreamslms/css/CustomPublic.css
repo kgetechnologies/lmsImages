@@ -122,6 +122,12 @@
 .banner-section hr{
     display:none !important;
 }
+.home-three-banner{
+    background-color:#392C7D !important;
+    min-height:850px !important;
+    position:relative !important;
+    overflow:visible !important;
+}   
     
 .home-three-banner .col-lg-5,
 .home-three-banner .col-xl-4 {
@@ -132,12 +138,11 @@
 .home-three-banner .banner-image,
 .home-three-banner .swiper-slider-banner {
     position: absolute !important;
-    top: 50% !important;
+    top: 40% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: 320px !important; /* Fixed width of the card stack */
-    height: 450px !important;
-    right: auto !important;
+    width: 100% !important; 
+    z-index:99 !important;
 }
 .home-three-banner .swiper-slide {
     position: absolute !important;
@@ -151,17 +156,15 @@
 }
 .home-three-banner .swiper-slide:nth-child(1) {
     z-index: 30 !important;
-    transform: translate(0, 0) !important;
+    transform: translate(0, 0) rotate(0deg)!important;
 }
 .home-three-banner .swiper-slide:nth-child(2) {
     z-index: 20 !important;
-    /* Move it slightly right and down to show the edge */
     transform: translate(25px, 20px) rotate(3deg) !important;
     opacity: 0.85 !important;
 }
 .home-three-banner .swiper-slide:nth-child(3) {
     z-index: 10 !important;
-    /* Move it further right and down */
     transform: translate(50px, 40px) rotate(6deg) !important;
     opacity: 0.6 !important;
 }
