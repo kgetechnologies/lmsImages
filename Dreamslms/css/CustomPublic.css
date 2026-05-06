@@ -37,7 +37,7 @@
 .header-btn,
 .header-fixed,
 .main-menu-wrapper {
-    background-color: transparent !important;
+    background-color: #392C7D !important;
     display:flex !important;
     justify-content:center !important;
     width:100% !important;
