@@ -1,5 +1,78 @@
+.header-one {
+    background: linear-gradient(90deg,#0f2b8c,#1d4ed8) !important;
+    padding: 18px 40px !important;
+    position: relative !important;
+    z-index: 999 !important;
+}
+.main-menu-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.navbar-logo img,
+.menu-logo img {
+    height: 55px !important;
+    width: auto !important;
+}
+.main-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 30px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+.main-nav li {
+    position: relative !important;
+}
+.main-nav li a {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: 0.3s ease !important;
+}
+.main-nav li a:hover {
+    color: #ff5a57 !important;
+}
+.header-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin-left: auto !important;
+}
+.header-btn i,
+.header-btn svg {
+    color: #ffffff !important;
+    font-size: 18px !important;
+}
+.header-btn a {
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+}
+.header-btn .login-btn,
+.header-btn .signin-btn {
+    background: #1e3a8a !important;
+    color: #fff !important;
+}
+.header-btn .register-btn {
+    background: #ff5a57 !important;
+    color: #fff !important;
+}
+.menu-header,
+.menu-login,
+.sidebar-overlay {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+} 
 
- 
 
 
  
