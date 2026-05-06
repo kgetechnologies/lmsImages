@@ -21,7 +21,13 @@
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
+    flex:1 !important;
+    justify-content:center !important;
 }
+.header-right-btns{
+    display:flex !important;
+    align-items:center !important;
+    white-space: nowrap !important;
 .main-nav > li {
     position: relative !important; 
     margin-right: 25px !important;
@@ -33,6 +39,14 @@
     display: flex !important;
     justify-content: space-around !important;
 }
+.header-one .container,
+.header-one .nav-container{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    width:100% !important;
+}
+    
 .header,
 .header-btn,
 .header-fixed,
@@ -41,6 +55,10 @@
     display:flex !important;
     justify-content:center !important;
     width:100% !important;
+    position:absolute !important;
+    height: 80px !important;
+    top: 0 !important;
+    
     
 }
 .header, .header-three{
