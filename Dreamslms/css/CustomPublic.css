@@ -1,16 +1,3 @@
-/* =============================================================
-   HEADER / NAVBAR — FINAL CORRECT FIX
-   
-   ROOT CAUSE ANALYSIS:
-   1. Live HTML is missing: .container > .header-nav > .navbar-header
-      So we turn header.header-one itself into the flex row.
-   2. Live <body> has NO class — body.home-three selectors targeted nothing.
-   3. Original theme uses position:fixed + transparent background
-      so the header overlays the purple hero (NOT a white box above it).
-   4. Nav links must be WHITE since they sit over the dark purple banner.
-   ============================================================= */
-
-/* ---- A. HEADER: fixed, transparent, overlays the purple hero ---- */
 header.header-one {
     position: fixed !important;
     top: 0 !important;
@@ -19,34 +6,35 @@ header.header-one {
     z-index: 1050 !important;
     background: transparent !important;
 
-    /* Compensate for missing .container > .header-nav wrapper in live HTML */
     display: flex !important;
+    flex-direction: row !important;   
+    flex-wrap: nowrap !important;     
     align-items: center !important;
     justify-content: space-between !important;
     padding: 0 30px !important;
     height: 80px !important;
+    max-height: 80px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* When user scrolls, script.js adds .fixed — match the original theme */
 header.header-one.fixed {
     background: #392C7D !important;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* ---- B. HERO BANNER: push to the very top (header overlays it) ---- */
 .main-wrapper {
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
-/* ---- C. LOGO: left-aligned, white version visible on dark header ---- */
 header.header-one .navbar-logo {
     flex-shrink: 0 !important;
     display: flex !important;
     align-items: center !important;
 }
-/* Show white logo on transparent/dark header */
+
 header.header-one .navbar-logo .logo-white,
 header.header-one .navbar-logo a.logo-white {
     display: block !important;
@@ -60,16 +48,25 @@ header.header-one .navbar-logo img {
     width: auto !important;
 }
 
-/* ---- D. NAV MENU: centered inside header ---- */
 header.header-one .main-menu-wrapper {
     flex: 1 !important;
+    flex-shrink: 1 !important;
     display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
-    position: static !important;
+    position: static !important;        
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
     background: transparent !important;
+    overflow: visible !important;
+    z-index: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: none !important;         
 }
 
-/* ---- E. AUTH BUTTONS: right-aligned ---- */
 header.header-one .header-btn {
     flex-shrink: 0 !important;
     display: flex !important;
@@ -78,7 +75,6 @@ header.header-one .header-btn {
     white-space: nowrap !important;
 }
 
-/* ---- F. NAV LINK COLORS: white on transparent/dark header ---- */
 header.header-one .main-nav > li > a {
     color: #ffffff !important;
     font-size: 15px !important;
@@ -94,7 +90,6 @@ header.header-one .main-nav li.has-submenu > a::after {
     color: #ffffff !important;
 }
 
-/* ---- G. DROPDOWN MENUS: hidden by default, show ONLY on hover ---- */
 @media (min-width: 992px) {
     header.header-one .main-nav {
         display: flex !important;
@@ -110,7 +105,7 @@ header.header-one .main-nav li.has-submenu > a::after {
         margin: 0 !important;
     }
 
-    /* Hide all dropdowns by default */
+
     header.header-one .main-nav .submenu,
     header.header-one .main-nav .mega-submenu {
         display: none !important;
@@ -126,13 +121,11 @@ header.header-one .main-nav li.has-submenu > a::after {
         list-style: none !important;
     }
 
-    /* Show ONLY on hover — matches original theme */
     header.header-one .main-nav > li:hover > .submenu,
     header.header-one .main-nav > li:hover > .mega-submenu {
         display: block !important;
     }
 
-    /* Dropdown link colors (dark text on white dropdown) */
     header.header-one .main-nav .submenu li a,
     header.header-one .main-nav .mega-submenu li a {
         color: #333333 !important;
@@ -156,6 +149,11 @@ header.header-one .main-nav li.has-submenu > a::after {
     header.header-one .main-nav .submenu li.has-submenu:hover > .submenu {
         display: block !important;
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .banner-content {
