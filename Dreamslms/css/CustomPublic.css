@@ -54,17 +54,28 @@ header.header-one .main-menu-wrapper {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    position: static !important;        
+    position: static !important;
     top: auto !important;
     left: auto !important;
     width: auto !important;
     height: auto !important;
     background: transparent !important;
     overflow: visible !important;
-    z-index: auto !important;
+    z-index: 10 !important;             
     padding: 0 !important;
     margin: 0 !important;
-    transform: none !important;         
+    transform: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+@media (min-width: 992px) {
+    header.header-one .menu-header {
+        display: none !important;
+    }
+    header.header-one .menu-close {
+        display: none !important;
+    }
 }
 
 header.header-one .header-btn {
@@ -105,10 +116,14 @@ header.header-one .main-nav li.has-submenu > a::after {
         margin: 0 !important;
     }
 
-
+    /* Hide dropdowns: use visibility+opacity so CSS transitions work
+       (display:none can't be transitioned; also matches style.css approach) */
     header.header-one .main-nav .submenu,
     header.header-one .main-nav .mega-submenu {
-        display: none !important;
+        display: block !important;          /* Stay in DOM for transitions */
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;    /* Not clickable while hidden */
         position: absolute !important;
         top: 100% !important;
         left: 0 !important;
@@ -119,11 +134,17 @@ header.header-one .main-nav li.has-submenu > a::after {
         padding: 10px 0 !important;
         z-index: 1060 !important;
         list-style: none !important;
+        transform: translateY(8px) !important;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s !important;
     }
 
+    /* Reveal on hover */
     header.header-one .main-nav > li:hover > .submenu,
     header.header-one .main-nav > li:hover > .mega-submenu {
-        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
     }
 
     header.header-one .main-nav .submenu li a,
@@ -142,13 +163,26 @@ header.header-one .main-nav li.has-submenu > a::after {
 
     /* Nested submenus */
     header.header-one .main-nav .submenu li.has-submenu > .submenu {
-        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
         top: 0 !important;
         left: 100% !important;
     }
     header.header-one .main-nav .submenu li.has-submenu:hover > .submenu {
-        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
     }
+}
+
+.sidebar-overlay {
+    display: none !important;
+    pointer-events: none !important;
+}
+.sidebar-overlay.show {
+    display: block !important;
+    pointer-events: auto !important;
 }
 
 @keyframes fadeIn {
