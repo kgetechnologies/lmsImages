@@ -1,36 +1,29 @@
-.main-nav .submenu,
-.main-nav .megamenu {
-    display: none !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
+/* Scoped main-nav overrides to desktop to preserve mobile sidebar behavior */
+@media (min-width: 992px) {
+    .main-nav .submenu,
+    .main-nav .megamenu {
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        min-width: 200px;
+    }
+}
+.header-right-btns {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+    .main-nav {
+        flex: 1;
+        justify-content: center;
+    }
     
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1) !important;
-    border-radius: 8px !important;
-    padding: 20px !important;
-    z-index: 9999 !important;
-    min-width: 200px !important;
-}
-.main-nav li:hover > .submenu,
-.main-nav li:hover > .megamenu {
-    display: block !important;
-}
-.main-nav {
-    display: flex !important;
-    align-items: center !important;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex:1 !important;
-    justify-content:center !important;
-}
-.header-right-btns{
-    display:flex !important;
-    align-items:center !important;
-    white-space: nowrap !important;
-.main-nav > li {
-    position: relative !important; 
-    margin-right: 25px !important;
+    .main-nav > li {
+        position: relative; 
+        margin-right: 25px;
+    }
 }
 .megamenu {
     width: 800px !important; 
@@ -39,42 +32,27 @@
     display: flex !important;
     justify-content: space-around !important;
 }
-    .header-one{
-        position:absolute !important;
-        top:0 !important;
-        width:100% !important;
-        z-index:1000 !important;
-    }
+/* Adjusted header styling to avoid breaking original theme flex and sticky layout */
+.header-one {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .header-one .container,
-.header-one .nav-container{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    width:100% !important;
+.header-one .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
-    
-.header,
-.header-btn,
-.header-fixed,
-.main-menu-wrapper {
+
+.header, .header-three {
     background-color: #392C7D !important;
-    display:flex !important;
-    justify-content:center !important;
-    width:100% !important;
-    position:absolute !important;
-    height: 80px !important;
-    top: 0 !important;
-    
-    
 }
-.header, .header-three{
-    position:absolute !important;
-    top:0 !important;
-    left:0 !important;
-    width:100% !important;
-    background:transparent !important;
-    z-index:1001 !important;
-}
+
+/* Removed global absolute and flex resets that break .main-menu-wrapper and .header-btn */
 .main-nav > li > a {
     color: #ffffff !important;
     display: inline-block !important;
@@ -147,11 +125,11 @@ color:#333333 !important;
     display: flex !important;
     justify-content: flex-start !important;
 }
-.swiper-wrapper {
+.home-three-banner .swiper-wrapper {
     display: block !important; 
     position: relative !important;
 }
-.course-item-two {
+.home-three-banner .course-item-two {
     position: absolute !important;
     transition: all 0.3s ease !important;
     border-radius: 20px !important;
@@ -304,13 +282,13 @@ color:#333333 !important;
     opacity: 1 !important;
 }
 .section-header.text-center {
-    margin-bottom: 50px !important;
+    margin-bottom: 50px;
 }
 
 .section-header h2 {
-    font-size: 32px !important;
-    font-weight: 700 !important;
-    color: #1A1A1A !important;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A1A1A;
 }
 .top-courses-slider {
     display: flex !important;
@@ -462,19 +440,3 @@ color:#333333 !important;
     height: 300px !important;
     object-fit: cover !important;
 }
-
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
