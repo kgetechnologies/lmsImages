@@ -1,4 +1,3 @@
-/* --- HEADER ALIGNMENT --- */
 .header-one, .header, .header-three {
     position: absolute !important;
     top: 0 !important;
@@ -6,6 +5,12 @@
     width: 100% !important;
     background: transparent !important;
     z-index: 1001 !important;
+    
+    /* Fallback flex properties to replace missing container */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 30px !important;
 }
 
 .header-one .container,
@@ -51,9 +56,6 @@
     white-space: nowrap !important;
 }
 
-/* Removed global absolute and flex resets that broke mobile */
-
-/* Removed global absolute and flex resets that break .main-menu-wrapper and .header-btn */
 .main-nav > li > a {
     color: #ffffff !important;
     display: inline-block !important;
