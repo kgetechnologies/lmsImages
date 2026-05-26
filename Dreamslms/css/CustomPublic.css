@@ -11,7 +11,8 @@ header.header-one {
     width: 100%;
     z-index: 99999;
     background: #392C7D !important; /* Use theme purple */
-    transition: all 0.3s ease;
+    transition: background 0.25s ease, height 0.25s ease, padding 0.25s ease, transform 0.25s ease;
+    will-change: height, padding, transform;
     height: 85px !important;
     padding: 0 40px !important;
     border: none !important; /* Removes the red debug line */
@@ -20,7 +21,10 @@ header.header-one {
 /* 2. SCROLLING BACKGROUND */
 header.header-one.fixed {
     background: #392C7D !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    /* Slightly reduce header height when fixed for a smooth compact effect */
+    height: 68px !important;
+    padding: 0 36px !important;
 }
 
 /* 3. LOGO ALIGNMENT */
@@ -31,8 +35,9 @@ header.header-one .navbar-logo {
     z-index: 9999;
 }
 header.header-one .navbar-logo img {
-    max-height: 45px;
-    width: auto;
+    max-height: 40px !important;
+    max-width: 160px !important;
+    width: auto !important;
 }
 
 /* Force white logo on the purple header and hide dark logo variant */
