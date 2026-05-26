@@ -14,6 +14,7 @@
     z-index: 99999;
     background: #392C7D !important;
     transition: all 0.3s ease;
+    overflow: visible !important;
 }
 
 /* NAVBAR CONTAINER */
@@ -28,13 +29,15 @@
     background: transparent !important;
 }
 
-/* REMOVE BROKEN DREAMLMS POSITIONING */
+/* RESET OLD DREAMLMS LAYOUT */
 
 .main-menu-wrapper,
 .header-navbar-rht,
 .navbar-header,
-.main-nav {
+.main-nav,
+.main-nav > li {
     position: relative !important;
+    float: none !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
@@ -53,6 +56,7 @@
 .navbar-logo img {
     max-height: 45px !important;
     width: auto !important;
+    display: block !important;
 }
 
 /* CENTER MENU */
@@ -64,13 +68,14 @@
     flex: 1 !important;
     width: auto !important;
     height: 100% !important;
-    overflow: visible !important;
     background: transparent !important;
+    overflow: visible !important;
 }
 
 /* MAIN NAVIGATION */
 
-.main-nav {
+.main-nav,
+.main-nav > ul {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -82,30 +87,38 @@
     overflow: visible !important;
 }
 
-.main-nav > li {
-    position: relative !important;
-    height: 100% !important;
+/* NAV ITEMS */
+
+.main-nav > li,
+.main-nav > ul > li {
     display: flex !important;
     align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* MAIN LINKS */
 
-.main-nav > li > a {
+.main-nav > li > a,
+.main-nav > ul > li > a {
     display: flex !important;
     align-items: center !important;
     height: 100% !important;
     color: #fff !important;
     font-size: 15px !important;
     font-weight: 600 !important;
-    padding: 0 !important;
     white-space: nowrap !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     transition: all 0.3s ease !important;
     z-index: 9999 !important;
 }
 
 .main-nav > li > a:hover,
-.main-nav > li.active > a {
+.main-nav > li.active > a,
+.main-nav > ul > li > a:hover {
     color: #FF4667 !important;
 }
 
@@ -167,6 +180,9 @@
     gap: 14px !important;
     flex-shrink: 0 !important;
     height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
     z-index: 9999 !important;
 }
 
@@ -188,6 +204,16 @@
     padding: 12px 24px !important;
 }
 
+/* REMOVE OLD PSEUDO ELEMENTS */
+
+.main-menu-wrapper::before,
+.main-menu-wrapper::after,
+.header-nav::before,
+.header-nav::after {
+    display: none !important;
+    content: none !important;
+}
+
 /* LOGO */
 
 .logo-white {
@@ -198,7 +224,7 @@
     display: none !important;
 }
 
-/* PREVENT HIDDEN ELEMENTS */
+/* PREVENT CLIPPING */
 
 .header-nav,
 .main-menu-wrapper,
@@ -222,19 +248,28 @@ body {
         padding: 0 20px !important;
     }
 
-    .main-nav {
+    .main-menu-wrapper {
+        width: 100% !important;
+        justify-content: flex-start !important;
+    }
+
+    .main-nav,
+    .main-nav > ul {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 0 !important;
         width: 100% !important;
+        height: auto !important;
     }
 
-    .main-nav > li {
+    .main-nav > li,
+    .main-nav > ul > li {
         width: 100% !important;
         height: auto !important;
     }
 
-    .main-nav > li > a {
+    .main-nav > li > a,
+    .main-nav > ul > li > a {
         height: auto !important;
         padding: 12px 0 !important;
     }
