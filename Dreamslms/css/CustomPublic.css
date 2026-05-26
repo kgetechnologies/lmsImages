@@ -340,6 +340,17 @@ header.header-one .main-menu-wrapper .main-nav > li > a i {
         align-items: center !important;
         gap: 24px !important;
     }
+    /* Ensure menu links are visible on dark header */
+    body > .main-menu-wrapper .main-nav > li > a {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        padding: 8px 12px !important;
+    }
+    body > .main-menu-wrapper .main-nav > li > a:hover,
+    body > .main-menu-wrapper .main-nav > li.active > a {
+        color: #FF4667 !important;
+        background: transparent !important;
+    }
     body > .header-btn {
         position: fixed !important;
         top: 50% !important;
@@ -363,6 +374,29 @@ header.header-one .main-menu-wrapper .main-nav > li > a i {
 .banner-section .banner-content {
     padding-top: 0 !important;
 }
+
+/* Fix hover visibility for home slides / course items */
+.home-three-banner .swiper-slide,
+.swiper-slide {
+    overflow: visible !important;
+}
+
+.course-item.course-item-two .course-img {
+    overflow: visible !important;
+    z-index: 3 !important;
+}
+.course-item.course-item-two .course-img .position-absolute,
+.course-item.course-item-two .course-img .brand-icon,
+.course-item.course-item-two .course-img .course-user {
+    z-index: 6 !important;
+}
+
+/* Ensure hover transforms and overlays are visible */
+.course-item.course-item-two .course-img img {
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+
 
 .banner-content {
     text-align: left !important;
