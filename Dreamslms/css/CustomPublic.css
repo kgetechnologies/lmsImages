@@ -797,3 +797,36 @@ header.header-one .main-menu-wrapper .main-nav > li > a i {
     height: 300px !important;
     object-fit: cover !important;
 }
+/* New: white carousel panel that sits below the header and overlaps the banner like the reference */
+.home-three-banner .top-courses-slider {
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 20px 22px !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18) !important;
+    width: calc(100% - 160px) !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    top: -60px !important; /* lifts the panel to overlap the banner */
+    z-index: 10005 !important;
+    overflow: visible !important;
+}
+.home-three-banner .top-courses-slider .top-courses-item {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Strengthen menu centering and spacing to match screenshot */
+@media(min-width: 992px) {
+    header.header-one .main-menu-wrapper,
+    body > .main-menu-wrapper {
+        max-width: 1200px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        padding: 0 24px !important;
+    }
+    body > .main-menu-wrapper {
+        top: 0 !important;
+        height: 85px !important;
+    }
+}
