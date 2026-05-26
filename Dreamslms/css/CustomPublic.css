@@ -10,7 +10,7 @@ header.header-one {
     left: 0;
     width: 100%;
     z-index: 99999;
-    background: transparent; /* Starts transparent for banner */
+    background: #392C7D !important; /* Use theme purple */
     transition: all 0.3s ease;
     height: 85px !important;
     padding: 0 40px !important;
@@ -33,6 +33,22 @@ header.header-one .navbar-logo {
 header.header-one .navbar-logo img {
     max-height: 45px;
     width: auto;
+}
+
+/* Force white logo on the purple header and hide dark logo variant */
+header.header-one .logo-white {
+    display: inline-block !important;
+}
+header.header-one .logo-dark {
+    display: none !important;
+}
+
+/* when header is light (if ever), allow dark logo to show */
+header.header-one.light-bg .logo-white {
+    display: none !important;
+}
+header.header-one.light-bg .logo-dark {
+    display: inline-block !important;
 }
 
 header.header-one .navbar-header {
