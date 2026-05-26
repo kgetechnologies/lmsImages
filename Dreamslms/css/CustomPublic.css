@@ -17,6 +17,17 @@
     overflow: visible !important;
 }
 
+/* CONTAINER */
+
+.header-one .container,
+.header .container,
+.header-three .container {
+    width: 100% !important;
+    max-width: 1400px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
 /* NAVBAR CONTAINER */
 
 .header-nav {
@@ -27,6 +38,7 @@
     padding: 0 40px !important;
     position: relative !important;
     background: transparent !important;
+    width: 100% !important;
 }
 
 /* RESET OLD DREAMLMS LAYOUT */
@@ -65,8 +77,10 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    flex: 1 !important;
+    flex: 0 1 auto !important;
     width: auto !important;
+    max-width: max-content !important;
+    margin: 0 auto !important;
     height: 100% !important;
     background: transparent !important;
     overflow: visible !important;
@@ -85,6 +99,8 @@
     padding: 0 !important;
     height: 100% !important;
     overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* NAV ITEMS */
@@ -105,15 +121,17 @@
     display: flex !important;
     align-items: center !important;
     height: 100% !important;
-    color: #fff !important;
+    color: #ffffff !important;
     font-size: 15px !important;
     font-weight: 600 !important;
+    line-height: 85px !important;
     white-space: nowrap !important;
     padding: 0 !important;
     visibility: visible !important;
     opacity: 1 !important;
     transition: all 0.3s ease !important;
     z-index: 9999 !important;
+    font-family: inherit !important;
 }
 
 .main-nav > li > a:hover,
@@ -132,7 +150,7 @@
     top: 100% !important;
     left: 0 !important;
     min-width: 240px !important;
-    background: #fff !important;
+    background: #ffffff !important;
     padding: 18px !important;
     border-radius: 12px !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
@@ -159,7 +177,7 @@
 /* DROPDOWN LINKS */
 
 .main-nav ul li a {
-    color: #222 !important;
+    color: #222222 !important;
     display: block !important;
     padding: 10px 15px !important;
     border-radius: 6px !important;
@@ -177,13 +195,19 @@
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
+    flex: 0 0 auto !important;
     gap: 14px !important;
-    flex-shrink: 0 !important;
+    margin-left: auto !important;
+    white-space: nowrap !important;
     height: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex-wrap: nowrap !important;
     z-index: 9999 !important;
+}
+
+/* FIX BUTTON WRAPPING */
+
+.header-navbar-rht a,
+.header-navbar-rht .btn {
+    white-space: nowrap !important;
 }
 
 /* BUTTONS */
@@ -191,7 +215,7 @@
 .login-btn,
 .btn-signin {
     background: #2D2468 !important;
-    color: #fff !important;
+    color: #ffffff !important;
     border-radius: 30px !important;
     padding: 12px 24px !important;
 }
@@ -199,7 +223,7 @@
 .register-btn,
 .btn-register {
     background: #FF4667 !important;
-    color: #fff !important;
+    color: #ffffff !important;
     border-radius: 30px !important;
     padding: 12px 24px !important;
 }
@@ -214,7 +238,7 @@
     content: none !important;
 }
 
-/* LOGO */
+/* LOGO SWITCH */
 
 .logo-white {
     display: block !important;
@@ -271,6 +295,7 @@ body {
     .main-nav > li > a,
     .main-nav > ul > li > a {
         height: auto !important;
+        line-height: normal !important;
         padding: 12px 0 !important;
     }
 
