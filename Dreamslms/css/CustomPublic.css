@@ -150,6 +150,57 @@ header.header-one .header-btn .btn {
     white-space: nowrap !important;
 }
 
+header.header-one .header-btn {
+    z-index: 10002 !important; /* keep above menu */
+}
+header.header-one .header-btn .icon-btn > a {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    background: rgba(255,255,255,0.04) !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+}
+header.header-one .header-btn .icon-btn > a:hover {
+    background: rgba(255,255,255,0.12) !important;
+}
+header.header-one .header-btn .btn {
+    border-radius: 55px !important;
+    padding: 7px 14px !important;
+    margin-right: 0 !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    background: transparent !important;
+    color: #ffffff !important;
+}
+header.header-one .header-btn .btn.btn-primary {
+    background: #FF4667 !important;
+    border-color: #FF4667 !important;
+    color: #ffffff !important;
+}
+
+/* Icon and caret colors in the menu */
+header.header-one .main-menu-wrapper .main-nav > li > a,
+header.header-one .main-menu-wrapper .main-nav > li > a i,
+header.header-one .main-menu-wrapper .menu-close i {
+    color: #ffffff !important;
+}
+
+/* Ensure menu-close (mobile) is visible on purple */
+header.header-one .main-menu-wrapper .menu-close i {
+    font-size: 18px !important;
+}
+
+/* Fix dropdown caret spacing and color */
+header.header-one .main-menu-wrapper .main-nav > li > a i.fas,
+header.header-one .main-menu-wrapper .main-nav > li > a i {
+    margin-left: 6px !important;
+    color: #ffffff !important;
+}
+
 /* 8. MOBILE RESPONSIVENESS */
 @media(max-width:991px) {
     header.header-one {
