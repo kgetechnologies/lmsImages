@@ -207,6 +207,33 @@ header.header-one .header-btn .btn {
     }
 }
 
+/* Desktop: center the main menu wrapper and ensure logo stays left */
+@media (min-width: 992px) {
+    header.header-one {
+        position: fixed;
+        padding: 0 40px !important;
+    }
+    header.header-one .main-menu-wrapper {
+        position: absolute !important;
+        left: 50% !important;
+        top: 0 !important;
+        transform: translateX(-50%) !important;
+        justify-content: center !important;
+        flex: 0 1 auto !important;
+        width: auto !important;
+        padding: 0 !important;
+        z-index: 9999 !important;
+    }
+    header.header-one .navbar-header {
+        z-index: 10001 !important; /* keep logo clickable above menu */
+    }
+    header.header-one .main-menu-wrapper .main-nav {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 28px !important;
+    }
+}
+
 .banner-content {
     text-align: left !important;
     max-width: 600px !important; 
