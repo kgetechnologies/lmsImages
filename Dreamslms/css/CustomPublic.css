@@ -283,6 +283,27 @@ header.header-one .main-menu-wrapper .main-nav > li > a i {
         align-items: center !important;
         gap: 28px !important;
     }
+
+    /* Place the logo on the right side and vertically center it */
+    header.header-one .navbar-header {
+        position: absolute !important;
+        right: 40px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        z-index: 10003 !important;
+    }
+
+    /* Move header action buttons slightly left so logo sits at the far right */
+    header.header-one .header-btn {
+        position: absolute !important;
+        right: 120px !important; /* adjust if you want more/less gap */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10002 !important;
+    }
 }
 
 .banner-content {
