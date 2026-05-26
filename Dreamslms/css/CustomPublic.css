@@ -2,6 +2,7 @@
    DREAM LMS HEADER FIX - EXACT HTML MATCH
 ========================================================= */
 
+
 /* 1. THE HEADER ITSELF */
 header.header-one {
     position: fixed;
@@ -11,9 +12,6 @@ header.header-one {
     z-index: 99999;
     background: transparent; /* Starts transparent for banner */
     transition: all 0.3s ease;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
     height: 85px !important;
     padding: 0 40px !important;
     border: none !important; /* Removes the red debug line */
@@ -37,12 +35,21 @@ header.header-one .navbar-logo img {
     width: auto;
 }
 
+header.header-one .header-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 85px !important;
+    width: 100% !important;
+}
+
 /* 4. CENTER MENU ALIGNMENT */
 header.header-one .main-menu-wrapper {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    flex: 1 !important; 
+    flex: 0 1 auto !important; 
+    margin: 0 auto !important;
     height: 100%;
     background: transparent;
 }
@@ -60,7 +67,7 @@ header.header-one .main-menu-wrapper {
 header.header-one .main-menu-wrapper .main-nav {
     display: inline-flex;
     align-items: center;
-    gap: 20px;
+    gap: 28px;
     margin: 0;
     padding: 8px;
     list-style: none;
@@ -74,7 +81,7 @@ header.header-one .main-menu-wrapper .main-nav > li > a {
     color: #ffffff; /* White text for transparent banner */
     font-size: 15px;
     font-weight: 600;
-    padding: 4px 16px;
+    padding: 8px 18px;
     border-radius: 50px;
     display: block;
     transition: all 0.3s ease;
