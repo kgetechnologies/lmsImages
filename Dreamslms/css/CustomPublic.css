@@ -1,88 +1,106 @@
-/* =========================================
-   HEADER FIX
-========================================= */
+/* =====================================================
+   DREAM LMS HEADER FIX
+===================================================== */
 
+/* HEADER BASE */
 header.header-one{
-    position:fixed;
+    position:fixed !important;
     top:0;
     left:0;
     width:100%;
-    height:80px;
+    height:85px;
     background:#392C7D;
     z-index:9999;
-    display:flex;
-    align-items:center;
-    padding:0 30px;
 }
 
 /* LOGO */
+header.header-one .navbar-logo{
+    position:fixed !important;
+    top:22px;
+    left:40px;
+    z-index:10003;
+}
+
 header.header-one .navbar-logo img{
     max-height:42px;
 }
 
-/* MOBILE BUTTON */
-#mobile_btn{
-    margin-left:auto;
-    color:#fff;
-}
-
 /* CENTER MENU */
 .main-menu-wrapper{
-    position:fixed;
+    position:fixed !important;
     top:0;
     left:50%;
     transform:translateX(-50%);
-    height:80px;
-    display:flex;
+    height:85px;
+    display:flex !important;
     align-items:center;
-    z-index:9999;
+    justify-content:center;
+    z-index:10001;
+    background:transparent !important;
 }
 
-/* MENU */
-.main-nav{
-    display:flex;
+/* MENU ITEMS */
+.main-menu-wrapper .main-nav{
+    display:flex !important;
     align-items:center;
-    gap:24px;
+    gap:30px;
     margin:0;
     padding:0;
     list-style:none;
 }
 
 /* MENU LINKS */
-.main-nav > li > a{
-    color:#fff;
+.main-menu-wrapper .main-nav > li > a{
+    color:#fff !important;
+    font-size:15px;
     font-weight:600;
-    padding:10px 12px;
-    display:block;
-    text-decoration:none;
+    padding:10px 0;
 }
 
 /* DROPDOWN */
-.submenu,
-.mega-submenu{
-    display:none;
-    position:absolute;
+.main-menu-wrapper .submenu,
+.main-menu-wrapper .mega-submenu{
+    position:absolute !important;
+    top:100%;
+    left:0;
     background:#fff;
-    min-width:220px;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    min-width:240px;
+    border-radius:12px;
+    display:none;
+    z-index:999999;
 }
 
-.main-nav li:hover > .submenu,
-.main-nav li:hover > .mega-submenu{
-    display:block;
+.main-menu-wrapper li:hover > .submenu,
+.main-menu-wrapper li:hover > .mega-submenu{
+    display:block !important;
 }
 
 /* RIGHT BUTTONS */
 .header-btn{
-    position:fixed;
-    top:20px;
-    right:30px;
-    display:flex;
+    position:fixed !important;
+    top:18px;
+    right:40px;
+    display:flex !important;
     align-items:center;
     gap:12px;
-    z-index:9999;
+    z-index:10002;
+}
+
+/* BUTTONS */
+.header-btn .btn{
+    border-radius:50px;
+    padding:10px 18px;
+}
+
+/* SIGN IN */
+.header-btn .btn-primary{
+    background:#FF4667 !important;
+    border:none !important;
+}
+
+/* BODY SPACING */
+body{
+    padding-top:85px;
 }
 
 /* MOBILE */
