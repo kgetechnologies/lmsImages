@@ -1,533 +1,121 @@
 /* =========================================================
-   DREAM LMS HEADER FIX - EXACT HTML MATCH
+   DREAM LMS HEADER FIX
 ========================================================= */
 
-
-/* 1. THE HEADER ITSELF */
+/* HEADER */
 header.header-one {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 99999;
-    background: #392C7D !important; /* Use theme purple */
-    transition: background 0.25s ease, height 0.25s ease, padding 0.25s ease, transform 0.25s ease;
-    will-change: height, padding, transform;
-    height: 85px !important;
-    padding: 0 40px !important;
-    border: none !important; /* Removes the red debug line */
+    z-index: 9999;
+    background: #392C7D;
+    padding: 0 40px;
 }
 
-/* 2. SCROLLING BACKGROUND */
-header.header-one.fixed {
-    background: #392C7D !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-    /* Slightly reduce header height when fixed for a smooth compact effect */
-    height: 68px !important;
-    padding: 0 36px !important;
-}
-
-/* Layout alignment for header content */
-header.header-one {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    min-height: 85px !important;
-}
-header.header-one .navbar-logo,
-header.header-one .header-btn,
-header.header-one .main-menu-wrapper {
-    z-index: 10001 !important;
-}
-
-/* 3. LOGO ALIGNMENT */
-header.header-one .navbar-logo {
+/* HEADER LAYOUT */
+header.header-one .header-nav {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
-    z-index: 9999;
-}
-header.header-one .navbar-logo img {
-    max-height: 40px !important;
-    max-width: 160px !important;
-    width: auto !important;
+    justify-content: space-between;
+    min-height: 80px;
 }
 
-/* Force white logo on the purple header and hide dark logo variant */
-header.header-one .logo-white {
-    display: inline-block !important;
-}
-header.header-one .logo-dark {
-    display: none !important;
-}
-
-/* when header is light (if ever), allow dark logo to show */
-header.header-one.light-bg .logo-white {
-    display: none !important;
-}
-header.header-one.light-bg .logo-dark {
-    display: inline-block !important;
-}
-
+/* LOGO */
 header.header-one .navbar-header {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 18px !important;
-    flex-shrink: 0 !important;
-}
-
-header.header-one .header-nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    height: 85px !important;
-    width: 100% !important;
-}
-
-/* 4. CENTER MENU ALIGNMENT */
-header.header-one .main-menu-wrapper {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex: 1 1 auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100%;
-    background: transparent !important;
-}
-/* Live page uses body-level main-menu-wrapper outside the header */
-.main-menu-wrapper {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex: 1 1 auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100%;
-}
-
-/* 4.5. CRITICAL: HIDE MOBILE ELEMENTS FROM DESKTOP HEADER */
-@media(min-width: 992px) {
-    header.header-one .main-menu-wrapper .menu-header,
-    header.header-one .main-menu-wrapper .menu-dropdown,
-    header.header-one .main-menu-wrapper .menu-login {
-        display: none !important;
-    }
-}
-
-/* 5. MAIN NAVIGATION (Inherits from your theme css) */
-header.header-one .main-menu-wrapper .main-nav {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 28px;
-    margin: 0;
-    padding: 8px;
+}
+
+header.header-one .navbar-logo img {
+    max-height: 42px;
+    width: auto;
+}
+
+/* MAIN MENU */
+header.header-one .main-menu-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+header.header-one .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.main-menu-wrapper .main-nav {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 28px !important;
-    margin: 0 !important;
-    padding: 8px !important;
-    list-style: none !important;
-}
-header.header-one .main-menu-wrapper .main-nav > li {
-    margin-right: 0 !important;
-    padding: 0 !important;
+
+/* MENU LINKS */
+header.header-one .main-nav > li {
     position: relative;
 }
-.main-menu-wrapper .main-nav > li {
-    margin-right: 0 !important;
-    padding: 0 !important;
-    position: relative !important;
-}
-header.header-one .main-menu-wrapper .main-nav > li > a {
-    color: #ffffff; /* White text for transparent banner */
+
+header.header-one .main-nav > li > a {
+    color: #ffffff;
     font-size: 15px;
     font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 50px;
+    text-decoration: none;
+    padding: 10px 14px;
     display: block;
-    transition: all 0.3s ease;
-}
-.main-menu-wrapper .main-nav > li > a {
-    color: #ffffff !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    padding: 8px 18px !important;
-    border-radius: 50px !important;
-    display: block !important;
-    transition: all 0.3s ease !important;
-}
-header.header-one.fixed .main-menu-wrapper .main-nav > li > a {
-    color: #ffffff;
-}
-header.header-one .main-menu-wrapper .main-nav > li > a:hover,
-header.header-one .main-menu-wrapper .main-nav > li.active > a {
-    color: #FF4667 !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-.main-menu-wrapper .main-nav > li > a:hover,
-.main-menu-wrapper .main-nav > li.active > a {
-    color: #FF4667 !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    transition: 0.3s;
 }
 
-/* 6. DROPDOWN MENUS (Hidden by default, show on hover) */
-header.header-one .main-nav .submenu,
-header.header-one .main-nav .mega-submenu {
-    display: none !important;
-    position: absolute !important;
-    top: 100% !important;
+header.header-one .main-nav > li > a:hover {
+    color: #FF4667;
+}
+
+/* DROPDOWN */
+header.header-one .submenu,
+header.header-one .mega-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
-    min-width: 240px;
+    min-width: 220px;
     background: #ffffff;
-    padding: 18px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    z-index: 99999;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 999;
 }
-.main-menu-wrapper .main-nav .submenu,
-.main-menu-wrapper .main-nav .mega-submenu {
-    display: none !important;
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    min-width: 240px !important;
-    background: #ffffff !important;
-    padding: 18px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
-    z-index: 99999 !important;
-}
-.main-menu-wrapper .main-nav li:hover > .submenu,
-.main-menu-wrapper .main-nav li:hover > .mega-submenu {
-    display: block !important;
-}
+
 header.header-one .main-nav li:hover > .submenu,
 header.header-one .main-nav li:hover > .mega-submenu {
-    display: block !important;
+    display: block;
 }
 
-/* 7. RIGHT BUTTONS (Sign In / Register / Cart) */
+/* RIGHT BUTTONS */
 header.header-one .header-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
     gap: 12px;
 }
-header.header-one .header-btn a,
+
 header.header-one .header-btn .btn {
-    white-space: nowrap !important;
+    border-radius: 30px;
+    padding: 8px 18px;
 }
 
-header.header-one .header-btn {
-    z-index: 10002 !important; /* keep above menu */
-}
-header.header-one .header-btn .icon-btn > a {
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border: 1px solid rgba(255,255,255,0.18) !important;
-    background: rgba(255,255,255,0.04) !important;
-    color: #ffffff !important;
-    font-size: 16px !important;
-}
-header.header-one .header-btn .icon-btn > a:hover {
-    background: rgba(255,255,255,0.12) !important;
-}
-header.header-one .header-btn .btn {
-    border-radius: 55px !important;
-    padding: 7px 14px !important;
-    margin-right: 0 !important;
-    border: 1px solid rgba(255,255,255,0.18) !important;
-    background: transparent !important;
-    color: #ffffff !important;
-}
-header.header-one .header-btn .btn.btn-primary {
-    background: #FF4667 !important;
-    border-color: #FF4667 !important;
-    color: #ffffff !important;
-}
+/* MOBILE */
+@media (max-width: 991px) {
 
-/* Icon and caret colors in the menu */
-header.header-one .main-menu-wrapper .main-nav > li > a,
-header.header-one .main-menu-wrapper .main-nav > li > a i,
-header.header-one .main-menu-wrapper .menu-close i {
-    color: #ffffff !important;
-}
-
-/* Ensure menu-close (mobile) is visible on purple */
-header.header-one .main-menu-wrapper .menu-close i {
-    font-size: 18px !important;
-}
-
-/* Keep mobile hamburger bars visible on purple */
-header.header-one #mobile_btn .bar-icon span {
-    background-color: #ffffff !important;
-}
-
-/* Fix dropdown caret spacing and color */
-header.header-one .main-menu-wrapper .main-nav > li > a i.fas,
-header.header-one .main-menu-wrapper .main-nav > li > a i {
-    margin-left: 6px !important;
-    color: #ffffff !important;
-}
-
-/* 8. MOBILE RESPONSIVENESS */
-@media(max-width:991px) {
     header.header-one {
-        padding: 0 20px !important;
+        padding: 0 20px;
     }
+
+    header.header-one .header-btn {
+        display: none;
+    }
+
+    header.header-one .main-menu-wrapper {
+        display: none;
+    }
+
     header.header-one #mobile_btn {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 44px !important;
-        height: 44px !important;
-        margin-left: auto !important;
-        border-radius: 12px !important;
-        background: rgba(255,255,255,0.06) !important;
-        border: 1px solid rgba(255,255,255,0.18) !important;
-        color: #ffffff !important;
-        z-index: 10005 !important;
-    }
-    header.header-one #mobile_btn .bar-icon span {
-        background-color: #ffffff !important;
-    }
-    header.header-one .main-menu-wrapper {
-        position: fixed !important;
-        top: 0 !important;
-        left: -320px !important;
-        width: 300px !important;
-        height: 100vh !important;
-        background: #ffffff !important;
-        z-index: 999999 !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-        transition: left 0.3s ease, transform 0.3s ease !important;
-        padding: 20px !important;
-        overflow-y: auto !important;
-    }
-    .main-menu-wrapper {
-        position: fixed !important;
-        top: 0 !important;
-        left: -320px !important;
-        width: 300px !important;
-        height: 100vh !important;
-        background: #ffffff !important;
-        z-index: 999999 !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-        transition: left 0.3s ease, transform 0.3s ease !important;
-        padding: 20px !important;
-        overflow-y: auto !important;
-    }
-    header.header-one .main-menu-wrapper.show,
-    body.sidebar-open header.header-one .main-menu-wrapper,
-    body.sidebar-open .main-menu-wrapper,
-    .sidebar-open .main-menu-wrapper,
-    .main-menu-wrapper.show {
-        left: 0 !important;
-        transform: translateX(0) !important;
-    }
-    .sidebar-overlay.show,
-    body.sidebar-open .sidebar-overlay {
-        display: block !important;
-        opacity: 1 !important;
-    }
-    body.sidebar-open,
-    html.menu-opened,
-    html.menu-opened body,
-    body.sidebar-open body {
-        overflow: hidden !important;
-    }
-    
-    /* Ensure mobile elements are visible strictly in the sidebar */
-    header.header-one .main-menu-wrapper .menu-header,
-    header.header-one .main-menu-wrapper .menu-dropdown,
-    header.header-one .main-menu-wrapper .menu-login,
-    .main-menu-wrapper .menu-header,
-    .main-menu-wrapper .menu-dropdown,
-    .main-menu-wrapper .menu-login {
-        display: block !important;
-        width: 100%;
-    }
-    header.header-one .main-menu-wrapper .menu-header .menu-logo img,
-    .main-menu-wrapper .menu-header .menu-logo img {
-        max-width: 140px !important;
-        width: auto !important;
-    }
-    header.header-one .main-menu-wrapper .menu-close i,
-    .main-menu-wrapper .menu-close i {
-        color: #392C7D !important;
-    }
-    
-    header.header-one .main-menu-wrapper .main-nav {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        width: 100% !important;
-    }
-    .main-menu-wrapper .main-nav {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        width: 100% !important;
-    }
-    header.header-one .main-menu-wrapper .main-nav > li > a {
-        color: #222222 !important; 
-        padding: 12px 0;
-        width: 100%;
-    }
-    .main-menu-wrapper .main-nav > li > a {
-        color: #222222 !important; 
-        padding: 12px 0 !important;
-        width: 100% !important;
-    }
-    header.header-one .header-btn {
-        display: none !important;
-    }
-    .header-btn {
-        display: none !important;
-    }
-    header.header-one .main-nav .submenu,
-    header.header-one .main-nav .mega-submenu {
-        position: static !important;
-        display: none !important;
-        box-shadow: none !important;
-        padding: 0 20px !important;
-    }
-    .main-menu-wrapper .main-nav .submenu,
-    .main-menu-wrapper .main-nav .mega-submenu {
-        position: static !important;
-        display: none !important;
-        box-shadow: none !important;
-        padding: 0 20px !important;
-    }
-    .main-menu-wrapper .main-nav .submenu,
-    .main-menu-wrapper .main-nav .mega-submenu {
-            position: static !important;
-            display: none !important;
-            box-shadow: none !important;
-            padding: 0 20px !important;
-        }
-    header.header-one .main-nav li.show-submenu > .submenu,
-    header.header-one .main-nav a.submenu + ul,
-    header.header-one .main-nav a.submenu + .mega-submenu,
-    .main-menu-wrapper .main-nav li.show-submenu > .submenu,
-    .main-menu-wrapper .main-nav a.submenu + ul,
-    .main-menu-wrapper .main-nav a.submenu + .mega-submenu {
-        display: block !important;
-    }
-}
-
-/* Desktop: center the main menu wrapper and ensure logo stays left */
-@media (min-width: 992px) {
-    header.header-one {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        padding: 0 40px !important;
-    }
-    header.header-one .main-menu-wrapper {
-        position: absolute !important;
-        left: 50% !important;
-        top: 0 !important;
-        transform: translateX(-50%) !important;
-        justify-content: center !important;
-        flex: 0 1 auto !important;
-        width: auto !important;
-        padding: 0 !important;
-        z-index: 9999 !important;
-    }
-    header.header-one .navbar-header {
-        z-index: 10001 !important; /* keep logo clickable above menu */
-    }
-    header.header-one .main-menu-wrapper .main-nav {
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 28px !important;
-    }
-
-    /* Place the logo on the right side and vertically center it */
-    header.header-one .navbar-header {
-        position: absolute !important;
-        right: 24px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-end !important;
-        z-index: 10003 !important;
-    }
-
-    /* Move header action buttons slightly left so logo sits at the far right */
-    header.header-one .header-btn {
-        position: absolute !important;
-        right: 90px !important; /* tightened spacing */
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        z-index: 10002 !important;
-    }
-
-    /* Force body-level menu/button blocks into the fixed header row */
-    body > .main-menu-wrapper {
-        position: fixed !important;
-        top: 0 !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: auto !important;
-        height: 85px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 40px !important;
-        background: transparent !important;
-        border: none !important;
-        z-index: 10000 !important;
-    }
-    body > .main-menu-wrapper .menu-header,
-    body > .main-menu-wrapper .menu-dropdown,
-    body > .main-menu-wrapper .menu-login {
-        display: none !important;
-    }
-    body > .main-menu-wrapper .main-nav {
-        display: flex !important;
-        align-items: center !important;
-        gap: 24px !important;
-    }
-    /* Ensure menu links are visible on dark header */
-    body > .main-menu-wrapper .main-nav > li > a {
-        color: #ffffff !important;
-        font-weight: 600 !important;
-        padding: 8px 12px !important;
-    }
-    body > .main-menu-wrapper .main-nav > li > a:hover,
-    body > .main-menu-wrapper .main-nav > li.active > a {
-        color: #FF4667 !important;
-        background: transparent !important;
-    }
-    body > .header-btn {
-        position: fixed !important;
-        top: 50% !important;
-        right: 24px !important;
-        transform: translateY(-50%) !important;
-        z-index: 10002 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-    body > .header-btn .btn,
-    body > .header-btn .icon-btn > a {
-        margin-right: 0 !important;
+        display: block;
+        color: #ffffff;
     }
 }
 
