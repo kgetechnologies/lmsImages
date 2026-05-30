@@ -133,89 +133,20 @@ body{
         display:none;
     }
 }
-
+/* =========================================================
+   BANNER SECTION
+========================================================= */
 .banner-section {
-    padding-top: 85px !important;
+    background-color: #392C7D !important;
+    padding-top: 90px !important;
     padding-bottom: 90px !important;
-}
-.banner-section .banner-content {
-    padding-top: 0 !important;
-}
-
-/* Fix hover visibility for home slides / course items */
-.home-three-banner .swiper-slide,
-.swiper-slide {
-    overflow: visible !important;
+    position: relative;
+    overflow: visible;
 }
 
-.course-item.course-item-two .course-img {
-    overflow: visible !important;
-    z-index: 3 !important;
-}
-.course-item.course-item-two .course-img .position-absolute,
-.course-item.course-item-two .course-img .brand-icon,
-.course-item.course-item-two .course-img .course-user {
-    z-index: 6 !important;
-}
-
-/* Ensure hover transforms and overlays are visible */
-.course-item.course-item-two .course-img img {
-    -webkit-transform: none !important;
-    transform: none !important;
-}
-
-
-.banner-content {
-    text-align: left !important;
-    max-width: 600px !important; 
-}
-.banner-content p {
-    text-align: left !important;
-    margin-left: 0 !important;
-    font-size: 18px !important;
-    line-height: 1.6 !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    padding-bottom: 20px !important;
-}
-.banner-content h1 {
-    text-align: left !important;
-    font-size: 56px !important;
-    font-weight: 700 !important;
-    color: #ffffff !important;
-}
-
- .banner-content h1 span.text-highlight {
-    color: #ff5b5c !important; 
-    border-bottom: 3px solid #ff5b5c !important;
-    display: inline-block !important;
-}
-.banner-search,
-.search-bar-container {
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    display: flex !important;
-    justify-content: flex-start !important;
-}
-.swiper-wrapper {
-    display: block !important; 
-    position: relative !important;
-}
-.course-item-two {
-    position: absolute !important;
-    transition: all 0.3s ease !important;
-    border-radius: 20px !important;
-    background: #ffffff !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-}
-.border-section, 
-.home-banner,
-.banner-content{
-    border:none !important;
-    outline:none !important;
-}
-
-.banner-section::after,
+/* Remove unwanted decorative elements */
 .banner-section::before,
+.banner-section::after,
 .banner-content::after {
     display: none !important;
     content: none !important;
@@ -225,64 +156,66 @@ body{
     display: none !important;
 }
 
-/* FIX: Target .banner-section instead of .home-three-banner */
-.banner-section {
-    background-color: #392C7D !important; /* Theme dark blue background */
-    min-height: 850px !important;
-    position: relative !important;
-    overflow: visible !important;
-    
-    /* Push banner down so it doesn't hide behind our 85px fixed header */
-    padding-top: 100px !important; 
-    padding-bottom: 120px !important;
+/* Content area */
+.banner-content {
+    text-align: left !important;
+    max-width: 600px !important;
+    padding-top: 0 !important;
 }
 
-.banner-section .col-lg-5,
-.banner-section .col-xl-4 {
-    position: relative !important;
-    display: block !important;
-    min-height: 500px !important;
+.banner-content h1 {
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    line-height: 1.2 !important;
 }
 
-/* RIGHT SIDE IMAGE & SWIPER AREA */
-.banner-section .banner-image,
-.banner-section .swiper-slider-banner {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: 100% !important; 
-    z-index: 2 !important;
-    height: auto !important;
-    overflow: visible !important;
+.banner-content h1 span.text-highlight {
+    color: #ff5b5c !important;
+    border-bottom: 3px solid #ff5b5c !important;
+    display: inline-block;
 }
 
-/* SWIPER WRAPPER FIX */
-.banner-section .swiper-wrapper {
-    height: auto !important;
-    overflow: visible !important;
+.banner-content p {
+    text-align: left !important;
+    margin-left: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: rgba(255,255,255,.9) !important;
+    padding-bottom: 20px !important;
+}
+
+/* Search bar */
+.banner-search,
+.search-bar-container {
     display: flex !important;
-    position: relative !important;
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
 }
 
-/* FIX SLIDE OVERLAPPING */
-.banner-section .swiper-slide {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    margin: 0 !important;
-    width: auto !important; 
-    opacity: 1 !important;
-    visibility: visible !important;
-    z-index: 1 !important;
-    height: auto !important;
+/* Allow hover effects */
+.home-three-banner .swiper-slide,
+.swiper-slide {
+    overflow: visible !important;
 }
 
-.banner-section .swiper-slide:nth-child(1),
-.banner-section .swiper-slide:nth-child(2),
-.banner-section .swiper-slide:nth-child(3) {
-    transform: none !important;
-    opacity: 1 !important;
+.course-item.course-item-two .course-img {
+    overflow: visible !important;
+}
+
+.course-item.course-item-two .course-img .position-absolute,
+.course-item.course-item-two .course-img .brand-icon,
+.course-item.course-item-two .course-img .course-user {
+    z-index: 5 !important;
+}
+
+/* Remove accidental borders */
+.border-section,
+.home-banner,
+.banner-content {
+    border: none !important;
+    outline: none !important;
 }
 
 .benefit-section .section-header .benefit-title {
