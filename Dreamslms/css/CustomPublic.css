@@ -133,68 +133,16 @@ body{
         display:none;
     }
 }
-/* =========================================================
-   BANNER SECTION
-========================================================= */
+
 .banner-section {
-    background-color: #392C7D !important;
-    padding-top: 90px !important;
+    padding-top: 85px !important;
     padding-bottom: 90px !important;
-    position: relative;
-    overflow: visible;
 }
-
-/* Remove unwanted decorative elements */
-.banner-section::before,
-.banner-section::after,
-.banner-content::after {
-    display: none !important;
-    content: none !important;
-}
-
-.banner-section hr {
-    display: none !important;
-}
-
-/* Content area */
-.banner-content {
-    text-align: left !important;
-    max-width: 600px !important;
+.banner-section .banner-content {
     padding-top: 0 !important;
 }
 
-.banner-content h1 {
-    font-size: 56px !important;
-    font-weight: 700 !important;
-    color: #fff !important;
-    line-height: 1.2 !important;
-}
-
-.banner-content h1 span.text-highlight {
-    color: #ff5b5c !important;
-    border-bottom: 3px solid #ff5b5c !important;
-    display: inline-block;
-}
-
-.banner-content p {
-    text-align: left !important;
-    margin-left: 0 !important;
-    font-size: 18px !important;
-    line-height: 1.6 !important;
-    color: rgba(255,255,255,.9) !important;
-    padding-bottom: 20px !important;
-}
-
-/* Search bar */
-.banner-search,
-.search-bar-container {
-    display: flex !important;
-    justify-content: flex-start !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-}
-
-/* Allow hover effects */
+/* Fix hover visibility for home slides / course items */
 .home-three-banner .swiper-slide,
 .swiper-slide {
     overflow: visible !important;
@@ -202,22 +150,120 @@ body{
 
 .course-item.course-item-two .course-img {
     overflow: visible !important;
+    z-index: 3 !important;
 }
-
 .course-item.course-item-two .course-img .position-absolute,
 .course-item.course-item-two .course-img .brand-icon,
 .course-item.course-item-two .course-img .course-user {
-    z-index: 5 !important;
+    z-index: 6 !important;
 }
 
-/* Remove accidental borders */
-.border-section,
-.home-banner,
+/* Ensure hover transforms and overlays are visible */
+.course-item.course-item-two .course-img img {
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+
+
 .banner-content {
-    border: none !important;
-    outline: none !important;
+    text-align: left !important;
+    max-width: 600px !important; 
+}
+.banner-content p {
+    text-align: left !important;
+    margin-left: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding-bottom: 20px !important;
+}
+.banner-content h1 {
+    text-align: left !important;
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
 }
 
+ .banner-content h1 span.text-highlight {
+    color: #ff5b5c !important; 
+    border-bottom: 3px solid #ff5b5c !important;
+    display: inline-block !important;
+}
+.banner-search,
+.search-bar-container {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+.swiper-wrapper {
+    display: block !important; 
+    position: relative !important;
+}
+.course-item-two {
+    position: absolute !important;
+    transition: all 0.3s ease !important;
+    border-radius: 20px !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+.border-section, 
+.home-banner,
+.banner-content{
+    border:none !important;
+    outline:none !important;
+}
+.banner-section::after,
+.banner-section::before,
+.banner-content::after{
+    display:none !important;
+    content:none !important;
+}
+.banner-section hr{
+    display:none !important;
+}
+.home-three-banner{
+    background-color:#392C7D !important;
+    min-height:850px !important;
+    position:relative !important;
+    overflow:visible !important;
+    /* ensure banner content clears fixed header so elements are interactable */
+    padding-top: 95px !important;
+}
+
+.home-three-banner .col-lg-5,
+.home-three-banner .col-xl-4 {
+    position: relative !important;
+    display: block !important;
+    min-height: 500px !important;
+}
+.home-three-banner .banner-image,
+.home-three-banner .swiper-slider-banner {
+    /* let Swiper handle positioning; keep banner image centered visually */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important; 
+    z-index: 2 !important;
+}
+.home-three-banner .swiper-slide {
+    /* avoid forcing all slides to overlap — let Swiper manage slide positions */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    width: auto !important; 
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+}
+.home-three-banner .swiper-slide:nth-child(1),
+.home-three-banner .swiper-slide:nth-child(2),
+.home-three-banner .swiper-slide:nth-child(3) {
+    transform: none !important;
+    opacity: 1 !important;
+}
 .benefit-section .section-header .benefit-title {
     font-size: 32px !important;
     font-weight: 700 !important;
