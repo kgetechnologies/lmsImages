@@ -172,6 +172,7 @@ body{
     height: 24px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
+    object-position: center center !important;
     display: block !important;
 }
 /* Ensure hover transforms and overlays are visible */
@@ -624,6 +625,7 @@ body{
     height: 24px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
+    object-position: center center !important;
     display: block !important;
 }
 
