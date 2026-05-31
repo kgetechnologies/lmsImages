@@ -11400,6 +11400,7 @@ iframe {
 }
 .course-item .buy-course-btn {
   font-size: 14px;
+  border-radius: 1.5rem;  
   color: var(--gray-900);
   font-weight: 500;
   display: flex;
