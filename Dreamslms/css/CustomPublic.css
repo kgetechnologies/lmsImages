@@ -613,7 +613,6 @@ body{
 }
 
 .featured-courses-section .course-user,
-.featured-courses-section .course-user img,
 .featured-courses-section .course-user a {
     width: 24px !important;
     height: 24px !important;
@@ -621,8 +620,9 @@ body{
 }
 
 .featured-courses-section .course-user img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
     object-fit: cover !important;
     display: block !important;
 }
