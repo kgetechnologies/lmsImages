@@ -392,7 +392,6 @@ body{
 .categories-item:hover {
     transform: translateY(-8px) !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
-    border-color: #FF5555 !important;
 }
 .categories-item img.mx-auto {
     width: 100% !important;
@@ -611,6 +610,40 @@ body{
 }
 .featured-courses-section .course-item:hover {
     border: 1px solid rgba(57, 44, 125, 0.3) !important;
+}
+
+.featured-courses-section .course-user,
+.featured-courses-section .course-user img,
+.featured-courses-section .course-user a {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+}
+
+.featured-courses-section .course-user img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.featured-courses-section a.btn.btn-primary.btn-md {
+    padding: 12px 26px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-radius: 50px !important;
+    background-color: #FF4667 !important;
+    border-color: #FF4667 !important;
+    color: #ffffff !important;
+    text-transform: none !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease !important;
+}
+
+.featured-courses-section a.btn.btn-primary.btn-md:hover,
+.featured-courses-section a.btn.btn-primary.btn-md:focus {
+    background-color: #d93a5e !important;
+    border-color: #d93a5e !important;
+    color: #ffffff !important;
 }
 
 @media (max-width: 991px) {
