@@ -771,3 +771,11 @@ body{
     height: 300px !important;
     object-fit: cover !important;
 }
+/* FOOTER */
+.footer.footer-one {
+    background: var(--dark);
+}
+.footer {
+    position: relative;
+    border-top: 1px solid var(--gray-100);
+}
