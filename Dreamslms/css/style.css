@@ -8674,7 +8674,7 @@ html.menu-opened body {
   justify-content: end;
   gap: 8px;
 }
-.footer.footer-one .footer-bottom .social-icon a {
+.social-icon a {
   width: 20px;
   height: 20px;
   background: var(--light);
@@ -8685,7 +8685,7 @@ html.menu-opened body {
   align-items: center;
   justify-content: center;
 }
-.footer.footer-one .footer-bottom .social-icon a:hover {
+.social-icon a:hover {
   background: #FF4667;
   color: var(--white);
 }
