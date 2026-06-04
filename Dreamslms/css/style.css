@@ -15176,7 +15176,7 @@ h2.main-title {
 }
 
 .section-header .sub-title {
-  display: inline-block;
+  /* display: inline-block; */
   border-radius: 30px;
   font-weight: 500;
   padding: 4px 15px;
