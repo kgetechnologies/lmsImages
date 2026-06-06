@@ -122,6 +122,16 @@ body{
     padding-top:85px;
 }
 
+/* OVERRIDE: prevent stale white background from old CustomPublic.css rules */
+body,
+.faq-section,
+.latest-blog-three,
+.footer,
+.footer-top,
+.footer-bottom {
+    background: transparent !important;
+}
+
 /* MOBILE */
 @media(max-width:991px){
 
