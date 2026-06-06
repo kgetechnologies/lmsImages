@@ -368,6 +368,12 @@ body{
     margin-bottom: 50px !important;
 }
 
+.section-header {
+    display: block !important;
+    position: static !important;
+    margin-bottom: 40px !important;
+}
+
 .section-header h2 {
     font-size: 32px !important;
     font-weight: 700 !important;
