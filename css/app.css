@@ -318,6 +318,14 @@ code {
         color: #666;
     }
 
+/* Fix section header layout when theme CSS forces display:flex */
+.section-header,
+.section-header.text-center {
+    display: block !important;
+    position: static !important;
+    margin-bottom: 40px !important;
+}
+
 
 
 .search-filter {
