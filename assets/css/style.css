@@ -1946,7 +1946,7 @@ html.menu-opened body {
 .section-header {
   margin-bottom: 18px;
   position: relative;
-  display: flex;
+  display: block;
 }
 .section-sub-head h2 {
   font-size: 36px;
